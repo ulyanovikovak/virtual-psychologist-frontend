@@ -17,6 +17,10 @@ const Register = () => {
     const [validEmail, setValidEmail] = useState(false);
     const [emailFocus, setEmailFocus] = useState(false);
 
+    const [birthday, setBirthday] = useState('');
+    const [validBirthday, setValidBirthday] = useState(false);
+    const [birthdayFocus, setBirthdayFocus] = useState(false);
+
     const [name, setName] = useState('');
     const [validName, setValidName] = useState(false);
     const [nameFocus, setNameFocus] = useState(false);
@@ -44,6 +48,20 @@ const Register = () => {
         setValidName(NAME_REGEX.test(name));
     }, [name])
 
+    
+    useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Сбросить время, чтобы сравнивать только даты
+        const birthdayDate = new Date(birthday);
+        
+        if (birthdayDate < today) {
+            setValidBirthday(true);
+        } else {
+            setValidBirthday(false);
+        }
+    }, [birthday]);
+
+
     useEffect(() => {
         setValidPwd(PWD_REGEX.test(pwd));
         setValidMatch(pwd === matchPwd);
@@ -51,7 +69,7 @@ const Register = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [email, name, pwd, matchPwd])
+    }, [email, name, birthday, pwd, matchPwd ])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -65,7 +83,7 @@ const Register = () => {
         }
         try {
             const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ email: email, name: name, password:pwd }),
+                JSON.stringify({ email: email, name: name, birthday: birthday, password:pwd }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
@@ -78,6 +96,7 @@ const Register = () => {
             //clear state and controlled inputs
             setEmail('');
             setName('');
+            setBirthday('');
             setPwd('');
             setMatchPwd('');
         } catch (err) {
@@ -155,6 +174,34 @@ const Register = () => {
                             Must begin with a letter.<br />
                         </p>
 
+                        
+
+
+                        <label htmlFor="birthday">
+                            Birthday:
+                            <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="date"
+                            id="birthday"
+                            //ref={nameRef}
+                            autoComplete="off"
+                            onChange={(e) => setBirthday(e.target.value)}
+                            value={birthday}
+                            required
+                            aria-invalid={validBirthday ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setBirthdayFocus(true)}
+                            onBlur={() => setBirthdayFocus(false)}
+                        />
+                        <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            incorrect date of birth<br />
+                        </p>
+
+
+
                         <label htmlFor="password">
                             Password:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
@@ -200,7 +247,7 @@ const Register = () => {
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validEmail || validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                        <button disabled={!validEmail || validName || !validPwd || !validMatch || !validBirthday ? true : false}>Sign Up</button>
                     </form>
                     <p>
                         Already registered?<br />
