@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const NAME_REGEX = /^[A-zА-я\ ]{11,100}$/;
+const SURNAME_REGEX = /^[A-zА-я\ ]{11,100}$/;
+const PATRONYMIC_REGEX = /^[A-zА-я\ ]{11,100}$/;
+const PHONENUM_REGEX = /^[0-9\ ]{11,100}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/user/register';
 
@@ -24,6 +27,18 @@ const Register = () => {
     const [name, setName] = useState('');
     const [validName, setValidName] = useState(false);
     const [nameFocus, setNameFocus] = useState(false);
+
+    const [surname, setSurname] = useState('');
+    const [validSurname, setValidSurname] = useState(false);
+    const [surnameFocus, setSurnameFocus] = useState(false);
+
+    const [patronymic, setPatronymic] = useState('');
+    const [validPatronymic, setValidPatronymic] = useState(false);
+    const [patronymicFocus, setPatronymicFocus] = useState(false);
+
+    const [phoneNum, setPhoneNum] = useState('');
+    const [validPhoneNum, setValidPhoneNum] = useState(false);
+    const [phoneNumFocus, setPhoneNumFocus] = useState(false);
 
     const [pwd, setPwd] = useState('');
     const [validPwd, setValidPwd] = useState(false);
@@ -47,6 +62,18 @@ const Register = () => {
     useEffect(() => {
         setValidName(NAME_REGEX.test(name));
     }, [name])
+
+    useEffect(() => {
+        setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
+    }, [patronymic])
+
+    useEffect(() => {
+        setValidSurname(SURNAME_REGEX.test(surname));
+    }, [success])
+
+    useEffect(() => {
+        setValidPhoneNum(PHONENUM_REGEX.test(phoneNum));
+    }, [phoneNum])
 
     
     useEffect(() => {
@@ -77,7 +104,10 @@ const Register = () => {
         const v1 = EMAIL_REGEX.test(email);
         const v2 = PWD_REGEX.test(pwd);
         const v3 = NAME_REGEX.test(name);
-        if (!v1 || (!v2 || !v3)) {
+        const v4 = PATRONYMIC_REGEX.test(patronymic);
+        const v5 = SURNAME_REGEX.test(surname);
+        const v6 = PHONENUM_REGEX.test(phoneNum);
+        if (!v1 || (!v2 || !v3) || !v4 || !v5 || !v6) {
             setErrMsg("Invalid Entry");
             return;
         }
@@ -96,6 +126,9 @@ const Register = () => {
             //clear state and controlled inputs
             setEmail('');
             setName('');
+            setSurname('');
+            setPatronymic('');
+            setPhoneNum('');
             setBirthday('');
             setPwd('');
             setMatchPwd('');
@@ -173,6 +206,80 @@ const Register = () => {
                             11 to 100 characters.<br />
                             Must begin with a letter.<br />
                         </p>
+
+
+                        <label htmlFor="surname">
+                            Surname:
+                            <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="text"
+                            id="surname"
+                            //ref={nameRef}
+                            autoComplete="off"
+                            onChange={(e) => validSurname(e.target.value)}
+                            value={name}
+                            required
+                            aria-invalid={validName ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setSurnameFocus(true)}
+                            onBlur={() => setSurnameFocus(false)}
+                        />
+                        <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            11 to 100 characters.<br />
+                            Must begin with a letter.<br />
+                        </p>
+
+
+                        <label htmlFor="patronymic">
+                            Patronymic:
+                            <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="text"
+                            id="patronymic"
+                            //ref={nameRef}
+                            autoComplete="off"
+                            onChange={(e) => setPatronymic(e.target.value)}
+                            value={patronymic}
+                            required
+                            aria-invalid={validPatronymic ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setPatronymicFocus(true)}
+                            onBlur={() => setPatronymicFocus(false)}
+                        />
+                        <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            11 to 100 characters.<br />
+                            Must begin with a letter.<br />
+                        </p>
+
+                        <label htmlFor="phoneNum">
+                            Phone number:
+                            <FontAwesomeIcon icon={faCheck} className={validPhoneNum  ? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validPhoneNum  || !phoneNum ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="text"
+                            id="phoneNum"
+                            //ref={nameRef}
+                            autoComplete="off"
+                            onChange={(e) => setPhoneNum(e.target.value)}
+                            value={phoneNum}
+                            required
+                            aria-invalid={validPhoneNum ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setPhoneNumFocus(true)}
+                            onBlur={() => setPhoneNumFocus(false)}
+                        />
+                        <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            use only numbers.<br />
+                        </p>
+
 
                         
 
