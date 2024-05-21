@@ -5,10 +5,10 @@ import axios from '../api/axios';
 import { Link } from "react-router-dom";
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
-const NAME_REGEX = /^[A-zА-я\ ]{11,100}$/;
-const SURNAME_REGEX = /^[A-zА-я\ ]{11,100}$/;
-const PATRONYMIC_REGEX = /^[A-zА-я\ ]{11,100}$/;
-const PHONENUM_REGEX = /^[0-9\ ]{11,100}$/;
+const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
+const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
+const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
+const PHONENUM_REGEX = /^[0-9\ ]{11}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/user/register';
 
