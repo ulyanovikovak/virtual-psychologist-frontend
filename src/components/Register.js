@@ -96,7 +96,7 @@ const Register = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [email, name, birthday, pwd, matchPwd ])
+    }, [email, surname, patronymic, phoneNum, name, birthday, pwd, matchPwd ])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
