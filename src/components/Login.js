@@ -25,7 +25,7 @@ const Login = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd])
+    }, [email, pwd])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,8 +42,8 @@ const Login = () => {
             const accessToken = response?.data?.access;
             const roles = [2001]; //response?.data?.roles;
             console.log(accessToken);
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
+            setAuth({ email, pwd, roles, accessToken });
+            setEmail('');
             setPwd('');
             navigate(from, { replace: true });
         } catch (err) {
