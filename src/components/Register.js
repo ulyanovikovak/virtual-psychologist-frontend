@@ -10,7 +10,7 @@ const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PHONENUM_REGEX = /^[0-9\ ]{11}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/user/register';
+const REGISTER_URL = '/signup';
 
 const Register = () => {
     const emailRef = useRef();
@@ -69,7 +69,7 @@ const Register = () => {
 
     useEffect(() => {
         setValidSurname(SURNAME_REGEX.test(surname));
-    }, [success])
+    }, [surname])
 
     useEffect(() => {
         setValidPhoneNum(PHONENUM_REGEX.test(phoneNum));
@@ -114,15 +114,16 @@ const Register = () => {
         try {
             const response = await axios.post(REGISTER_URL,
                 JSON.stringify({ email: email, name: name, surname: surname, partonymic: patronymic,
-                    age: 10, password:pwd }),
+                    age: 10, password:pwd, phoneNum:phoneNum }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }
             );
+        
             // TODO: remove console.logs before deployment
             console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response))
+            console.log(JSON.stringify(response))
             setSuccess(true);
             //clear state and controlled inputs
             setEmail('');
@@ -219,10 +220,10 @@ const Register = () => {
                             id="surname"
                             //ref={nameRef}
                             autoComplete="off"
-                            onChange={(e) => validSurname(e.target.value)}
-                            value={name}
+                            onChange={(e) => setSurname(e.target.value)}
+                            value={surname}
                             required
-                            aria-invalid={validName ? "false" : "true"}
+                            aria-invalid={validSurname? "false" : "true"}
                             aria-describedby="uidnote"
                             onFocus={() => setSurnameFocus(true)}
                             onBlur={() => setSurnameFocus(false)}
@@ -355,7 +356,7 @@ const Register = () => {
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validEmail || validName || !validPwd || !validMatch || !validBirthday ? true : false}>Sign Up</button>
+                        <button disabled={!validEmail || !validName || !validSurname || !validPatronymic || !validPhoneNum || !validPwd || !validMatch || !validBirthday ? true : false}>Sign Up</button>
                     </form>
                     <p>
                         Already registered?<br />
