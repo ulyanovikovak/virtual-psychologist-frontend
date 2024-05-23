@@ -1,0 +1,51 @@
+.container-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.container-container1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 0 177.74000549316406px 0 177.72999572753906px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.container-button {
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  flex-direction: column;
+}
+.container-background-border {
+  display: flex;
+  padding: 14.5px 21px 15.5px;
+  overflow: hidden;
+  align-self: stretch;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 203, 60, 1) 100%);
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(255, 203, 60, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--dl-color-www.hrdream.ru-linearneromalachite);
+}
+.container-text {
+  color: var(--dl-color-www.hrdream.ru-black);
+  height: auto;
+  font-size: 16px;
+  font-style: SemiBold;
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}

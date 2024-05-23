@@ -1,0 +1,30 @@
+.heading2-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.heading2-heading2 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 0 31.479999542236328px 0 31.469999313354492px;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+.heading2-text {
+  color: var(--dl-color-www.hrdream.ru-tuna);
+  height: auto;
+  font-size: 24px;
+  align-self: stretch;
+  font-style: Medium;
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 29px;
+  font-stretch: normal;
+  text-decoration: none;
+}
