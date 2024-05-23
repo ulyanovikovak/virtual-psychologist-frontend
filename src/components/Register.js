@@ -150,18 +150,18 @@ const Register = () => {
         <>
             {success ? (
                 <section>
-                    <h1>Success!</h1>
+                    <h1>Успешно!</h1>
                     <p>
-                        <Link to="/login">Sign In</Link>
+                        <Link to="/login">Войти</Link>
                     </p>
                 </section>
             ) : (
                 <section>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Register</h1>
+                    <h1>Регистрация</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="email">
-                            email:
+                            Почта:
                             <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
                         </label>
@@ -180,13 +180,13 @@ const Register = () => {
                         />
                         <p id="uidnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            4 to 24 characters.<br />
-                            Must begin with a letter.<br />
-                            Invalid email.
+                            от 4 до 24 символов.<br />
+                            Должно начинаться на букву.<br />
+                            Некоректная почта.
                         </p>
 
                         <label htmlFor="name">
-                            Name:
+                            Имя:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
                         </label>
@@ -205,13 +205,13 @@ const Register = () => {
                         />
                         <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            11 to 100 characters.<br />
-                            Must begin with a letter.<br />
+                            От 11 до 100 символов.<br />
+                            Должно начинаться на букву.<br />
                         </p>
 
 
                         <label htmlFor="surname">
-                            Surname:
+                            Фамилия:
                             <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
                         </label>
@@ -230,13 +230,13 @@ const Register = () => {
                         />
                         <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            11 to 100 characters.<br />
-                            Must begin with a letter.<br />
+                            От 11 до 100 символов.<br />
+                            Должно начинаться на букву.<br />
                         </p>
 
 
                         <label htmlFor="patronymic">
-                            Patronymic:
+                            Отчество:
                             <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
                         </label>
@@ -255,12 +255,12 @@ const Register = () => {
                         />
                         <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            11 to 100 characters.<br />
-                            Must begin with a letter.<br />
+                            От 11 до 100 символов.<br />
+                            Должно начинаться на букву.<br />
                         </p>
 
                         <label htmlFor="phoneNum">
-                            Phone number:
+                            Номер телефона:
                             <FontAwesomeIcon icon={faCheck} className={validPhoneNum  ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPhoneNum  || !phoneNum ? "hide" : "invalid"} />
                         </label>
@@ -279,7 +279,7 @@ const Register = () => {
                         />
                         <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            use only numbers.<br />
+                            используйте только цифры.<br />
                         </p>
 
 
@@ -287,7 +287,7 @@ const Register = () => {
 
 
                         <label htmlFor="birthday">
-                            Birthday:
+                            Дата рождения:
                             <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
                         </label>
@@ -306,13 +306,13 @@ const Register = () => {
                         />
                         <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            incorrect date of birth<br />
+                            Некоректная дата рождения<br />
                         </p>
 
 
 
                         <label htmlFor="password">
-                            Password:
+                            Пароль:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
                         </label>
@@ -329,14 +329,14 @@ const Register = () => {
                         />
                         <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            8 to 24 characters.<br />
-                            Must include uppercase and lowercase letters, a number and a special character.<br />
-                            Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                            От 8 до 24 символов.<br />
+                            Пароль обязан содердать заглавные и строчние буквы, цифру и специальный символ.<br />
+                            Разрешённые специальные символы: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                         </p>
 
 
                         <label htmlFor="confirm_pwd">
-                            Confirm Password:
+                            Подтвердите пароль:
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
                         </label>
@@ -353,15 +353,15 @@ const Register = () => {
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            Must match the first password input field.
+                            Пароли должны совпадать.
                         </p>
 
-                        <button disabled={!validEmail || !validName || !validSurname || !validPatronymic || !validPhoneNum || !validPwd || !validMatch || !validBirthday ? true : false}>Sign Up</button>
+                        <button disabled={!validEmail || !validName || !validSurname || !validPatronymic || !validPhoneNum || !validPwd || !validMatch || !validBirthday ? true : false}>Зарегистрироваться</button>
                     </form>
                     <p>
-                        Already registered?<br />
+                        Уже зарегистрированы?<br />
                         <span className="line">
-                            <Link to="/">Sign In</Link>
+                            <Link to="/">Войти</Link>
                         </span>
                     </p>
                 </section>

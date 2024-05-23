@@ -72,9 +72,9 @@ const Login = () => {
 
         <section>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1>Sign In</h1>
+            <h1>Вход</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">Почта:</label>
                 <input
                     type="text"
                     id="email"
@@ -85,7 +85,7 @@ const Login = () => {
                     required
                 />
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Пароль:</label>
                 <input
                     type="password"
                     id="password"
@@ -93,7 +93,7 @@ const Login = () => {
                     value={pwd}
                     required
                 />
-                <button>Sign In</button>
+                <button>Вход</button>
                 <div className="persistCheck">
                     <input
                         type="checkbox"
@@ -101,13 +101,13 @@ const Login = () => {
                         onChange={togglePersist}
                         checked={persist}
                     />
-                    <label htmlFor="persist">Trust This Device</label>
+                    <label htmlFor="persist">Доверять этому устройству</label>
                 </div>
             </form>
             <p>
-                Need an Account?<br />
+                Нет аккаунта?<br />
                 <span className="line">
-                    <Link to="/register">Sign Up</Link>
+                    <Link to="/register">Зарегистрируйтесь</Link>
                 </span>
             </p>
         </section>
