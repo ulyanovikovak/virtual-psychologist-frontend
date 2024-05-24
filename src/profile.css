@@ -1,0 +1,522 @@
+@use "utils" as *;
+@use "global" as *;
+
+.account3 {
+  &.testResultsSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+  }
+  .contentColumn {
+    position: absolute;
+    top: 208px;
+    left: 956px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 23px 0px;
+    width: 886px;
+    height: 721px;
+  }
+  .headerRow {
+    position: relative;
+    display: flex;
+    gap: 0px 18px;
+    width: 100%;
+  }
+  .sectionTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8.5px 0px 5.5px;
+    min-width: 0px;
+    font: 700 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .refreshButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 206px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(255, 203, 60);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .testContentBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 92.44%;
+    background-color: rgb(255, 255, 255);
+  }
+  .testColumnBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 21px 5px 10px 15px;
+    background-color: rgba(255, 203, 60, 0.2);
+  }
+  .testRow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0px 21px;
+    margin: 31px 7px 35px;
+  }
+  .testTitleColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 554px;
+    min-width: 0px;
+  }
+  .personalityDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 0.5px;
+    width: 342px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .psychoticDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 47px 0px 0px 0.5px;
+    width: 373px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .neuroticDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 53px 0px 0px;
+    width: 376px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .impulseControlDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 65px 0px 0px;
+    width: 79.6%;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .eatingDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 56px 0px 0px 0.5px;
+    width: 81.23%;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .developmentalDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 61px 0px 0px;
+    width: 87.36%;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .childhoodDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 56px 0px 0px 0.5px;
+    width: 87.91%;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .substanceDisordersTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 53px 0px 0px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .actionButtonColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 208px;
+    min-width: 0px;
+  }
+  .viewButton1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 2px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(159, 241, 138);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .viewButton2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 36px 0px 0px 2px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(159, 241, 138);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .viewButton3 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 43px 2px 0px 0px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(159, 241, 138);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .viewButton4 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 53px 0px 0px 2px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(159, 241, 138);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .viewButton5 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 41px 0px 0px 2px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(159, 241, 138);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .viewButton6 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 43px 0px 0px 2px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(159, 241, 138);
+    border-radius: 17px 17px 17px 17px;
+    padding: 7px 30px 7px 30px;
+    letter-spacing: -0.31px;
+  }
+  .personalDataBox {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 1915px;
+    height: 59px;
+    background-color: rgba(255, 203, 60, 0.439);
+  }
+  .personalDataTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 42.25% 23px auto;
+    width: 205px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .personalAreaTitle {
+    position: absolute;
+    top: 46px;
+    left: 284px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 459px;
+    height: 20px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .homeTitle {
+    position: absolute;
+    top: 44px;
+    left: 172.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98px;
+    height: 25px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .profileImage {
+    position: absolute;
+    top: 0px;
+    left: 14px;
+    width: 114px;
+    height: 99px;
+  }
+  .userDataColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 53px 0px;
+    margin: 208px 0px 40px 9.84%;
+    width: 620px;
+  }
+  .userDetailsBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 203, 60, 0.2);
+  }
+  .userDetailColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 21px 0px 35px 23px;
+    width: 280px;
+  }
+  .firstNameTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 3px;
+    width: 54px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .firstNameRect {
+    position: relative;
+    margin: 10px 0px 0px;
+    min-height: 37px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18.5px 18.5px 18.5px 18.5px;
+  }
+  .lastNameTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 22px 0px 0px 3px;
+    width: 119px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .lastNameRect {
+    position: relative;
+    margin: 11px 0px 0px;
+    min-height: 37px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18.5px 18.5px 18.5px 18.5px;
+  }
+  .middleNameTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 27px 0px 0px 3.5px;
+    width: 117px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .middleNameRect {
+    position: relative;
+    margin: 11px 0px 0px;
+    min-height: 37px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18.5px 18.5px 18.5px 18.5px;
+  }
+  .birthdateTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 19.5px 0px 0px 3px;
+    width: 70.36%;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .birthdateRect {
+    position: relative;
+    margin: 4.5px 0px 0px;
+    min-height: 37px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18.5px 18.5px 18.5px 18.5px;
+  }
+  .contactInfoBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 203, 60, 0.2);
+  }
+  .contactInfoColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 57px 33px 18px 23px;
+  }
+  .emailTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 0px 12px;
+    width: 76px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .emailRect {
+    position: relative;
+    margin: 1px 0px 0px;
+    width: 280px;
+    min-height: 35px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18.5px 18.5px 18.5px 18.5px;
+  }
+  .phoneNumberTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 22px 0px 0px 12.5px;
+    width: 213px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .phoneNumberRect {
+    position: relative;
+    margin: 5px 0px 0px;
+    width: 280px;
+    min-height: 37px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 18.5px 18.5px 18.5px 18.5px;
+  }
+  .editInfoTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0px 0px auto;
+    width: 229px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .footerRow {
+    position: absolute;
+    top: 43px;
+    left: 752.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 0px 10px;
+    width: 1022.5px;
+    height: 27px;
+  }
+  .problemCatalogTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0px 0px;
+    width: 222px;
+    min-width: 0px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+  .userTitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 7px;
+    min-width: 0px;
+    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: -0.31px;
+  }
+}
