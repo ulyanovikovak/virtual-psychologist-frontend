@@ -41,8 +41,9 @@ const Login = () => {
                 }
             );
             console.log(JSON.stringify(response?.data));
-            const accessToken = response?.data?.access;
-            const roles = [2001]; //response?.data?.roles;
+            const accessToken = response?.data?.accessToken;
+            localStorage.setItem("access", accessToken);
+            const roles = [2001] //response?.data?.roles;
             console.log(accessToken);
             setAuth({ email, pwd, roles, accessToken });
             setEmail('');
