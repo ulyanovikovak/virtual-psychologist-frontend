@@ -230,15 +230,15 @@ const Home = () => {
                         <div className="flex_row9">
                             <div className="flex_col12">
                                 <div className="flex_row10">
-                                    <img className="image17" src="../assets/858e75e0b2ab43335c14059a4f8c4446.png" alt="alt text" />
+                                    <img className="image17" src= {sphere} />
                                     <h2 className="medium_title5">Круглосуточная доступность: Помощь доступна в любое время без расписаний.</h2>
                                 </div>
                                 <div className="flex_row10">
-                                    <img className="image17" src="../assets/c923dd4224970adf21853645f670e1a4.png" alt="alt text" />
+                                    <img className="image17" src= {person} />
                                     <h2 className="medium_title6">Мгновенный доступ: Не нужно ждать, помощь предоставляется сразу.</h2>
                                 </div>
                                 <div className="flex_row11">
-                                    <img className="image17" src="../assets/4ecdc2bf27349743423ac44c57b9d4de.png" alt="alt text" />
+                                    <img className="image17" src= {shield} />
                                     <h2 className="medium_title7">Анонимность: Полная конфиденциальность без участия человека.</h2>
                                 </div>
                             </div>
@@ -248,11 +248,11 @@ const Home = () => {
                                     <h2 className="medium_title8">Экономичность: Дешевле, чем услуги живого психолога.</h2>
                                 </div>
                                 <div className="flex_row13">
-                                    <img className="image17" src="../assets/46cf583d5954e7647294746437e7986d.png" alt="alt text" />
+                                    <img className="image17" src={lotus} />
                                     <h2 className="medium_title9">Персонализация: Индивидуальные советы благодаря анализу данных.</h2>
                                 </div>
                                 <div className="flex_row14">
-                                    <img className="image17" src="../assets/6432dc0cd846d1400b4c97bf2596e93f.png" alt="alt text" />
+                                    <img className="image17" src= {mouse} />
                                     <h2 className="medium_title10">Объективность: Отсутствие субъективности и эмоционального влияния.</h2>
                                 </div>
                             </div>
