@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from "react-router-dom";
 
+import '../log.css';
+
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
@@ -159,7 +161,7 @@ const Register = () => {
                     </p>
                 </section>
             ) : (
-                <section>
+                <section >
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Регистрация</h1>
                     <form onSubmit={handleSubmit}>

@@ -1,6 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 
+import '../index.css';
+
 // import "../assets/1d9a9f96fbbdd9b08f81e4f5bfebecdf.svg"
 // import "../assets/46cf583d5954e7647294746437e7986d.svg"
 // import "../assets/4ecdc2bf27349743423ac44c57b9d4de.svg"
