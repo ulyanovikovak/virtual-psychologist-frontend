@@ -181,8 +181,7 @@ const Register = () => {
                         <p id="uidnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
                             от 4 до 24 символов.<br />
-                            Должно начинаться на букву.<br />
-                            Некоректная почта.
+                            Некоректная почта.<br />
                         </p>
 
                         <label htmlFor="name">
@@ -205,8 +204,8 @@ const Register = () => {
                         />
                         <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            От 11 до 100 символов.<br />
-                            Должно начинаться на букву.<br />
+                            От 1 до 100 символов.<br />
+                            Должно содержать только буквы.<br />
                         </p>
 
 
@@ -230,8 +229,8 @@ const Register = () => {
                         />
                         <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            От 11 до 100 символов.<br />
-                            Должно начинаться на букву.<br />
+                            От 1 до 100 символов.<br />
+                            Должно содержать только буквы.<br />
                         </p>
 
 
@@ -255,8 +254,8 @@ const Register = () => {
                         />
                         <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            От 11 до 100 символов.<br />
-                            Должно начинаться на букву.<br />
+                            От 1 до 100 символов.<br />
+                            Должно содержать только буквы.<br />
                         </p>
 
                         <label htmlFor="phoneNum">
@@ -280,6 +279,7 @@ const Register = () => {
                         <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
                             используйте только цифры.<br />
+                            номер телефона содержит 11 цифр.<br />
                         </p>
 
 
