@@ -31,7 +31,7 @@ const Home = () => {
 
     return (
         <div className="flex-column">
-            <main className="landing1 main">
+            <main className="landing1 page">
                 <section className="rootSection">
                     <div className="content_box8">
                         <div className="contentWrapper">
