@@ -3,24 +3,23 @@ import useLogout from "../hooks/useLogout";
 
 import '../index.css';
 
-import "../assets/1d9a9f96fbbdd9b08f81e4f5bfebecdf.png"
-import "../assets/46cf583d5954e7647294746437e7986d.png"
-import "../assets/4ecdc2bf27349743423ac44c57b9d4de.png"
-import "../assets/52830e019bc4207e4e3cedf54b297a81.png"
-import "../assets/6432dc0cd846d1400b4c97bf2596e93f.png"
-import "../assets/858e75e0b2ab43335c14059a4f8c4446.png"
-import "../assets/7abed8abd726303e449c96936855c1ff.png"
-import "../assets/86caaf1cfeb47b924227d6947ecffa9e.png"
-import "../assets/87dcb6f0caa2e6bee52373e3bd418427.png"
-import "../assets/884ba50634da121b6b51902e275daad5.png"
-import "../assets/884ba50634da121b6b51902e275daad5.png"
-import "../assets/92418661f21618db78c2c675dabc20be.png"
-import "../assets/c923dd4224970adf21853645f670e1a4.png"
-import "../assets/d0279040987a74e7c63bf80b5c5d74c0.png"
-import "../assets/d83c725104b0758fd89fc7ee1acff6e3.png"
-import "../assets/f8aef8f9f7b6d0740bd6b7345197e351.png"
-import "../assets/f990591d0571691abb7e808547ac8562.png"
-import "../assets/fc1e945908715d0586cd172a3839c4bc.png"
+import globus from "../assets/1d9a9f96fbbdd9b08f81e4f5bfebecdf.png"
+import lotus from "../assets/46cf583d5954e7647294746437e7986d.png"
+import shield from "../assets/4ecdc2bf27349743423ac44c57b9d4de.png"
+import woman from "../assets/52830e019bc4207e4e3cedf54b297a81.png"
+import mouse from "../assets/6432dc0cd846d1400b4c97bf2596e93f.png"
+import sphere from "../assets/858e75e0b2ab43335c14059a4f8c4446.png"
+import yellowshield from "../assets/7abed8abd726303e449c96936855c1ff.png"
+import psychologist from "../assets/86caaf1cfeb47b924227d6947ecffa9e.png"
+import sheet from "../assets/87dcb6f0caa2e6bee52373e3bd418427.png"
+import white from "../assets/884ba50634da121b6b51902e275daad5.png"
+import security from "../assets/92418661f21618db78c2c675dabc20be.png"
+import person from "../assets/c923dd4224970adf21853645f670e1a4.png"
+import money from "../assets/d0279040987a74e7c63bf80b5c5d74c0.png"
+import worm from "../assets/d83c725104b0758fd89fc7ee1acff6e3.png"
+import bored from "../assets/f8aef8f9f7b6d0740bd6b7345197e351.png"
+import logo from "../assets/f990591d0571691abb7e808547ac8562.png"
+import battery from "../assets/fc1e945908715d0586cd172a3839c4bc.png"
 const Home = () => {
     const navigate = useNavigate();
     const logout = useLogout();
@@ -62,8 +61,8 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="mainHighlights">
-                        <div className="highlightBlock">
-                            <img className="image33" src="../assets/f8aef8f9f7b6d0740bd6b7345197e351.png" alt="alt text" />
+                        <div className="highlightBlock1">
+                            <img className="image33" src = {bored} />
                             <div className="flex_col">
                                 <h2 className="medium_title">Человек без знания своих сильных и слабых сторон</h2>
                                 <h5 className="highlight1">
@@ -73,7 +72,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="highlightBlock1">
-                            <img className="image331" src="../assets/d83c725104b0758fd89fc7ee1acff6e3.png" alt="alt text" />
+                            <img className = "image331" src = {worm} />
                             <div className="flex_col1">
                                 <h2 className="medium_title1">Быстрая усталость от любого рода деятельности</h2>
                                 <h5 className="highlight1">
@@ -83,7 +82,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="highlightBlock">
-                            <img className="image33" src="../assets/52830e019bc4207e4e3cedf54b297a81.png" alt="alt text" />
+                            <img className="image33" src= {woman} />
                             <div className="flex_col2">
                                 <h2 className="medium_title2">Психологическое состояние улучшается</h2>
                                 <h5 className="highlight1">
@@ -149,7 +148,7 @@ const Home = () => {
                             <div className="flex_col9">
                                 <h1 className="big_title2">Закрытая система с высоким уровнем безопасности</h1>
                                 <div className="flex_row2">
-                                    <img className="image32" src="../assets/92418661f21618db78c2c675dabc20be.png" alt="alt text" />
+                                    <img className="image32" src = {security} />
                                     <h2 className="medium_title4">
                                         Никто не имеет доступа к конфиденциальным данным наших клиентов, и личная информация защищена на
                                         различных уровнях, что исключает возможность утечки. Мы не раскрываем результаты использования системы
@@ -169,28 +168,28 @@ const Home = () => {
                                         <div className="group1">
                                             <div className="group1">
                                                 <div className="group1">
-                                                    <img className="cover" src="../assets/884ba50634da121b6b51902e275daad5.png" alt="alt text" />
+                                                    <img className="cover" src = {white} />
                                                     <div className="flex_row3">
                                                         <div className="flex_row4">
-                                                            <img className="image1" src="../assets/7abed8abd726303e449c96936855c1ff.png" alt="alt text" />
+                                                            <img className="image1" src= {yellowshield} />
                                                             <h5 className="highlight">95%достоверность результатов</h5>
                                                         </div>
                                                         <div className="flex_row5">
-                                                            <img className="image11" src="../assets/d0279040987a74e7c63bf80b5c5d74c0.png" alt="alt text" />
+                                                            <img className="image11" src= {money} />
                                                             <h5 className="highlight11">Экономия на подборе<br />психолога</h5>
                                                         </div>
                                                         <div className="flex_row6">
-                                                            <img className="image11" src="../assets/1d9a9f96fbbdd9b08f81e4f5bfebecdf.png" alt="alt text" />
+                                                            <img className="image11" src= {globus} />
                                                             <h5 className="highlight12">Доступ к сервису по всей России</h5>
                                                         </div>
                                                         <div className="flex_row7">
-                                                            <img className="image1" src="../assets/87dcb6f0caa2e6bee52373e3bd418427.png" alt="alt text" />
+                                                            <img className="image1" src= {sheet} />
                                                             <h5 className="highlight13">Наличие патентов и сертификатов на<br />метод</h5>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className="heroSection">
-                                                    <img className="cover1" src="../assets/86caaf1cfeb47b924227d6947ecffa9e.png" alt="alt text" />
+                                                    <img className="cover1" src= {psychologist} />
                                                     <div className="content_box">
                                                         <div className="flex_col10">
                                                             <div className="flex_col11">
@@ -208,7 +207,7 @@ const Home = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img className="image" src="../assets/f990591d0571691abb7e808547ac8562.png" alt="alt text" />
+                                            
                                         </div>
                                         <div className="flex_row8">
                                             <h2 className="medium_title11"><Link to="/login">Войти</Link></h2>
@@ -219,7 +218,11 @@ const Home = () => {
                                 </div>
                                 <h2 className="medium_title13">Каталог проблем</h2>
                             </div>
+                            <div>
+                            <img className = "image" src= {logo} />
                             <h2 className="medium_title15">Главная</h2>
+                            </div>
+                            {/* <h2 className="medium_title15">Главная</h2> */}
                         </div>
                         <h1 className="big_title4">Почему мы?</h1>
                     </div>
@@ -241,7 +244,7 @@ const Home = () => {
                             </div>
                             <div className="flex_col13">
                                 <div className="flex_row12">
-                                    <img className="image17" src="../assets/fc1e945908715d0586cd172a3839c4bc.png" alt="alt text" />
+                                    <img className="image17" src = {battery} />
                                     <h2 className="medium_title8">Экономичность: Дешевле, чем услуги живого психолога.</h2>
                                 </div>
                                 <div className="flex_row13">
