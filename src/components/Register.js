@@ -153,6 +153,7 @@ const Register = () => {
 
     return (
         <>
+        <main className="logreg page2">
             {success ? (
                 <section>
                     <h1>Успешно!</h1>
@@ -371,6 +372,7 @@ const Register = () => {
                     </p>
                 </section>
             )}
+            </main>
         </>
     )
 }

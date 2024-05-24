@@ -74,7 +74,7 @@ const Login = () => {
     }, [persist])
 
     return (
-
+        <main className="logreg page2">
         <section>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1>Вход</h1>
@@ -116,6 +116,7 @@ const Login = () => {
                 </span>
             </p>
         </section>
+        </main>
 
     )
 }

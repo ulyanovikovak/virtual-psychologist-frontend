@@ -24,7 +24,7 @@
 @use "global" as *; */
 
 .landing1 {
-  .page {
+    .page {
     position: relative;
     display: flex;
     flex-direction: column;
