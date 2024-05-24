@@ -49,8 +49,10 @@ const Login = () => {
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                setErrMsg('Missing Email or Password');
+            } else if (err.response?.status === 433) {
+                setErrMsg('Phone number already exists');
+            } else if (err.response?.status === 432) {
+                setErrMsg('Email already exists');
             } else if (err.response?.status === 401) {
                 setErrMsg('Unauthorized');
             } else {
