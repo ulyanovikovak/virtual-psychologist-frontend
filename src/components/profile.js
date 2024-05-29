@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
 
 import React from 'react';
 
@@ -17,37 +18,122 @@ const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PROFILE_URL = '/user/info';
 
 const Profile = () => {
-    const errRef = useRef();
+  const navigate = useNavigate();
+  const logout = useLogout();
 
-    const [email, setEmail] = useState('');
-    const [phoneNum, setPhoneNum] = useState('');
+  const signOut = async () => {
+      await logout();
+      navigate('/linkpage');
+  }
 
-    const [birthday, setBirthday] = useState('');
-    const [validBirthday, setValidBirthday] = useState(false);
-    const [birthdayFocus, setBirthdayFocus] = useState(false);
+  const errRef = useRef();
 
-    const [name, setName] = useState('');
-    const [validName, setValidName] = useState(false);
-    const [nameFocus, setNameFocus] = useState(false);
+  const [email, setEmail] = useState('');
+  const [phoneNum, setPhoneNum] = useState('');
 
-    const [surname, setSurname] = useState('');
-    const [validSurname, setValidSurname] = useState(false);
-    const [surnameFocus, setSurnameFocus] = useState(false);
+  const [birthday, setBirthday] = useState('');
+  const [validBirthday, setValidBirthday] = useState(false);
+  const [birthdayFocus, setBirthdayFocus] = useState(false);
 
-    const [patronymic, setPatronymic] = useState('');
-    const [validPatronymic, setValidPatronymic] = useState(false);
-    const [patronymicFocus, setPatronymicFocus] = useState(false);
+  const [name, setName] = useState('');
+  const [validName, setValidName] = useState(false);
+  const [nameFocus, setNameFocus] = useState(false);
 
-    const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+  const [surname, setSurname] = useState('');
+  const [validSurname, setValidSurname] = useState(false);
+  const [surnameFocus, setSurnameFocus] = useState(false);
 
-    useEffect(() => {
-        axios.get(PROFILE_URL, {
-          headers: { 
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-          },
-          withCredentials: true
-        }).then((response) => {
+  const [patronymic, setPatronymic] = useState('');
+  const [validPatronymic, setValidPatronymic] = useState(false);
+  const [patronymicFocus, setPatronymicFocus] = useState(false);
+
+  const [errMsg, setErrMsg] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+      axios.get(PROFILE_URL, {
+        headers: { 
+          "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        withCredentials: true
+      }).then((response) => {
+        console.log(JSON.stringify(response?.data));
+        setSuccess(true);
+        setName(response?.data.name);
+        setSurname(response?.data.surname);
+        setPatronymic(response?.data.patronymic);
+        setBirthday(response?.data.birthday);
+        setEmail(response?.data.email);
+        setPhoneNum(response?.data.phoneNum);
+      }).catch((err) => {
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+          setErrMsg('Profile display Failed: ' + err?.response)
+        } else if (err.request) {
+          setErrMsg('No Server Response');
+          console.log(err.request);
+        } else {
+          console.log('Error', err.message);
+        }
+        console.log(err.config);
+        errRef.current.focus();
+      })
+  }, [])
+
+  useEffect(() => {
+      setValidName(NAME_REGEX.test(name));
+  }, [name])
+
+  useEffect(() => {
+    setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
+  }, [patronymic])
+
+  useEffect(() => {
+      setValidSurname(SURNAME_REGEX.test(surname));
+  }, [surname])
+
+  
+  useEffect(() => {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Сбросить время, чтобы сравнивать только даты
+      const birthdayDate = new Date(birthday);
+      
+      if (birthdayDate < today) {
+          setValidBirthday(true);
+      } else {
+          setValidBirthday(false);
+      }
+  }, [birthday]);
+
+  useEffect(() => {
+      setErrMsg('');
+  }, [ surname, patronymic, name, birthday ])
+
+  
+  // to fix
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      const v3 = NAME_REGEX.test(name);
+      const v4 = PATRONYMIC_REGEX.test(patronymic);
+      const v5 = SURNAME_REGEX.test(surname);
+      if (!v3 || !v4 || !v5) {
+          setErrMsg("Invalid Entry");
+          return;
+      }
+      try {
+          const response = await axios.put(PROFILE_URL,
+            JSON.stringify({ name: name, surname: surname, patronymic: patronymic, birthday: birthday}),
+            {
+              headers: { 
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*"
+              },
+              withCredentials: true
+            }
+          );
+      
           console.log(JSON.stringify(response?.data));
           setSuccess(true);
           setName(response?.data.name);
@@ -56,92 +142,15 @@ const Profile = () => {
           setBirthday(response?.data.birthday);
           setEmail(response?.data.email);
           setPhoneNum(response?.data.phoneNum);
-        }).catch((err) => {
-          if (err.response) {
-            console.log(err.response.data);
-            console.log(err.response.status);
-            console.log(err.response.headers);
-            setErrMsg('Profile display Failed: ' + err?.response)
-          } else if (err.request) {
-            setErrMsg('No Server Response');
-            console.log(err.request);
+      } catch (err) {
+          if (!err?.response) {
+              setErrMsg('No Server Response');
           } else {
-            console.log('Error', err.message);
+              setErrMsg('Profile display Failed: ' + err?.response)
           }
-          console.log(err.config);
           errRef.current.focus();
-        })
-    }, [])
-
-    useEffect(() => {
-        setValidName(NAME_REGEX.test(name));
-    }, [name])
-
-    useEffect(() => {
-      setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
-    }, [patronymic])
-
-    useEffect(() => {
-        setValidSurname(SURNAME_REGEX.test(surname));
-    }, [surname])
-
-    
-    useEffect(() => {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0); // Сбросить время, чтобы сравнивать только даты
-        const birthdayDate = new Date(birthday);
-        
-        if (birthdayDate < today) {
-            setValidBirthday(true);
-        } else {
-            setValidBirthday(false);
-        }
-    }, [birthday]);
-
-    useEffect(() => {
-        setErrMsg('');
-    }, [ surname, patronymic, name, birthday ])
-
-    
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const v3 = NAME_REGEX.test(name);
-        const v4 = PATRONYMIC_REGEX.test(patronymic);
-        const v5 = SURNAME_REGEX.test(surname);
-        if (!v3 || !v4 || !v5) {
-            setErrMsg("Invalid Entry");
-            return;
-        }
-        try {
-            const response = await axios.put(PROFILE_URL,
-              JSON.stringify({ name: name, surname: surname, patronymic: patronymic, birthday: birthday}),
-              {
-                headers: { 
-                  'Content-Type': 'application/json',
-                  "Access-Control-Allow-Origin": "*"
-                },
-                withCredentials: true
-              }
-            );
-        
-            console.log(JSON.stringify(response?.data));
-            setSuccess(true);
-            setName(response?.data.name);
-            setSurname(response?.data.surname);
-            setPatronymic(response?.data.patronymic);
-            setBirthday(response?.data.birthday);
-            setEmail(response?.data.email);
-            setPhoneNum(response?.data.phoneNum);
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else {
-                setErrMsg('Profile display Failed: ' + err?.response)
-            }
-            errRef.current.focus();
-        }
-    }
+      }
+  }
 
 
 
@@ -293,7 +302,7 @@ const Profile = () => {
                         <div className="flexCol8">
                             <h2 className="mediumTitle7">Результаты по пройденным тестам</h2>
                             <div className="flexCol9">
-                                <h2 className="testCategoryTitle">Личностные  расстройства</h2>
+                                <h2 className="testCategoryTitle">Личностные расстройства</h2>
                                 <h2 className="testCategoryTitle1">Психотические расстройства</h2>
                                 <h2 className="testCategoryTitle2">Невротические расстройства</h2>
                                 <h2 className="testCategoryTitle3">Расстройства контроля импульсов</h2>
@@ -313,10 +322,12 @@ const Profile = () => {
                 <div className="flexRow3">
                     <img className="image" src={logo} alt="alt text" />
                     <div className="flexRow4">
-                        <h2 className="navigationTitle">Главная</h2>
-                        <h2 className="navigationTitle1">Личный кабинет</h2>
-                        <h2 className="navigationTitle">Каталог проблем</h2>
-                        <h2 className="userNavigationTitle">Пользователь</h2>
+                        <Link to="/"><h2 className="navigationTitle">Главная</h2></Link>
+                        <Link to="/profile"><h2 className="navigationTitle1">Личный кабинет</h2></Link>
+                        <Link to="/"><h2 className="navigationTitle">Каталог проблем</h2></Link>
+                        <h2 className="userNavigationTitle">
+                          {surname + " " + name + " " + patronymic}
+                        </h2>
                     </div>
                 </div>
             </div>

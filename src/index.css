@@ -552,6 +552,7 @@
   color: black;
   text-align: center;
   letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(255, 213, 0, 0.519);
 }
 .landing .footerLink1 {
   position: relative;
@@ -564,6 +565,7 @@
   color: black;
   text-align: center;
   letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(255, 213, 0, 0.519);
 }
 .landing .footerLinkGroup1 {
   position: relative;
@@ -585,7 +587,7 @@
   color: black;
   text-align: center;
   letter-spacing: -0.31px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+  text-shadow: 0px 4px 4px rgba(255, 213, 0, 0.519);
 }
 .landing .footerLink3 {
   position: relative;
@@ -598,6 +600,7 @@
   color: black;
   text-align: center;
   letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(255, 213, 0, 0.519);
 }
 .landing .securitySection {
   position: absolute;

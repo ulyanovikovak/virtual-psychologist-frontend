@@ -35,7 +35,7 @@ const Home = () => {
                 <div className="featuresFlexRow">
                     <div className="featureItem">
                         <img className="featureImage" src={shield} alt="alt text" />
-                        <h5 className="featureHighlight">95%достоверность результатов</h5>
+                        <h5 className="featureHighlight">95% достоверность результатов</h5>
                     </div>
                     <div className="featureItem1">
                         <img className="featureImage1" src={coins} alt="alt text" />
@@ -67,7 +67,7 @@ const Home = () => {
                                 <h2 className="detailTitle">Экономичность: Дешевле, чем услуги живого психолога.</h2>
                                 <h2 className="detailTitle3">
                                     Персонализация: <br />Индивидуальные советы<br />
-                    благодаря анализу данных.
+                                    благодаря анализу данных.
                                 </h2>
                                 <h2 className="detailTitle4">Объективность: Отсутствие субъективности и эмоционального влияния.</h2>
                             </div>
@@ -79,21 +79,21 @@ const Home = () => {
                         <h1 className="sectionTitle1">Показываем , как просто, на примере 1 теста - попробуйте сами</h1>
                         <div className="exampleStepsRow">
                             <div className="exampleStepItem">
-                                <h5 className="exampleStepTitle">Регистрация</h5>
+                                <Link to="/register"><h5 className="exampleStepTitle">Регистрация</h5></Link>
                                 <h5 className="exampleStepDescription">Пройдите регистрацию <br />по номеру телефона и почте</h5>
                             </div>
                             <div className="exampleStepItem1">
                                 <h5 className="exampleStepTitle">Тестирование</h5>
                                 <h5 className="exampleStepDescription1">
                                     Выберете тестирование<br />
-                    и пройдите тест
+                                    и пройдите тест
                                 </h5>
                             </div>
                             <div className="exampleStepItem2">
-                                <h5 className="exampleStepTitle">Просмотр результатов</h5>
+                                <Link to="/profile"><h5 className="exampleStepTitle">Просмотр результатов</h5></Link>
                                 <h5 className="exampleStepDescription">
                                     Получите предварительные<br />
-                    результаты  
+                                    результаты
                                 </h5>
                             </div>
                             <div className="exampleStepItem3">
@@ -139,13 +139,13 @@ const Home = () => {
                     <img className="footerImage" src={logo} alt="alt text" />
                     <div className="footerLinksRow">
                         <div className="footerLinkGroup">
-                            <h2 className="footerLink">Главная</h2>
-                            <h2 className="footerLink">Личный кабинет</h2>
-                            <h2 className="footerLink1">Каталог проблем</h2>
+                            <Link to="/"><h2 className="footerLink">Главная</h2></Link>
+                            <Link to="/profile"><h2 className="footerLink">Личный кабинет</h2></Link>
+                            <Link to="/"><h2 className="footerLink1">Каталог проблем</h2></Link>
                         </div>
                         <div className="footerLinkGroup1">
-                            <h2 className="footerLink2">Войти</h2>
-                            <h2 className="footerLink3">Регистрация</h2>
+                            <Link to="/login"><h2 className="footerLink2">Войти</h2></Link>
+                            <Link to="/register"><h2 className="footerLink3">Регистрация</h2></Link>
                         </div>
                     </div>
                 </div>
@@ -175,8 +175,9 @@ const Home = () => {
                                 Виртуальный психолог - сервис доступной профессиональной помощи, разработанной специалистами
                             </h1>
                             <h3 className="ctaSubtitle">
-                                Регистрируйтесь в сервисе за 5 минут,<br />запустите тестирование в 3 шага, получите<br />результаты
-                  через 10 минут
+                                Регистрируйтесь в сервисе за 5 минут,<br />
+                                запустите тестирование в 3 шага, получите<br />
+                                результаты через 10 минут
                             </h3>
                         </div>
                         <button className="ctaButton">Пройти тестирование</button>
