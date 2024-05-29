@@ -4,18 +4,18 @@ import useLogout from "../hooks/useLogout";
 import '../index.css';
 
 import globus from "../assets/globus.png"
-import hand from "../assets/1fe00ede6dfac4de8bc6cd8b67f210f3.png"
-import comboworld from "../assets/110bcd4df43365bd9719640514eb8268.png"
-import glasses from "../assets/862e88ec6ea7ef11afff193376c94f0c.png"
-import empty from "../assets/1437f8dd4d417a238ac71469810f60e0.png"
-import page from "../assets/2789b43512a5bc8153501173f3e3acb9.png"
-import combobattery from "../assets/8654f152d07b522ce1a0e07d2f04708f.png"
-import womanhand from "../assets/97855d6adf055d4520d16811ba74d0b3.png"
-import manhand from "../assets/a7852f106c5cacb6ce937c1cca07a1a6.png"
-import shield from "../assets/a186833384728466c8c5aa1f6acfa455.png"
-import logo from "../assets/db95176210b8a1a8d549e4e78ac0a0cb.png"
-import womanphone from "../assets/e850f2e29da00c9b3e15ef831f01b9ab.png"
-import coins from "../assets/eb719c78117d54278f0e8c964d29318e.png"
+import hand from "../assets/lock_in_hand.png"
+import comboworld from "../assets/comboworld.png"
+import glasses from "../assets/man_glasses.png"
+import empty from "../assets/empty.png"
+import page from "../assets/page_icon.png"
+import combobattery from "../assets/combobattery.png"
+import womanhand from "../assets/womanhand.png"
+import manhand from "../assets/manhand.png"
+import shield from "../assets/shield_icon.png"
+import logo from "../assets/logo.png"
+import womanphone from "../assets/womanphone.png"
+import coins from "../assets/coins_icon.png"
 
 const Home = () => {
     const navigate = useNavigate();
