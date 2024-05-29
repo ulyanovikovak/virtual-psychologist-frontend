@@ -13,15 +13,13 @@ import '../profile.css';
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/signup';
+const PROFILE_URL = '/user/info';
 
 const Profile = () => {
-
-
-    const emailRef = useRef();
     const errRef = useRef();
 
+    const [email, setEmail] = useState('');
+    const [phoneNum, setPhoneNum] = useState('');
 
     const [birthday, setBirthday] = useState('');
     const [validBirthday, setValidBirthday] = useState(false);
@@ -42,13 +40,44 @@ const Profile = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
+    useEffect(() => {
+        axios.get(PROFILE_URL, {
+          headers: { 
+            "Authorization": "Bearer " + localStorage.getItem("access"),
+          },
+          withCredentials: true
+        }).then((response) => {
+          console.log(JSON.stringify(response?.data));
+          setSuccess(true);
+          setName(response?.data.name);
+          setSurname(response?.data.surname);
+          setPatronymic(response?.data.patronymic);
+          setBirthday(response?.data.birthday);
+          setEmail(response?.data.email);
+          setPhoneNum(response?.data.phoneNum);
+        }).catch((err) => {
+          if (err.response) {
+            console.log(err.response.data);
+            console.log(err.response.status);
+            console.log(err.response.headers);
+            setErrMsg('Profile display Failed: ' + err?.response)
+          } else if (err.request) {
+            setErrMsg('No Server Response');
+            console.log(err.request);
+          } else {
+            console.log('Error', err.message);
+          }
+          console.log(err.config);
+          errRef.current.focus();
+        })
+    }, [])
 
     useEffect(() => {
         setValidName(NAME_REGEX.test(name));
     }, [name])
 
     useEffect(() => {
-        setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
+      setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
     }, [patronymic])
 
     useEffect(() => {
@@ -68,10 +97,11 @@ const Profile = () => {
         }
     }, [birthday]);
 
-
     useEffect(() => {
         setErrMsg('');
     }, [ surname, patronymic, name, birthday ])
+
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -83,36 +113,30 @@ const Profile = () => {
             return;
         }
         try {
-            const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ name: name, surname: surname, patronymic: patronymic,
-                    birthday: birthday}),
-                {
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        "Access-Control-Allow-Origin": "*"
-                    },
-                    withCredentials: true
-                }
+            const response = await axios.put(PROFILE_URL,
+              JSON.stringify({ name: name, surname: surname, patronymic: patronymic, birthday: birthday}),
+              {
+                headers: { 
+                  'Content-Type': 'application/json',
+                  "Access-Control-Allow-Origin": "*"
+                },
+                withCredentials: true
+              }
             );
         
-            // TODO: remove console.logs before deployment
             console.log(JSON.stringify(response?.data));
-            console.log(JSON.stringify(response))
             setSuccess(true);
-            //clear state and controlled inputs
-            //setEmail('');
-            setName('');
-            setSurname('');
-            setPatronymic('');
-            //setPhoneNum('');
-            setBirthday('');
+            setName(response?.data.name);
+            setSurname(response?.data.surname);
+            setPatronymic(response?.data.patronymic);
+            setBirthday(response?.data.birthday);
+            setEmail(response?.data.email);
+            setPhoneNum(response?.data.phoneNum);
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
             } else {
-                setErrMsg('Registration Failed')
+                setErrMsg('Profile display Failed: ' + err?.response)
             }
             errRef.current.focus();
         }
@@ -160,34 +184,38 @@ const Profile = () => {
         </div>
         <h2 className="personalAreaTitle">Личный кабинет/Тесты<br /></h2>
         <h2 className="homeTitle">Главная</h2>
-        <img
-          className="profileImage"
+        <img className="profileImage"
           src="/assets/bd0396c7dbd37de05525a7ee879bfcb9.png"
           alt="Profile"
         />
         <div className="userDataColumn">
           <div className="userDetailsBox">
             <div className="userDetailColumn">
-              <h2 className="firstNameTitle">Имя</h2> 
-                    <label htmlFor="name">
-                        <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-                        <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
-                    </label>
-                    <input className="firstNameRect"
-                        type="text"                            id="name"
-                        //ref={nameRef}
-                        autoComplete="off"
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                        required
-                        aria-invalid={validName ? "false" : "true"}
-                        aria-describedby="uidnote"
-                        onFocus={() => setNameFocus(true)}
-                        onBlur={() => setNameFocus(false)}
-                    /> 
+                <h2 className="firstNameTitle">Имя</h2> 
+                <label htmlFor="name">
+                    <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+                    <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
+                </label>
+                <input className="firstNameRect"
+                    type="text"
+                    id="name"
+                    //ref={nameRef}
+                    autoComplete="off"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                    required
+                    aria-invalid={validName ? "false" : "true"}
+                    aria-describedby="uidnote"
+                    onFocus={() => setNameFocus(true)}
+                    onBlur={() => setNameFocus(false)}
+                /> 
+                <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "hide"}>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                    От 1 до 100 символов.<br />
+                    Должно содержать только буквы.<br />
+                </p> 
                 
                 <h2 className="lastNameTitle">Фамилия</h2>
-
                 <label htmlFor="surname">
                     <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
                     <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
@@ -210,62 +238,72 @@ const Profile = () => {
                     От 1 до 100 символов.<br />
                     Должно содержать только буквы.<br />
                 </p> 
-                    <h2 className="middleNameTitle">Отчество</h2>
-                        <label htmlFor="patronymic">
-                            <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
-                        </label>
-                        <input className="middleNameRect"
-                            type="text"
-                            id="patronymic"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setPatronymic(e.target.value)}
-                            value={patronymic}
-                            required
-                            aria-invalid={validPatronymic ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setPatronymicFocus(true)}
-                            onBlur={() => setPatronymicFocus(false)}
-                        />
-                        <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            От 1 до 100 символов.<br />
-                            Должно содержать только буквы.<br />
-                        </p>
+
+                <h2 className="middleNameTitle">Отчество</h2>
+                <label htmlFor="patronymic">
+                    <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
+                    <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
+                </label>
+                <input className="middleNameRect"
+                    type="text"
+                    id="patronymic"
+                    //ref={nameRef}
+                    autoComplete="off"
+                    onChange={(e) => setPatronymic(e.target.value)}
+                    value={patronymic}
+                    required
+                    aria-invalid={validPatronymic ? "false" : "true"}
+                    aria-describedby="uidnote"
+                    onFocus={() => setPatronymicFocus(true)}
+                    onBlur={() => setPatronymicFocus(false)}
+                />
+                <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                    От 1 до 100 символов.<br />
+                    Должно содержать только буквы.<br />
+                </p>
 
               <h2 className="birthdateTitle">Дата рождения</h2>
-
               <label htmlFor="birthday">
-                            <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
-                        </label>
-                        <input className="birthdateRect"
-                            type="date"
-                            id="birthday"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setBirthday(e.target.value)}
-                            value={birthday}
-                            required
-                            aria-invalid={validBirthday ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setBirthdayFocus(true)}
-                            onBlur={() => setBirthdayFocus(false)}
-                        />
-                        <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            Некоректная дата рождения<br />
-                        </p>
+                  <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
+                  <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
+              </label>
+              <input className="birthdateRect"
+                  type="date"
+                  id="birthday"
+                  //ref={nameRef}
+                  autoComplete="off"
+                  onChange={(e) => setBirthday(e.target.value)}
+                  value={birthday}
+                  required
+                  aria-invalid={validBirthday ? "false" : "true"}
+                  aria-describedby="uidnote"
+                  onFocus={() => setBirthdayFocus(true)}
+                  onBlur={() => setBirthdayFocus(false)}
+              />
+              <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Некоректная дата рождения<br />
+              </p>
 
             </div>
           </div>
           <div className="contactInfoBox">
             <div className="contactInfoColumn">
               <h2 className="emailTitle">Почта<br /></h2>
-              <div className="emailRect"></div>
+              <input className="emailRect"
+                  type="text"
+                  id="email"
+                  readOnly
+                  defaultValue={email}
+              />
               <h2 className="phoneNumberTitle">Номер телефона</h2>
-              <div className="phoneNumberRect"></div>
+              <input className="phoneNumberRect"
+                  type="text"
+                  id="phoneNum"
+                  readOnly
+                  defaultValue={phoneNum}
+              />
               <h2 className="editInfoTitle">Изменить данные</h2>
             </div>
           </div>
@@ -275,10 +313,6 @@ const Profile = () => {
           <h2 className="userTitle">Пользователь</h2>
         </div>
       </div>
-      <script type="text/javascript">
-        AOS.init();
-        new Sticky('.sticky-effect');
-      </script>
     </div>
   );
 };
