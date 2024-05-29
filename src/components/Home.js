@@ -3,23 +3,20 @@ import useLogout from "../hooks/useLogout";
 
 import '../index.css';
 
-import globus from "../assets/1d9a9f96fbbdd9b08f81e4f5bfebecdf.png"
-import lotus from "../assets/46cf583d5954e7647294746437e7986d.png"
-import shield from "../assets/4ecdc2bf27349743423ac44c57b9d4de.png"
-import woman from "../assets/52830e019bc4207e4e3cedf54b297a81.png"
-import mouse from "../assets/6432dc0cd846d1400b4c97bf2596e93f.png"
-import sphere from "../assets/858e75e0b2ab43335c14059a4f8c4446.png"
-import yellowshield from "../assets/7abed8abd726303e449c96936855c1ff.png"
-import psychologist from "../assets/86caaf1cfeb47b924227d6947ecffa9e.png"
-import sheet from "../assets/87dcb6f0caa2e6bee52373e3bd418427.png"
-import white from "../assets/884ba50634da121b6b51902e275daad5.png"
-import security from "../assets/92418661f21618db78c2c675dabc20be.png"
-import person from "../assets/c923dd4224970adf21853645f670e1a4.png"
-import money from "../assets/d0279040987a74e7c63bf80b5c5d74c0.png"
-import worm from "../assets/d83c725104b0758fd89fc7ee1acff6e3.png"
-import bored from "../assets/f8aef8f9f7b6d0740bd6b7345197e351.png"
-import logo from "../assets/f990591d0571691abb7e808547ac8562.png"
-import battery from "../assets/fc1e945908715d0586cd172a3839c4bc.png"
+import globus from "../assets/globus.png"
+import hand from "../assets/1fe00ede6dfac4de8bc6cd8b67f210f3.png"
+import comboworld from "../assets/110bcd4df43365bd9719640514eb8268.png"
+import glasses from "../assets/862e88ec6ea7ef11afff193376c94f0c.png"
+import empty from "../assets/1437f8dd4d417a238ac71469810f60e0.png"
+import page from "../assets/2789b43512a5bc8153501173f3e3acb9.png"
+import combobattery from "../assets/8654f152d07b522ce1a0e07d2f04708f.png"
+import womanhand from "../assets/97855d6adf055d4520d16811ba74d0b3.png"
+import manhand from "../assets/a7852f106c5cacb6ce937c1cca07a1a6.png"
+import shield from "../assets/a186833384728466c8c5aa1f6acfa455.png"
+import logo from "../assets/db95176210b8a1a8d549e4e78ac0a0cb.png"
+import womanphone from "../assets/e850f2e29da00c9b3e15ef831f01b9ab.png"
+import coins from "../assets/eb719c78117d54278f0e8c964d29318e.png"
+
 const Home = () => {
     const navigate = useNavigate();
     const logout = useLogout();
@@ -31,240 +28,165 @@ const Home = () => {
 
     return (
         <div className="flex-column">
-            <main className="landing1 page">
-                <section className="rootSection">
-                    <div className="content_box8">
-                        <div className="contentWrapper">
-                            <div className="linksContainer">
-                                <div className="navLinks">
-                                    <div className="text">Главная</div>
-                                    <div className="text">Католог проблем</div>
-                                </div>
-                                <div className="additionalInfo">
-                                    <div className="userAgreement">
-                                        <div className="text">Пользовательское соглашение</div>
-                                        <div className="text">Согласие на обработку персональных данных</div>
-                                    </div>
-                                    <div className="companyInfo">
-                                        <div className="text">ООО “НейроНет Система”</div>
-                                        <div className="text1">Россия, Казань, ул. Уртак 2Б, 3</div>
-                                        <div className="text2">ОГРН 1181690051762, ИНН 1659191542</div>
-                                        <div className="text3">+7 (917) 250-33-55</div>
-                                    </div>
-                                </div>
+        <main className="landing main">
+        <section className="featuresSection">
+            <div className="introContentBox">
+                <img className="introImage" src={empty} alt="alt text" />
+                <div className="featuresFlexRow">
+                    <div className="featureItem">
+                        <img className="featureImage" src={shield} alt="alt text" />
+                        <h5 className="featureHighlight">95%достоверность результатов</h5>
+                    </div>
+                    <div className="featureItem1">
+                        <img className="featureImage1" src={coins} alt="alt text" />
+                        <h5 className="featureHighlight1">Экономия на подборе<br />психолога</h5>
+                    </div>
+                    <div className="featureItem2">
+                        <img className="featureImage1" src={globus} alt="alt text" />
+                        <h5 className="featureHighlight2">Доступ к сервису по всей России</h5>
+                    </div>
+                    <div className="featureItem3">
+                        <img className="featureImage2" src={page} alt="alt text" />
+                        <h5 className="featureHighlight3">Наличие патентов и сертификатов</h5>
+                    </div>
+                </div>
+                <div className="whyUsFlexCol">
+                    <h1 className="sectionTitle">Почему мы?</h1>
+                    <div className="detailsFlexRow">
+                        <div className="detailItem">
+                            <img className="detailImage" src={comboworld} alt="alt text" />
+                            <div className="detailText">
+                                <h2 className="detailTitle">Круглосуточная доступность: Помощь доступна в любое время без расписаний.</h2>
+                                <h2 className="detailTitle1">Мгновенный доступ: Не нужно ждать, помощь предоставляется сразу.</h2>
+                                <h2 className="detailTitle2">Анонимность: Полная конфиденциальность без участия человека.</h2>
                             </div>
-                            <div className="creditsSection">
-                                <div className="text4_box">
-                                </div>
-                                <div className="rect8"></div>
+                        </div>
+                        <div className="detailItem1">
+                            <img className="detailImage1" src={combobattery} alt="alt text" />
+                            <div className="detailText1">
+                                <h2 className="detailTitle">Экономичность: Дешевле, чем услуги живого психолога.</h2>
+                                <h2 className="detailTitle3">
+                                    Персонализация: <br />Индивидуальные советы<br />
+                    благодаря анализу данных.
+                                </h2>
+                                <h2 className="detailTitle4">Объективность: Отсутствие субъективности и эмоционального влияния.</h2>
                             </div>
                         </div>
                     </div>
-                    <div className="mainHighlights">
-                        <div className="highlightBlock1">
-                            <img className="image33" src = {bored} />
-                            <div className="flex_col">
-                                <h2 className="medium_title">Человек без знания своих сильных и слабых сторон</h2>
-                                <h5 className="highlight1">
-                                    Не зная о своих качествах очень трудно найти свое дело, которое будет приносить удовольствие.
-                                    Самостоятельно невозможно объективно оценить себя.
+                </div>
+                <div className="exampleContentBox" src={empty}>
+                    <div className="exampleFlexCol">
+                        <h1 className="sectionTitle1">Показываем , как просто, на примере 1 теста - попробуйте сами</h1>
+                        <div className="exampleStepsRow">
+                            <div className="exampleStepItem">
+                                <h5 className="exampleStepTitle">Регистрация</h5>
+                                <h5 className="exampleStepDescription">Пройдите регистрацию <br />по номеру телефона и почте</h5>
+                            </div>
+                            <div className="exampleStepItem1">
+                                <h5 className="exampleStepTitle">Тестирование</h5>
+                                <h5 className="exampleStepDescription1">
+                                    Выберете тестирование<br />
+                    и пройдите тест
                                 </h5>
                             </div>
-                        </div>
-                        <div className="highlightBlock1">
-                            <img className = "image331" src = {worm} />
-                            <div className="flex_col1">
-                                <h2 className="medium_title1">Быстрая усталость от любого рода деятельности</h2>
-                                <h5 className="highlight1">
-                                    Сервис упростит процесс познания себя. Если клиент захочет улучшить свои характеристики, то сайт
-                                    предоставит возможность сгенерировать психокоррекционный аудиофайл.
+                            <div className="exampleStepItem2">
+                                <h5 className="exampleStepTitle">Просмотр результатов</h5>
+                                <h5 className="exampleStepDescription">
+                                    Получите предварительные<br />
+                    результаты  
                                 </h5>
                             </div>
-                        </div>
-                        <div className="highlightBlock">
-                            <img className="image33" src= {woman} />
-                            <div className="flex_col2">
-                                <h2 className="medium_title2">Психологическое состояние улучшается</h2>
-                                <h5 className="highlight1">
-                                    Психологический помощник принесет дополнительную пользу — ускорит психотерапию, снизит затраты на
-                                    психологов, избавит вас от длительного похода по врачам.
-                                </h5>
+                            <div className="exampleStepItem3">
+                                <h5 className="exampleStepTitle">Покупка аудиофайлов</h5>
+                                <h5 className="exampleStepDescription">Приобретите аудиофайл <br />для  психокррекции</h5>
                             </div>
                         </div>
                     </div>
-                    <div className="ctaSection">
-                        <div className="flex_col3">
-                            <h1 className="big_title">
-                                Виртуальный психолог - это современное решение, отвечающее актуальным потребностям общества.
-                            </h1>
-                            <h2 className="medium_title3">
-                                Система оценки своих навыков будет полезна любому человеку, независимо от его возраста, статуса и уровня
-                                развития.
+                </div>
+                <div className="benefitsFlexRow">
+                    <div className="benefitItem">
+                        <img className="benefitImage" src={womanphone} alt="alt text" />
+                        <div className="benefitText">
+                            <h2 className="benefitTitle">Психологическое состояние улучшается</h2>
+                            <h5 className="benefitHighlight">
+                                Психологический помощник принесет дополнительную пользу — ускорит психотерапию, снизит затраты на
+                                психологов, избавит вас от длительного похода по врачам.
+                            </h5>
+                        </div>
+                    </div>
+                    <div className="benefitItem1">
+                            <img className="benefitImage1" src={glasses} alt="alt text" />
+                        <div className="benefitText1">
+                            <h2 className="benefitTitle1">Быстрая усталость от любого рода деятельности</h2>
+                            <h5 className="benefitHighlight1">
+                                Сервис упростит процесс познания себя. Если клиент захочет улучшить свои характеристики, то сайт
+                                предоставит возможность сгенерировать психокоррекционный аудиофайл.
+                            </h5>
+                        </div>
+                    </div>
+                    <div className="benefitItem2">
+                        <img className="benefitImage2" src={manhand} alt="alt text" />
+                        <div className="benefitText2">
+                            <h2 className="benefitTitle2">Человек без знания своих сильных и слабых сторон</h2>
+                            <h5 className="benefitHighlight2">
+                                Не зная о своих качествах очень трудно найти свое дело, которое будет приносить удовольствие.
+                                Самостоятельно невозможно объективно оценить себя.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div className="footerFlexRow">
+                    <img className="footerImage" src={logo} alt="alt text" />
+                    <div className="footerLinksRow">
+                        <div className="footerLinkGroup">
+                            <h2 className="footerLink">Главная</h2>
+                            <h2 className="footerLink">Личный кабинет</h2>
+                            <h2 className="footerLink1">Каталог проблем</h2>
+                        </div>
+                        <div className="footerLinkGroup1">
+                            <h2 className="footerLink2">Войти</h2>
+                            <h2 className="footerLink3">Регистрация</h2>
+                        </div>
+                    </div>
+                </div>
+                <div className="securitySection">
+                    <div className="securityRect"></div>
+                    <div className="securityFlexRow">
+                        <img className="securityImage" src={hand} alt="alt text" />
+                        <div className="securityTextCol">
+                            <h1 className="securityTitle">Закрытая система с высоким уровнем безопасности</h1>
+                            <h2 className="securityDescription">
+                                Никто не имеет доступа к конфиденциальным данным наших клиентов, и личная информация защищена на
+                                различных уровнях, что исключает возможность утечки. Мы не раскрываем результаты использования системы
+                                без согласия пользователя и не передаем их третьим лицам. Система функционирует только в онлайн-режиме
+                                и не требует специального оборудования со стороны клиента — для установки и контроля не потребуется
+                                приглашать специалистов на рабочее место.
                             </h2>
                         </div>
-                        <div className="flex_row">
-                            <div className="rect5"></div>
-                            <div className="rect6"></div>
-                            <div className="rect51"></div>
-                        </div>
                     </div>
-                    <div className="demoSection">
-                        <div className="flex_col4">
-                            <h1 className="big_title1">Показываем, как просто, на примере 1 теста — попробуйте сами</h1>
-                            <div className="flex_row1">
-                                <div className="content_box2" style={{ "--src": "url(../assets/81321e2154d3d56f90d135c62af7aaa9.png)" }}>
-                                    <div className="flex_col5">
-                                        <h3 className="subtitle"><Link to="/register">Регистрация</Link></h3>
-                                        <h3 className="subtitle">Пройдите регистрацию <br />по номеру телефона и почте</h3>
-                                    </div>
-                                </div>
-                                <div className="content_box2" style={{ "--src": "url(../assets/81321e2154d3d56f90d135c62af7aaa9.png)" }}>
-                                    <div className="flex_col6">
-                                        <h3 className="subtitle">Тестирование</h3>
-                                        <h3 className="subtitle">
-                                            Выберете тестирование<br />
-                                            и пройдите тест
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="content_box2" style={{ "--src": "url(../assets/81321e2154d3d56f90d135c62af7aaa9.png)" }}>
-                                    <div className="flex_col7">
-                                        <h3 className="subtitle">Просмотр результатов</h3>
-                                        <h3 className="subtitle">
-                                            Получите предварительные<br />
-                                            результаты
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="content_box2" style={{ "--src": "url(../assets/81321e2154d3d56f90d135c62af7aaa9.png)" }}>
-                                    <div className="flex_col8">
-                                        <h3 className="subtitle">Покупка аудиофайлов</h3>
-                                        <h3 className="subtitle">Приобретите аудиофайл <br />для психокррекции</h3>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div className="ctaContentBox" src={womanhand}> 
+            {/* ЧЕКНУТЬ */}
+                <div className="ctaContentBoxInner">
+                    <div className="ctaFlexCol">
+                        <div className="ctaTextCol">
+                            <h1 className="ctaTitle">
+                                Виртуальный психолог - сервис доступной профессиональной помощи, разработанной специалистами
+                            </h1>
+                            <h3 className="ctaSubtitle">
+                                Регистрируйтесь в сервисе за 5 минут,<br />запустите тестирование в 3 шага, получите<br />результаты
+                  через 10 минут
+                            </h3>
                         </div>
-                        <div className="securitySection">
-                            <div className="flex_col9">
-                                <h1 className="big_title2">Закрытая система с высоким уровнем безопасности</h1>
-                                <div className="flex_row2">
-                                    <img className="image32" src = {security} />
-                                    <h2 className="medium_title4">
-                                        Никто не имеет доступа к конфиденциальным данным наших клиентов, и личная информация защищена на
-                                        различных уровнях, что исключает возможность утечки. Мы не раскрываем результаты использования системы
-                                        без согласия пользователя и не передаем их третьим лицам. Система функционирует только в онлайн-режиме
-                                        и не требует специального оборудования со стороны клиента — для установки и контроля не потребуется
-                                        приглашать специалистов на рабочее место.
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
+                        <button className="ctaButton">Пройти тестирование</button>
                     </div>
-                    <div className="featuresSection">
-                        <div className="group">
-                            <div className="group1">
-                                <div className="group1">
-                                    <div className="group1">
-                                        <div className="group1">
-                                            <div className="group1">
-                                                <div className="group1">
-                                                    <img className="cover" src = {white} />
-                                                    <div className="flex_row3">
-                                                        <div className="flex_row4">
-                                                            <img className="image1" src= {yellowshield} />
-                                                            <h5 className="highlight">95%достоверность результатов</h5>
-                                                        </div>
-                                                        <div className="flex_row5">
-                                                            <img className="image11" src= {money} />
-                                                            <h5 className="highlight11">Экономия на подборе<br />психолога</h5>
-                                                        </div>
-                                                        <div className="flex_row6">
-                                                            <img className="image11" src= {globus} />
-                                                            <h5 className="highlight12">Доступ к сервису по всей России</h5>
-                                                        </div>
-                                                        <div className="flex_row7">
-                                                            <img className="image1" src= {sheet} />
-                                                            <h5 className="highlight13">Наличие патентов и сертификатов на<br />метод</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="heroSection">
-                                                    <img className="cover1" src= {psychologist} />
-                                                    <div className="content_box">
-                                                        <div className="flex_col10">
-                                                            <div className="flex_col11">
-                                                                <h1 className="big_title3">
-                                                                    Виртуальный психолог - сервис доступной профессиональной помощи, разработанной
-                                                                    специалистами
-                                                                </h1>
-                                                                <h2 className="medium_title3">
-                                                                    Регистрируйтесь в сервисе за 5 минут,<br />запустите тестирование в 3 шага, получите<br />результаты
-                                                                    через 10 минут
-                                                                </h2>
-                                                            </div>
-                                                            <button className="btn">Пройти тестирование</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <div className="flex_row8">
-                                            <h2 className="medium_title11"><Link to="/login">Войти</Link></h2>
-                                            <h2 className="medium_title12"><Link to="/register">Регистрация</Link></h2>
-                                        </div>
-                                    </div>
-                                    <h2 className="medium_title14">Личный кабинет</h2>
-                                </div>
-                                <h2 className="medium_title13">Каталог проблем</h2>
-                            </div>
-                            <div>
-                            <img className = "image" src= {logo} />
-                            <h2 className="medium_title15">Главная</h2>
-                            </div>
-                            {/* <h2 className="medium_title15">Главная</h2> */}
-                        </div>
-                        <h1 className="big_title4">Почему мы?</h1>
-                    </div>
-                    <div className="whyUsSection">
-                        <div className="flex_row9">
-                            <div className="flex_col12">
-                                <div className="flex_row10">
-                                    <img className="image17" src= {sphere} />
-                                    <h2 className="medium_title5">Круглосуточная доступность: Помощь доступна в любое время без расписаний.</h2>
-                                </div>
-                                <div className="flex_row10">
-                                    <img className="image17" src= {person} />
-                                    <h2 className="medium_title6">Мгновенный доступ: Не нужно ждать, помощь предоставляется сразу.</h2>
-                                </div>
-                                <div className="flex_row11">
-                                    <img className="image17" src= {shield} />
-                                    <h2 className="medium_title7">Анонимность: Полная конфиденциальность без участия человека.</h2>
-                                </div>
-                            </div>
-                            <div className="flex_col13">
-                                <div className="flex_row12">
-                                    <img className="image17" src = {battery} />
-                                    <h2 className="medium_title8">Экономичность: Дешевле, чем услуги живого психолога.</h2>
-                                </div>
-                                <div className="flex_row13">
-                                    <img className="image17" src={lotus} />
-                                    <h2 className="medium_title9">Персонализация: Индивидуальные советы благодаря анализу данных.</h2>
-                                </div>
-                                <div className="flex_row14">
-                                    <img className="image17" src= {mouse} />
-                                    <h2 className="medium_title10">Объективность: Отсутствие субъективности и эмоционального влияния.</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="text11">© 2021 НейроНет Система, Все права защищены</div>
-                </section>
-            </main>
-            <script type="text/javascript">
-                AOS.init();
-                new Sticky('.sticky-effect');
-            </script>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
         </div>
     );
 }
