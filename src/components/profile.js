@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 
 import '../profile.css';
+import logo from "../assets/logo.png"
 
 
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
@@ -146,173 +147,182 @@ const Profile = () => {
 
   return (
     <div className="flex-column">
-      <div className="account3 testResultsSection">
-        <div className="contentColumn">
-          <div className="headerRow">
-            <h2 className="sectionTitle">Результаты по пройденным тестам</h2>
-            <button className="refreshButton">Обновить</button>
-          </div>
-          <div className="testContentBox">
-            <div className="testColumnBox">
-              <div className="testRow">
-                <div className="testTitleColumn">
-                  <h2 className="personalityDisordersTitle">Личностные расстройства</h2>
-                  <h2 className="psychoticDisordersTitle">Психотические расстройства</h2>
-                  <h2 className="neuroticDisordersTitle">Невротические расстройства</h2>
-                  <h2 className="impulseControlDisordersTitle">Расстройства контроля импульсов</h2>
-                  <h2 className="eatingDisordersTitle">Расстройства пищевого поведения</h2>
-                  <h2 className="developmentalDisordersTitle">Расстройства, связанные с развитием</h2>
-                  <h2 className="childhoodDisordersTitle">Расстройства, возникающие в детстве</h2>
-                  <h2 className="substanceDisordersTitle">Зависимости и субстанцевые расстройства</h2>
+      <main className="profile main">
+        <section className="personalDataSection">
+            <div className="contentBox">
+                <h2 className="mediumTitle">Личные данные</h2>
+            </div>
+            <div className="flexRow">
+                <div className="flexCol">
+                    <form onSubmit={handleSubmit}>
+                    <div className="contentBox1">
+                        <div className="flexCol1">
+                            <div className="flexCol2">
+                                <h2 className="mediumTitle1">
+                                    Имя
+                                    <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
+                                </h2>
+                                <input className="inputField"
+                                    type="text"
+                                    id="name"
+                                    //ref={nameRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setName(e.target.value)}
+                                    value={name}
+                                    required
+                                    aria-invalid={validName ? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setNameFocus(true)}
+                                    onBlur={() => setNameFocus(false)}
+                                /> 
+                                <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "hide"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    От 1 до 100 символов.<br />
+                                    Должно содержать только буквы.<br />
+                                </p> 
+                            </div>
+                            <div className="flexCol3">
+                                <h2 className="mediumTitle2">
+                                    Фамилия
+                                    <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
+                                </h2>
+                                <input className="inputField"
+                                    type="text"
+                                    id="surname"
+                                    //ref={nameRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setSurname(e.target.value)}
+                                    value={surname}
+                                    required
+                                    aria-invalid={validSurname? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setSurnameFocus(true)}
+                                    onBlur={() => setSurnameFocus(false)}
+                                />
+                                <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    От 1 до 100 символов.<br />
+                                    Должно содержать только буквы.<br />
+                                </p> 
+                            </div>
+                            <div className="flexCol3">
+                                <h2 className="mediumTitle3">
+                                    Отчество
+                                    <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
+                                </h2>
+                                <input className="inputField"
+                                    type="text"
+                                    id="patronymic"
+                                    //ref={nameRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setPatronymic(e.target.value)}
+                                    value={patronymic}
+                                    required
+                                    aria-invalid={validPatronymic ? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setPatronymicFocus(true)}
+                                    onBlur={() => setPatronymicFocus(false)}
+                                />
+                                <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    От 1 до 100 символов.<br />
+                                    Должно содержать только буквы.<br />
+                                </p>
+                            </div>
+                            <div className="flexCol4">
+                                <h2 className="mediumTitle4">
+                                    Дата рождения
+                                    <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
+                                </h2>
+                                <input className="inputField"
+                                    type="date"
+                                    id="birthday"
+                                    //ref={nameRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setBirthday(e.target.value)}
+                                    value={birthday}
+                                    required
+                                    aria-invalid={validBirthday ? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setBirthdayFocus(true)}
+                                    onBlur={() => setBirthdayFocus(false)}
+                                />
+                                <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    Некоректная дата рождения<br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="contentBox1">
+                        <div className="flexRow1">
+                            <div className="flexCol5">
+                                <div className="flexCol6">
+                                    <h2 className="mediumTitle5">Почта<br /></h2>
+                                    <input className="inputField"
+                                        type="text"
+                                        id="email"
+                                        readOnly
+                                        defaultValue={email}
+                                    />
+                                </div>
+                                <div className="flexCol7">
+                                    <h2 className="mediumTitle6">Номер телефона</h2>
+                                    <input className="inputField"
+                                        type="text"
+                                        id="phoneNum"
+                                        readOnly
+                                        defaultValue={phoneNum}
+                                    />
+                                </div>
+                            </div>
+                            <button className="changeDataTitle"
+                                    disabled={!validName || !validSurname || !validPatronymic || !validBirthday ? true : false}>
+                              Изменить данные
+                            </button>
+                        </div>
+                    </div>
+                    </form>
                 </div>
-                <div className="actionButtonColumn">
-                  <button className="viewButton1">Смотреть</button>
-                  <button className="viewButton2">Смотреть</button>
-                  <button className="viewButton2">Смотреть</button>
-                  <button className="viewButton3">Смотреть</button>
-                  <button className="viewButton4">Смотреть</button>
-                  <button className="viewButton5">Смотреть</button>
-                  <button className="viewButton3">Смотреть</button>
-                  <button className="viewButton6">Смотреть</button>
+                <div className="testResultsContentBox">
+                    <div className="flexRow2">
+                        <div className="flexCol8">
+                            <h2 className="mediumTitle7">Результаты по пройденным тестам</h2>
+                            <div className="flexCol9">
+                                <h2 className="testCategoryTitle">Личностные  расстройства</h2>
+                                <h2 className="testCategoryTitle1">Психотические расстройства</h2>
+                                <h2 className="testCategoryTitle2">Невротические расстройства</h2>
+                                <h2 className="testCategoryTitle3">Расстройства контроля импульсов</h2>
+                                <h2 className="testCategoryTitle4">Расстройства пищевого поведения</h2>
+                                <h2 className="testCategoryTitle5">Расстройства, связанные с развитием</h2>
+                                <h2 className="testCategoryTitle6">Расстройства, возникающие в детстве</h2>
+                                <h2 className="testCategoryTitle7">Субстанцевые расстройства</h2>
+                            </div>
+                        </div>
+                        <div className="flexCol10">
+                            <button className="updateButton">Обновить</button><button className="viewButton">Смотреть</button><button className="viewButton1">Смотреть</button><button className="viewButton1">Смотреть</button><button className="viewButton2">Смотреть</button><button className="viewButton3">Смотреть</button><button className="viewButton4">Смотреть</button><button className="viewButton5">Смотреть</button><button className="viewButton1">Смотреть</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div className="personalDataBox">
-          <h2 className="personalDataTitle">Личные данные</h2>
-        </div>
-        <h2 className="personalAreaTitle">Личный кабинет/Тесты<br /></h2>
-        <h2 className="homeTitle">Главная</h2>
-        <img className="profileImage"
-          src="/assets/bd0396c7dbd37de05525a7ee879bfcb9.png"
-          alt="Profile"
-        />
-        <div className="userDataColumn">
-          <div className="userDetailsBox">
-            <div className="userDetailColumn">
-                <h2 className="firstNameTitle">Имя</h2> 
-                <label htmlFor="name">
-                    <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-                    <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
-                </label>
-                <input className="firstNameRect"
-                    type="text"
-                    id="name"
-                    //ref={nameRef}
-                    autoComplete="off"
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                    required
-                    aria-invalid={validName ? "false" : "true"}
-                    aria-describedby="uidnote"
-                    onFocus={() => setNameFocus(true)}
-                    onBlur={() => setNameFocus(false)}
-                /> 
-                <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "hide"}>
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    От 1 до 100 символов.<br />
-                    Должно содержать только буквы.<br />
-                </p> 
-                
-                <h2 className="lastNameTitle">Фамилия</h2>
-                <label htmlFor="surname">
-                    <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
-                    <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
-                </label>
-                <input className="lastNameRect"
-                    type="text"
-                    id="surname"
-                    //ref={nameRef}
-                    autoComplete="off"
-                    onChange={(e) => setSurname(e.target.value)}
-                    value={surname}
-                    required
-                    aria-invalid={validSurname? "false" : "true"}
-                    aria-describedby="uidnote"
-                    onFocus={() => setSurnameFocus(true)}
-                    onBlur={() => setSurnameFocus(false)}
-                />
-                <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    От 1 до 100 символов.<br />
-                    Должно содержать только буквы.<br />
-                </p> 
-
-                <h2 className="middleNameTitle">Отчество</h2>
-                <label htmlFor="patronymic">
-                    <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
-                    <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
-                </label>
-                <input className="middleNameRect"
-                    type="text"
-                    id="patronymic"
-                    //ref={nameRef}
-                    autoComplete="off"
-                    onChange={(e) => setPatronymic(e.target.value)}
-                    value={patronymic}
-                    required
-                    aria-invalid={validPatronymic ? "false" : "true"}
-                    aria-describedby="uidnote"
-                    onFocus={() => setPatronymicFocus(true)}
-                    onBlur={() => setPatronymicFocus(false)}
-                />
-                <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    От 1 до 100 символов.<br />
-                    Должно содержать только буквы.<br />
-                </p>
-
-              <h2 className="birthdateTitle">Дата рождения</h2>
-              <label htmlFor="birthday">
-                  <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
-                  <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
-              </label>
-              <input className="birthdateRect"
-                  type="date"
-                  id="birthday"
-                  //ref={nameRef}
-                  autoComplete="off"
-                  onChange={(e) => setBirthday(e.target.value)}
-                  value={birthday}
-                  required
-                  aria-invalid={validBirthday ? "false" : "true"}
-                  aria-describedby="uidnote"
-                  onFocus={() => setBirthdayFocus(true)}
-                  onBlur={() => setBirthdayFocus(false)}
-              />
-              <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
-                  <FontAwesomeIcon icon={faInfoCircle} />
-                  Некоректная дата рождения<br />
-              </p>
-
+            <div className="navigationContentBox">
+                <div className="flexRow3">
+                    <img className="image" src={logo} alt="alt text" />
+                    <div className="flexRow4">
+                        <h2 className="navigationTitle">Главная</h2>
+                        <h2 className="navigationTitle1">Личный кабинет</h2>
+                        <h2 className="navigationTitle">Каталог проблем</h2>
+                        <h2 className="userNavigationTitle">Пользователь</h2>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div className="contactInfoBox">
-            <div className="contactInfoColumn">
-              <h2 className="emailTitle">Почта<br /></h2>
-              <input className="emailRect"
-                  type="text"
-                  id="email"
-                  readOnly
-                  defaultValue={email}
-              />
-              <h2 className="phoneNumberTitle">Номер телефона</h2>
-              <input className="phoneNumberRect"
-                  type="text"
-                  id="phoneNum"
-                  readOnly
-                  defaultValue={phoneNum}
-              />
-              <h2 className="editInfoTitle">Изменить данные</h2>
-            </div>
-          </div>
-        </div>
-        <div className="footerRow">
-          <h2 className="problemCatalogTitle">Каталог Проблем</h2>
-          <h2 className="userTitle">Пользователь</h2>
-        </div>
-      </div>
+        </section>
+
+    </main>
     </div>
   );
 };

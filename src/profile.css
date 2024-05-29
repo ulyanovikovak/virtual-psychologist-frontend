@@ -1,557 +1,860 @@
 
 
-.account3 {
-  &.testResultsSection {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    overflow: hidden;
-  }
-  .hide {
-    display: none;
-  }
+/* fonts.css */
 
-  .valid {
-      color: limegreen;
-      margin-left: 0.25rem;
-  }
-  .invalid {
-    color: red;
-    margin-left: 0.25rem;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-  .instructions {
-    font-size: 0.75rem;
-    /*border-radius: 0.5rem;*/
-    background: #000;
-    color: #fff;
-    padding: 0.25rem;
-    position: relative;
-    bottom: -10px;
-  }
+@font-face {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0")
+      format("embedded-opentype"),
+    url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0")
+      format("woff2"),
+    url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0")
+      format("woff"),
+    url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0")
+      format("truetype"),
+    url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular")
+      format("svg");
+}
 
-  .offscreen {
-      position: absolute;
-      left: -9999px;
-  }
 
-  .errmsg {
-      background-color: lightpink;
-      color: firebrick;
-      font-weight: bold;
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-  }
+/* headroom.css */
 
-  .contentColumn {
-    position: absolute;
-    top: 208px;
-    left: 956px;
+.headroom {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+
+.headroom--pinned {
+  transform: translateY(0%);
+}
+
+.headroom--unpinned {
+  transform: translateY(-100%);
+}
+
+
+/* from logreg */
+.instructions {
+  font-size: 0.75rem;
+  /*border-radius: 0.5rem;*/
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* profile.css */
+
+.profile.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow: hidden;
+}
+.profile .personalDataSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.profile .contentBox {
+  position: absolute;
+  top: 100px;
+  left: 1px;
+  display: flex;
+  flex-direction: column;
+  width: 1439px;
+  height: 68px;
+  background-color: rgba(255, 203, 60, 0.2);
+}
+.profile .mediumTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px auto;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .flexRow {
+  position: absolute;
+  top: 237px;
+  left: 27px;
+  display: flex;
+  gap: 0px 17px;
+  width: 1371px;
+  height: 730px;
+}
+.profile .flexCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 55px 0px;
+  width: 620px;
+  min-width: 0px;
+}
+.profile .contentBox1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 203, 60, 0.2);
+}
+.profile .flexCol1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0px 20px 24px;
+  width: 286px;
+}
+.profile .flexCol2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
+  margin: 0px 3px;
+}
+.profile .mediumTitle1 {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin: 0px 0px 0px 3px;
+  width: 80.36%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: left;
+  letter-spacing: -0.31px;
+}
+.profile .inputField {
+  position: relative;
+  min-height: 37px;
+  background-color: white;
+  border-radius: 18.5px 18.5px 18.5px 18.5px;
+}
+.profile .flexCol3 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 11px 0px;
+  margin: 36px 6px 0px 0px;
+}
+.profile .mediumTitle2 {     /* !!!!! */
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin: 0px 0px 0px 3px;
+  width: 80.36%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: left;
+  letter-spacing: -0.31px;
+}
+.profile .mediumTitle3 {   /* !!!!! */
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin: 0px 0px 0px 3px;
+  width: 80.36%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: left;
+  letter-spacing: -0.31px;
+}
+.profile .flexCol4 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px 0px;
+  margin: 40.5px 0px 0px 6px;
+}
+.profile .mediumTitle4 {    /* !!!!! */
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin: 0px 0px 0px 3px;
+  width: 80.36%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: left;
+  letter-spacing: -0.31px;
+}
+.profile .flexRow1 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  margin: 66px 26px 19px 27px;
+}
+.profile .flexCol5 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 38px 0px;
+  width: 280px;
+  min-width: 0px;
+}
+.profile .flexCol6 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
+}
+.profile .mediumTitle5 {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 80.36%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: left;
+  letter-spacing: -0.31px;
+}
+.profile .flexCol7 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px 0px;
+}
+.profile .mediumTitle6 {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 80.36%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: left;
+  letter-spacing: -0.31px;
+}
+.profile .changeDataTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 153px 0px 8px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testResultsContentBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 734px;
+  min-width: 0px;
+  background-color: rgba(255, 203, 60, 0.2);
+}
+.profile .flexRow2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0px 21px;
+  margin: 31px 8px 80px;
+}
+.profile .flexCol8 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 78px 0px;
+  width: 500px;
+  min-width: 0px;
+}
+.profile .mediumTitle7 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 700 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .flexCol9 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 98.1%;
+}
+.profile .testCategoryTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 3px;
+  width: 342px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 47px 0px 0px 3.5px;
+  width: 76.04%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 53px 0px 0px 3px;
+  width: 76.66%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle3 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 52px 0px 0px 1px;
+  width: 89.91%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle4 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 37px 0px 3.5px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle5 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 47px 6.5px 0px 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle6 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 47px 0px 0px 3.5px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .testCategoryTitle7 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 38px 0px 0px 2.5px;
+  width: 73.6%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .flexCol10 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  min-width: 0px;
+}
+.profile .updateButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #ffcb3c;
+  border-radius: 17px 17px 17px 17px;
+  padding: 7px 12px 7px 12px;
+  letter-spacing: -0.31px;
+}
+.profile .viewButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 63px 5px 0px 4px;
+  width: 161px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #9ff18a;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.profile .viewButton1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 42px 9px 0px 0px;
+  width: 161px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #9ff18a;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.profile .viewButton2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 35px 9px 0px 0px;
+  width: 161px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #9ff18a;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.profile .viewButton3 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 42px 5px 0px 4px;
+  width: 161px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #9ff18a;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.profile .viewButton4 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 5px 0px 4px;
+  width: 161px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #9ff18a;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.profile .viewButton5 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 47px 5px 0px 4px;
+  width: 161px;
+  max-width: 100%;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #9ff18a;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.profile .navigationContentBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 925px;
+  background-color: white;
+}
+.profile .flexRow3 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 10px;
+  margin: 0px 0px 0px 11px;
+  width: 88.47%;
+}
+.profile .image {
+  position: relative;
+  width: 120px;
+  min-width: 0px;
+  height: 99px;
+}
+.profile .flexRow4 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  width: 1098px;
+  min-width: 0px;
+}
+.profile .navigationTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5px 0px 0.5px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .navigationTitle1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0px 0px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.profile .userNavigationTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 4px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+}
+
+
+/* common.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, hr, p, figure {
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    border-width: 0;
+    opacity: 1;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: block;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+    align-items: normal;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.flex-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 23px 0px;
-    width: 886px;
-    height: 721px;
-  }
-  .headerRow {
-    position: relative;
-    display: flex;
-    gap: 0px 18px;
-    width: 100%;
-  }
-  .sectionTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 8.5px 0px 5.5px;
-    min-width: 0px;
-    font: 700 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .refreshButton {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 206px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(255, 203, 60);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .testContentBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 92.44%;
-    background-color: rgb(255, 255, 255);
-  }
-  .testColumnBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 21px 5px 10px 15px;
-    background-color: rgba(255, 203, 60, 0.2);
-  }
-  .testRow {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0px 21px;
-    margin: 31px 7px 35px;
-  }
-  .testTitleColumn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 554px;
-    min-width: 0px;
-  }
-  .personalityDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 0.5px;
-    width: 342px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .psychoticDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 47px 0px 0px 0.5px;
-    width: 373px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .neuroticDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 53px 0px 0px;
-    width: 376px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .impulseControlDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 65px 0px 0px;
-    width: 79.6%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .eatingDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 56px 0px 0px 0.5px;
-    width: 81.23%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .developmentalDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 61px 0px 0px;
-    width: 87.36%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .childhoodDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 56px 0px 0px 0.5px;
-    width: 87.91%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .substanceDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 53px 0px 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .actionButtonColumn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 208px;
-    min-width: 0px;
-  }
-  .viewButton1 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 2px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(159, 241, 138);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .viewButton2 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 36px 0px 0px 2px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(159, 241, 138);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .viewButton3 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 43px 2px 0px 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(159, 241, 138);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .viewButton4 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 53px 0px 0px 2px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(159, 241, 138);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .viewButton5 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 41px 0px 0px 2px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(159, 241, 138);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .viewButton6 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 43px 0px 0px 2px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(159, 241, 138);
-    border-radius: 17px 17px 17px 17px;
-    padding: 7px 30px 7px 30px;
-    letter-spacing: -0.31px;
-  }
-  .personalDataBox {
-    position: absolute;
-    top: 100px;
-    left: 0px;
-    display: flex;
-    flex-direction: column;
-    width: 1915px;
-    height: 59px;
-    background-color: rgba(255, 203, 60, 0.439);
-  }
-  .personalDataTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 16px 42.25% 23px auto;
-    width: 205px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .personalAreaTitle {
-    position: absolute;
-    top: 46px;
-    left: 284px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 459px;
-    height: 20px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .homeTitle {
-    position: absolute;
-    top: 44px;
-    left: 172.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 98px;
-    height: 25px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .profileImage {
-    position: absolute;
-    top: 0px;
-    left: 14px;
-    width: 114px;
-    height: 99px;
-  }
-  .userDataColumn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 53px 0px;
-    margin: 208px 0px 40px 9.84%;
-    width: 620px;
-  }
-  .userDetailsBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 203, 60, 0.2);
-  }
-  .userDetailColumn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 21px 0px 35px 23px;
-    width: 280px;
-  }
-  .firstNameTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 3px;
-    width: 54px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .firstNameRect {
-    position: relative;
-    margin: 10px 0px 0px;
-    min-height: 37px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18.5px 18.5px 18.5px 18.5px;
-  }
-  .lastNameTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 22px 0px 0px 3px;
-    width: 119px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .lastNameRect {
-    position: relative;
-    margin: 11px 0px 0px;
-    min-height: 37px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18.5px 18.5px 18.5px 18.5px;
-  }
-  .middleNameTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 27px 0px 0px 3.5px;
-    width: 117px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .middleNameRect {
-    position: relative;
-    margin: 11px 0px 0px;
-    min-height: 37px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18.5px 18.5px 18.5px 18.5px;
-  }
-  .birthdateTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 19.5px 0px 0px 3px;
-    width: 70.36%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .birthdateRect {
-    position: relative;
-    margin: 4.5px 0px 0px;
-    min-height: 37px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18.5px 18.5px 18.5px 18.5px;
-  }
-  .contactInfoBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 203, 60, 0.2);
-  }
-  .contactInfoColumn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 57px 33px 18px 23px;
-  }
-  .emailTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 12px;
-    width: 76px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .emailRect {
-    position: relative;
-    margin: 1px 0px 0px;
-    width: 280px;
-    min-height: 35px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18.5px 18.5px 18.5px 18.5px;
-  }
-  .phoneNumberTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 22px 0px 0px 12.5px;
-    width: 213px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .phoneNumberRect {
-    position: relative;
-    margin: 5px 0px 0px;
-    width: 280px;
-    min-height: 37px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18.5px 18.5px 18.5px 18.5px;
-  }
-  .editInfoTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 35px 0px 0px auto;
-    width: 229px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .footerRow {
-    position: absolute;
-    top: 43px;
-    left: 752.5px;
-    display: flex;
-    justify-content: space-between;
-    gap: 0px 10px;
-    width: 1022.5px;
-    height: 27px;
-  }
-  .problemCatalogTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2px 0px 0px;
-    width: 222px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .userTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 7px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
+}
+
+.page-header {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.sticking {
+    margin: 0 !important;
+    z-index: 10000 !important;
+}
+
+@media (max-width: 99999px) {
+    .max\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .xxxl\:show {
+        display: none;
+    }
+
+    .xxl\:show {
+        display: none;
+    }
+
+    .xl\:show {
+        display: none;
+    }
+
+    .lg\:show {
+        display: none;
+    }
+
+    .md\:show {
+        display: none;
+    }
+
+    .sm\:show {
+        display: none;
+    }
+
+    .xs\:show {
+        display: none;
+    }
+
+    .xxs\:show {
+        display: none;
+    }
+
+    .tn\:show {
+        display: none;
+    }
+
+    .max\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 2999px) {
+    .xxxl\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .xxxl\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 1919px) {
+    .xxl\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .xxl\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 1399px) {
+    .xl\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .xl\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px) {
+    .lg\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lg\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .md\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .md\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .sm\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sm\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .xs\:show {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .xs\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .xxs\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .xxs\:hide {
+        display: none;
+    }
+}
+
+@media (max-width: 384px) {
+    .tn\:show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tn\:hide {
+        display: none;
+    }
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }
