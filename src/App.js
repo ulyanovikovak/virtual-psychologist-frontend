@@ -10,6 +10,7 @@ import RequireAuth from './components/RequireAuth';
 import PersistLogin from './components/PersistLogin';
 import { Routes, Route } from 'react-router-dom';
 import Profile from './components/profile';
+import Catalog from './components/catalog';
 
 const ROLES = {
   'User': 2001,
@@ -27,6 +28,7 @@ function App() {
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
         <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
 
         {/* we want to protect these routes */}
         <Route element={<PersistLogin />}>
