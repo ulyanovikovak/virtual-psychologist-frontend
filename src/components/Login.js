@@ -3,6 +3,7 @@ import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import '../log.css';
+import logo from "../assets/logo.png"
 
 import axios from '../api/axios';
 const LOGIN_URL = '/login';
@@ -74,51 +75,74 @@ const Login = () => {
     }, [persist])
 
     return (
-        <main className="logreg page2">
-        <section>
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1>Вход</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Почта:</label>
-                <input
-                    type="text"
-                    id="email"
-                    ref={emailRef}
-                    autoComplete="off"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    required
-                />
-
-                <label htmlFor="password">Пароль:</label>
-                <input
-                    type="password"
-                    id="password"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={pwd}
-                    required
-                />
-                <button>Вход</button>
-                <div className="persistCheck">
-                    <input
-                        type="checkbox"
-                        id="persist"
-                        onChange={togglePersist}
-                        checked={persist}
-                    />
-                    <label htmlFor="persist">Доверять этому устройству</label>
+        <main className="login main">
+            <section className="welcomeSection">
+                <div className="flexCol">
+                    <div className="flexCol1">
+                        <div className="flexCol2">
+                            <h1 className="welcomeTitle">Добро Пожаловать!<br /></h1>
+                            <div className="welcomeText">Пожалуйста введите ваши данные.</div>
+                        </div>
+                        <img className="welcomeImage" src={logo} alt="alt text" />
+                    </div>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <div className="flexCol3">
+                        <div className="flexCol4">
+                            <div className="flexCol5">
+                                <div className="emailLabel">Почта</div>
+                                <div className="contentBox">
+                                    <input
+                                        type="email"
+                                        ref={emailRef}
+                                        className="emailPlaceholder"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Введите вашу почту"
+                                    />
+                                </div>
+                            </div>
+                            <div className="flexCol5">
+                                <div className="passwordLabel">Пароль</div>
+                                <div className="contentBox">
+                                    <input
+                                        type="password"
+                                        className="passwordPlaceholder"
+                                        value={pwd}
+                                        onChange={(e) => setPwd(e.target.value)}
+                                        placeholder="**********"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flexCol6">
+                            <div className="flexCol7">
+                                <div className="flexRow">
+                                    <div className="flexRow1">
+                                        <input
+                                            type="checkbox"
+                                            className="rememberMeCheckBox"
+                                            checked={persist}
+                                            onChange={togglePersist}
+                                        />
+                                        <div className="rememberMeText">Доверять этому устройству<br /><br /></div>
+                                    </div>
+                                    <div className="forgotPassword">Забыли пароль?</div>
+                                </div>
+                                <button className="loginButton" onClick={handleSubmit}>Войти</button>
+                            </div>
+                            <div className="flexCol8">
+                                <div className="signupInfoBox_box">
+                                    <span className="signupInfoBox"><span className="signupInfoBox_span0">Нет аккаунта?</span><span className="signupInfoBox_span1"> </span></span>
+                                </div>
+                                <Link to="/register">Зарегистрируйтесь!</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
-            <p>
-                Нет аккаунта?<br />
-                <span className="line">
-                    <Link to="/register">Зарегистрируйтесь</Link>
-                </span>
-            </p>
-        </section>
+            </section>
         </main>
-
-    )
+    );
+    
 }
 
 export default Login
