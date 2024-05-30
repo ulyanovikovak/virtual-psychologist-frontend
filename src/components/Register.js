@@ -3,8 +3,9 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png"
 
-import '../log.css';
+import '../register.css';
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
@@ -54,28 +55,28 @@ const Register = () => {
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-        emailRef.current.focus();
-    }, [])
+         emailRef.current.focus();
+     }, [])
 
     useEffect(() => {
         setValidEmail(EMAIL_REGEX.test(email));
     }, [email])
 
     useEffect(() => {
-        setValidName(NAME_REGEX.test(name));
-    }, [name])
+         setValidName(NAME_REGEX.test(name));
+     }, [name])
 
     useEffect(() => {
-        setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
-    }, [patronymic])
+         setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
+     }, [patronymic])
 
-    useEffect(() => {
-        setValidSurname(SURNAME_REGEX.test(surname));
-    }, [surname])
+     useEffect(() => {
+         setValidSurname(SURNAME_REGEX.test(surname));
+     }, [surname])
 
-    useEffect(() => {
-        setValidPhoneNum(PHONENUM_REGEX.test(phoneNum));
-    }, [phoneNum])
+     useEffect(() => {
+         setValidPhoneNum(PHONENUM_REGEX.test(phoneNum));
+     }, [phoneNum])
 
     
     useEffect(() => {
@@ -92,8 +93,8 @@ const Register = () => {
 
 
     useEffect(() => {
-        setValidPwd(PWD_REGEX.test(pwd));
-        setValidMatch(pwd === matchPwd);
+       setValidPwd(PWD_REGEX.test(pwd));
+    setValidMatch(pwd === matchPwd);
     }, [pwd, matchPwd])
 
     useEffect(() => {
@@ -153,7 +154,7 @@ const Register = () => {
 
     return (
         <>
-        <main className="logreg page2">
+        <main className="register main">
             {success ? (
                 <section>
                     <h1>Успешно!</h1>
@@ -162,215 +163,212 @@ const Register = () => {
                     </p>
                 </section>
             ) : (
-                <section >
-                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Регистрация</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="email">
-                            Почта:
-                            <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="text"
-                            id="email"
-                            ref={emailRef}
-                            autoComplete="off"
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
-                            required
-                            aria-invalid={validEmail ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setEmailFocus(true)}
-                            onBlur={() => setEmailFocus(false)}
-                        />
-                        <p id="uidnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            от 4 до 24 символов.<br />
-                            Некоректная почта.<br />
-                        </p>
+<section className="registrationSection">
+            <div className="formContainer">
+                <div className="formContent">
+                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <div className="headingContainer">
+                        <h1 className="formTitle">Регистрация</h1>
+                        <img className="formImage" src={logo} alt="alt text" />
+                    </div>
+                    <div className="inputsContainer">
+                        <div className="emailInputContainer">
+                            <div className="emailLabel">Почта</div>
+                            <div className="inputWrapper">
+                                {/* <div className="emailPlaceholder">Введите вашу почту</div> */}
+                                <input className="emailPlaceholder"
+                                    type="text"
+                                    id="email"
+                                    ref={emailRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={email}
+                                    required
+                                    aria-invalid={validEmail ? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setEmailFocus(true)}
+                                    onBlur={() => setEmailFocus(false)}
+                                    placeholder="Введите вашу почту"
+                                />
+                                <p id="uidnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    от 4 до 24 символов.<br />
+                                    Некоректная почта.<br />
+                                </p>
+                                
+                            </div>
+                        </div>
+                        <div className="firstNameInputContainer">
+                            <div className="firstNameLabel">Имя</div>
+                            <input className="firstNameField"
+                                type="text"
+                                id="name"
+                                //ref={nameRef}
+                                autoComplete="off"
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                                required
+                                aria-invalid={validName ? "false" : "true"}
+                                aria-describedby="uidnote"
+                                onFocus={() => setNameFocus(true)}
+                                onBlur={() => setNameFocus(false)}
+                            />
+                            <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "offscreen"}>
+                                <FontAwesomeIcon icon={faInfoCircle} />
+                                От 1 до 100 символов.<br />
+                                Должно содержать только буквы.<br />
+                            </p>
+                        </div>
+                        <div className="lastNameInputContainer">
+                            <div className="lastNameLabel">Фамилия</div>
+                            <input className="lastNameField"
+                                type="text"
+                                id="surname"
+                                //ref={nameRef}
+                                autoComplete="off"
+                                onChange={(e) => setSurname(e.target.value)}
+                                value={surname}
+                                required
+                                aria-invalid={validSurname? "false" : "true"}
+                                aria-describedby="uidnote"
+                                onFocus={() => setSurnameFocus(true)}
+                                onBlur={() => setSurnameFocus(false)}
+                            />
+                            <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
+                                <FontAwesomeIcon icon={faInfoCircle} />
+                                От 1 до 100 символов.<br />
+                                Должно содержать только буквы.<br />
+                            </p>
+                        </div>
+                        <div className="patronymicInputContainer">
+                            <div className="patronymicLabel">Отчество</div>
+                            <input className="patronymicField"
+                                type="text"
+                                id="patronymic"
+                                //ref={nameRef}
+                                autoComplete="off"
+                                onChange={(e) => setPatronymic(e.target.value)}
+                                value={patronymic}
+                                required
+                                aria-invalid={validPatronymic ? "false" : "true"}
+                                aria-describedby="uidnote"
+                                onFocus={() => setPatronymicFocus(true)}
+                                onBlur={() => setPatronymicFocus(false)}
+                            />
+                            <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
+                                <FontAwesomeIcon icon={faInfoCircle} />
+                                От 1 до 100 символов.<br />
+                                Должно содержать только буквы.<br />
+                            </p>
+                        </div>
+                        <div className="phoneInputContainer">
+                            <div className="phoneLabel">Номер телефона</div>
+                            <input className="phoneField"
+                                type="text"
+                                id="phoneNum"
+                                //ref={nameRef}
+                                autoComplete="off"
+                                onChange={(e) => setPhoneNum(e.target.value)}
+                                value={phoneNum}
+                                required
+                                aria-invalid={validPhoneNum ? "false" : "true"}
+                                aria-describedby="uidnote"
+                                onFocus={() => setPhoneNumFocus(true)}
+                                onBlur={() => setPhoneNumFocus(false)}
+                            />
+                            <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
+                                <FontAwesomeIcon icon={faInfoCircle} />
+                                используйте только цифры.<br />
+                                номер телефона содержит 11 цифр.<br />
+                            </p>
+                        </div>
+                        <div className="birthDateInputContainer">
+                            <div className="birthDateLabel">Дата рождения</div>
+                            <div className="inputWrapper">
+                                <input className="birthDatePlaceholder"
+                                    type="date"
+                                    id="birthday"
+                                    //ref={nameRef}
+                                    autoComplete="off"
+                                    onChange={(e) => setBirthday(e.target.value)}
+                                    value={birthday}
+                                    required
+                                    aria-invalid={validBirthday ? "false" : "true"}
+                                    aria-describedby="uidnote"
+                                    onFocus={() => setBirthdayFocus(true)}
+                                    onBlur={() => setBirthdayFocus(false)}
+                                    placeholder="**********"
+                                />
+                                <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    Некоректная дата рождения<br />
+                                </p>
+                            </div>
+                        </div>
+                        <div className="passwordInputContainer">
+                            <div className="passwordLabel">Пароль</div>
+                            <div className="inputWrapper">
+                                <input className="passwordPlaceholder"
+                                    type="password"
+                                    id="password"
+                                    onChange={(e) => setPwd(e.target.value)}
+                                    value={pwd}
+                                    required
+                                    aria-invalid={validPwd ? "false" : "true"}
+                                    aria-describedby="pwdnote"
+                                    onFocus={() => setPwdFocus(true)}
+                                    onBlur={() => setPwdFocus(false)}
+                                    placeholder="**********"
+                                />
+                                <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    От 8 до 24 символов.<br />
+                                    Пароль обязан содердать заглавные и строчние буквы, цифру и специальный символ.<br />
+                                    Разрешённые специальные символы: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div className="confirmPasswordInputContainer">
+                            <div className="confirmPasswordLabel">Подтвердите пароль</div>
+                            <div className="inputWrapper">
+                                <input className="confirmPasswordPlaceholder"
+                                    type="password"
+                                    id="confirm_pwd"
+                                    onChange={(e) => setMatchPwd(e.target.value)}
+                                    value={matchPwd}
+                                    required
+                                    aria-invalid={validMatch ? "false" : "true"}
+                                    aria-describedby="confirmnote"
+                                    onFocus={() => setMatchFocus(true)}
+                                    onBlur={() => setMatchFocus(false)}
+                                    placeholder="**********"
+                                />
+                                <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    Пароли должны совпадать.
+                                </p>
 
-                        <label htmlFor="name">
-                            Имя:
-                            <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
-                            required
-                            aria-invalid={validName ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setNameFocus(true)}
-                            onBlur={() => setNameFocus(false)}
-                        />
-                        <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            От 1 до 100 символов.<br />
-                            Должно содержать только буквы.<br />
-                        </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div className="submitContainer">
+            <button className="submitButton" 
+                disabled={!validEmail || !validName || !validSurname || !validPatronymic || !validPhoneNum || !validPwd || !validMatch || !validBirthday ? true : false}
+                onClick={handleSubmit}>
+                    Зарегистрироваться
+            </button>
+            
+            <div className="loginHintContainer">
+                <div className="alreadyRegisteredLabel">Уже зарегистрированы?</div>
+                <div className="loginPrompt">
+                    <a href="/login">Войдите!</a>
+                </div>
+            </div>
+        </div>
 
-
-                        <label htmlFor="surname">
-                            Фамилия:
-                            <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="text"
-                            id="surname"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setSurname(e.target.value)}
-                            value={surname}
-                            required
-                            aria-invalid={validSurname? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setSurnameFocus(true)}
-                            onBlur={() => setSurnameFocus(false)}
-                        />
-                        <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            От 1 до 100 символов.<br />
-                            Должно содержать только буквы.<br />
-                        </p>
-
-
-                        <label htmlFor="patronymic">
-                            Отчество:
-                            <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="text"
-                            id="patronymic"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setPatronymic(e.target.value)}
-                            value={patronymic}
-                            required
-                            aria-invalid={validPatronymic ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setPatronymicFocus(true)}
-                            onBlur={() => setPatronymicFocus(false)}
-                        />
-                        <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            От 1 до 100 символов.<br />
-                            Должно содержать только буквы.<br />
-                        </p>
-
-                        <label htmlFor="phoneNum">
-                            Номер телефона:
-                            <FontAwesomeIcon icon={faCheck} className={validPhoneNum  ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validPhoneNum  || !phoneNum ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="text"
-                            id="phoneNum"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setPhoneNum(e.target.value)}
-                            value={phoneNum}
-                            required
-                            aria-invalid={validPhoneNum ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setPhoneNumFocus(true)}
-                            onBlur={() => setPhoneNumFocus(false)}
-                        />
-                        <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            используйте только цифры.<br />
-                            номер телефона содержит 11 цифр.<br />
-                        </p>
-
-
-                        
-
-
-                        <label htmlFor="birthday">
-                            Дата рождения:
-                            <FontAwesomeIcon icon={faCheck} className={validBirthday? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="date"
-                            id="birthday"
-                            //ref={nameRef}
-                            autoComplete="off"
-                            onChange={(e) => setBirthday(e.target.value)}
-                            value={birthday}
-                            required
-                            aria-invalid={validBirthday ? "false" : "true"}
-                            aria-describedby="uidnote"
-                            onFocus={() => setBirthdayFocus(true)}
-                            onBlur={() => setBirthdayFocus(false)}
-                        />
-                        <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            Некоректная дата рождения<br />
-                        </p>
-
-
-
-                        <label htmlFor="password">
-                            Пароль:
-                            <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            onChange={(e) => setPwd(e.target.value)}
-                            value={pwd}
-                            required
-                            aria-invalid={validPwd ? "false" : "true"}
-                            aria-describedby="pwdnote"
-                            onFocus={() => setPwdFocus(true)}
-                            onBlur={() => setPwdFocus(false)}
-                        />
-                        <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            От 8 до 24 символов.<br />
-                            Пароль обязан содердать заглавные и строчние буквы, цифру и специальный символ.<br />
-                            Разрешённые специальные символы: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
-                        </p>
-
-
-                        <label htmlFor="confirm_pwd">
-                            Подтвердите пароль:
-                            <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
-                        </label>
-                        <input
-                            type="password"
-                            id="confirm_pwd"
-                            onChange={(e) => setMatchPwd(e.target.value)}
-                            value={matchPwd}
-                            required
-                            aria-invalid={validMatch ? "false" : "true"}
-                            aria-describedby="confirmnote"
-                            onFocus={() => setMatchFocus(true)}
-                            onBlur={() => setMatchFocus(false)}
-                        />
-                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            Пароли должны совпадать.
-                        </p>
-
-                        <button disabled={!validEmail || !validName || !validSurname || !validPatronymic || !validPhoneNum || !validPwd || !validMatch || !validBirthday ? true : false}>Зарегистрироваться</button>
-                    </form>
-                    <p>
-                        Уже зарегистрированы?<br />
-                        <span className="line">
-                            <Link to="/">Войти</Link>
-                        </span>
-                    </p>
-                </section>
+            </div>
+        </section>
             )}
             </main>
         </>
