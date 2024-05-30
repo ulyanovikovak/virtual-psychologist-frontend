@@ -166,7 +166,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="ctaContentBox" src={womanhand}> 
+            <div className="ctaContentBox"> 
             {/* ЧЕКНУТЬ */}
                 <div className="ctaContentBoxInner">
                     <div className="ctaFlexCol">
