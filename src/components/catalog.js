@@ -17,53 +17,53 @@ const Catalog = () => {
     }
 
     return (
-<body class="flex-column">
-    <main class="catalog main">
-        <section class="testSection">
-            <div class="flexRow">
-                <img class="image1" src={text} alt="alt text" />
-                <div class="contentBox">
+<body className="flex-column">
+    <main className="catalog main">
+        <section className="testSection">
+            <div className="flexRow">
+                <img className="image1" src={text} alt="alt text" />
+                <div className="contentBox">
                     </div>
-                <div class="infoBox">
-                    <div class="infoCol">
-                        <h1 class="headerTitle">Тесты</h1>
-                        <div class="infoRows">
-                            <div class="infoColumns">
-                                <h2 class="personalityDisordersTitle">Личностные  расстройства</h2>
-                                <h2 class="psychoticDisordersTitle">Психотические расстройства</h2>
-                                <h2 class="neuroticDisordersTitle">Невротические расстройства</h2>
-                                <h2 class="impulseControlDisordersTitle">Расстройства контроля импульсов</h2>
-                                <h2 class="eatingDisordersTitle">Расстройства пищевого поведения</h2>
-                                <h2 class="developmentDisordersTitle">Расстройства, связанные с развитием</h2>
-                                <h2 class="childhoodDisordersTitle">Расстройства, возникающие в детстве</h2>
-                                <h2 class="substanceDisordersTitle">Субстанцевые расстройства</h2>
+                <div className="infoBox">
+                    <div className="infoCol">
+                        <h1 className="headerTitle">Тесты</h1>
+                        <div className="infoRows">
+                            <div className="infoColumns">
+                                <h2 className="personalityDisordersTitle">Личностные  расстройства</h2>
+                                <h2 className="psychoticDisordersTitle">Психотические расстройства</h2>
+                                <h2 className="neuroticDisordersTitle">Невротические расстройства</h2>
+                                <h2 className="impulseControlDisordersTitle">Расстройства контроля импульсов</h2>
+                                <h2 className="eatingDisordersTitle">Расстройства пищевого поведения</h2>
+                                <h2 className="developmentDisordersTitle">Расстройства, связанные с развитием</h2>
+                                <h2 className="childhoodDisordersTitle">Расстройства, возникающие в детстве</h2>
+                                <h2 className="substanceDisordersTitle">Субстанцевые расстройства</h2>
                             </div>
-                            <div class="actionsColumn">
-                                <button class="viewButton">Смотреть</button><button class="viewButton1">Смотреть</button><button class="viewButton2">Смотреть</button><button class="viewButton3">Смотреть</button><button class="viewButton4">Смотреть</button><button class="viewButton5">Смотреть</button><button class="viewButton6">Смотреть</button><button class="viewButton7">Смотреть</button>
+                            <div className="actionsColumn">
+                                <button className="viewButton">Смотреть</button><button className="viewButton1">Смотреть</button><button className="viewButton2">Смотреть</button><button className="viewButton3">Смотреть</button><button className="viewButton4">Смотреть</button><button className="viewButton5">Смотреть</button><button className="viewButton6">Смотреть</button><button className="viewButton7">Смотреть</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="sideCol">
-                <div class="sideContent">
-                    <div class="sideRow">
-                        <img class="sideIcon" src={logo} alt="alt text" />
-                        <div class="sideRows">
-                            <div class="sideRowContent">
-                                <h2 class="homeTitle">Главная</h2>
-                                <h2 class="profileTitle">Личный кабинет</h2>
-                                <h2 class="problemCatalogTitle">Каталог проблем</h2>
+            <div className="sideCol">
+                <div className="sideContent">
+                    <div className="sideRow">
+                        <img className="sideIcon" src={logo} alt="alt text" />
+                        <div className="sideRows">
+                            <div className="sideRowContent">
+                                <h2 className="homeTitle">Главная</h2>
+                                <h2 className="profileTitle">Личный кабинет</h2>
+                                <h2 className="problemCatalogTitle">Каталог проблем</h2>
                             </div>
-                            <div class="accountActions">
-                                <h2 class="loginTitle">Войти</h2>
-                                <h2 class="registerTitle">Регистрация</h2>
+                            <div className="accountActions">
+                                <h2 className="loginTitle">Войти</h2>
+                                <h2 className="registerTitle">Регистрация</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="problemCatalogBox">
-                    <h2 class="problemCatalog">Каталог проблем</h2>
+                <div className="problemCatalogBox">
+                    <h2 className="problemCatalog">Каталог проблем</h2>
                 </div>
             </div>
         </section>
