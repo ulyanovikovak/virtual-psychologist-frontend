@@ -174,9 +174,9 @@ const Register = () => {
                     <div className="inputsContainer">
                         <div className="emailInputContainer">
                             <div className="emailLabel">Почта</div>
-                            <div className="inputWrapper">
+                         
                                 {/* <div className="emailPlaceholder">Введите вашу почту</div> */}
-                                <input className="emailPlaceholder"
+                                <input className="firstNameField"
                                     type="text"
                                     id="email"
                                     ref={emailRef}
@@ -196,7 +196,7 @@ const Register = () => {
                                     Некоректная почта.<br />
                                 </p>
                                 
-                            </div>
+                           
                         </div>
                         <div className="firstNameInputContainer">
                             <div className="firstNameLabel">Имя</div>
@@ -212,6 +212,7 @@ const Register = () => {
                                 aria-describedby="uidnote"
                                 onFocus={() => setNameFocus(true)}
                                 onBlur={() => setNameFocus(false)}
+                                placeholder="Введите ваше имя"
                             />
                             <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
@@ -233,6 +234,7 @@ const Register = () => {
                                 aria-describedby="uidnote"
                                 onFocus={() => setSurnameFocus(true)}
                                 onBlur={() => setSurnameFocus(false)}
+                                placeholder="Введите вашу фамилию"
                             />
                             <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
@@ -254,6 +256,7 @@ const Register = () => {
                                 aria-describedby="uidnote"
                                 onFocus={() => setPatronymicFocus(true)}
                                 onBlur={() => setPatronymicFocus(false)}
+                                placeholder="Введите ваше отчество"
                             />
                             <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
@@ -275,6 +278,7 @@ const Register = () => {
                                 aria-describedby="uidnote"
                                 onFocus={() => setPhoneNumFocus(true)}
                                 onBlur={() => setPhoneNumFocus(false)}
+                                placeholder="Введите ваш телефон"
                             />
                             <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
@@ -284,8 +288,8 @@ const Register = () => {
                         </div>
                         <div className="birthDateInputContainer">
                             <div className="birthDateLabel">Дата рождения</div>
-                            <div className="inputWrapper">
-                                <input className="birthDatePlaceholder"
+                           
+                                <input className="phoneField"
                                     type="date"
                                     id="birthday"
                                     //ref={nameRef}
@@ -303,12 +307,12 @@ const Register = () => {
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                     Некоректная дата рождения<br />
                                 </p>
-                            </div>
+                           
                         </div>
                         <div className="passwordInputContainer">
                             <div className="passwordLabel">Пароль</div>
-                            <div className="inputWrapper">
-                                <input className="passwordPlaceholder"
+                            
+                                <input className="firstNameField"
                                     type="password"
                                     id="password"
                                     onChange={(e) => setPwd(e.target.value)}
@@ -326,12 +330,12 @@ const Register = () => {
                                     Пароль обязан содердать заглавные и строчние буквы, цифру и специальный символ.<br />
                                     Разрешённые специальные символы: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                                 </p>
-                            </div>
+                            
                         </div>
                         <div className="confirmPasswordInputContainer">
                             <div className="confirmPasswordLabel">Подтвердите пароль</div>
-                            <div className="inputWrapper">
-                                <input className="confirmPasswordPlaceholder"
+                            
+                                <input className="firstNameField"
                                     type="password"
                                     id="confirm_pwd"
                                     onChange={(e) => setMatchPwd(e.target.value)}
@@ -348,7 +352,7 @@ const Register = () => {
                                     Пароли должны совпадать.
                                 </p>
 
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
