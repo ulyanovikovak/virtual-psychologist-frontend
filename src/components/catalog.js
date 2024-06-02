@@ -1,20 +1,62 @@
 import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from '../api/axios';
 import useLogout from "../hooks/useLogout";
+import Loader from "./Loader";
 
 import '../catalog.css';
 
 import logo from "../assets/logo.png";
 import text from "../assets/text.png";
 
+const PROBLEMS_URL = '/problems';
 
 const Catalog = () => {
     const navigate = useNavigate();
     const logout = useLogout();
 
+    const [problems, setProblems] = useState([]);
+    const [message, setMessage] = useState("");
+    const [fetching, setFetching] = useState(true);
+
     const signOut = async () => {
         await logout();
         navigate('/');
     }
+
+    const getProblems = async () => {
+        axios.get(PROBLEMS_URL, {
+            headers: { 
+              "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            withCredentials: true
+        }).then((response) => {
+            console.log(JSON.stringify(response.data));
+            setProblems(response.data);
+            setFetching(false)
+            setMessage('')
+            console.log(problems);
+        }).catch((err) => {
+            if (err.response) {
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+                setMessage('Catalog display Failed: ' + err?.response)
+            } else if (err.request) {
+                setMessage('No Server Response');
+                console.log(err.request);
+            } else {
+                setMessage('Something went wrong');
+                console.log('Error', err.message);
+            }
+            console.log(err.config);
+        })
+    }
+    
+    useEffect(() => {
+        setFetching(true)
+        getProblems()
+    }, [])
 
     return (
 <body className="flex-column">
@@ -28,7 +70,21 @@ const Catalog = () => {
                     <div className="infoCol">
                         <h1 className="headerTitle">Тесты</h1>
                         <div className="infoRows">
-                            
+                        {fetching && !message ? (
+                            <center>
+                                <Loader />
+                            </center>
+                        ) : problems.length < 1 || message? (
+                            <div className="noUser">{message}</div>
+                        ) : (
+                            <ul>
+                                {problems.map((problem, i) => (
+                                    <li key={`item_${i}`}>
+                                        { problem["name"] }
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                         </div>
                     </div>
                 </div>
