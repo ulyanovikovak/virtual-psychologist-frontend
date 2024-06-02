@@ -80,7 +80,10 @@ const Catalog = () => {
                             <ul>
                                 {problems.map((problem, i) => (
                                     <li key={`item_${i}`}>
-                                        { problem["name"] }
+                                        <div className="infoColumns">
+                                            <h2 className="impulseControlDisordersTitle">{ problem["name"] }</h2>
+                                            <button className="viewButton">Подробнее</button>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
