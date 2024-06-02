@@ -44,9 +44,18 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="authContainer">
+            {logout ? (
+                <h5 className="loginLink">
+                Выйти
+            </h5>
+                // <button onClick={logout}><h2 className="logoutLink">Выйти</h2></button>
+            ) : (
+                <>
                     <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
-                    <Link to="/register"><h2 className="registerLink">Регистрация</h2></Link>       
-                    </div>
+                    <Link to="/register"><h2 className="registerLink">Регистрация</h2></Link>
+                </>
+            )}
+        </div>
                 </div>
                 <div className="heroContainer">
                     <div className="heroContent">
