@@ -176,7 +176,7 @@ const Register = () => {
                             <div className="emailLabel">Почта</div>
                          
                                 {/* <div className="emailPlaceholder">Введите вашу почту</div> */}
-                                <input className="firstNameField"
+                                <input className="field"
                                     type="text"
                                     id="email"
                                     ref={emailRef}
@@ -200,7 +200,7 @@ const Register = () => {
                         </div>
                         <div className="firstNameInputContainer">
                             <div className="firstNameLabel">Имя</div>
-                            <input className="firstNameField"
+                            <input className="field"
                                 type="text"
                                 id="name"
                                 //ref={nameRef}
@@ -222,7 +222,7 @@ const Register = () => {
                         </div>
                         <div className="lastNameInputContainer">
                             <div className="lastNameLabel">Фамилия</div>
-                            <input className="lastNameField"
+                            <input className="field"
                                 type="text"
                                 id="surname"
                                 //ref={nameRef}
@@ -244,7 +244,7 @@ const Register = () => {
                         </div>
                         <div className="patronymicInputContainer">
                             <div className="patronymicLabel">Отчество</div>
-                            <input className="patronymicField"
+                            <input className="field"
                                 type="text"
                                 id="patronymic"
                                 //ref={nameRef}
@@ -266,7 +266,7 @@ const Register = () => {
                         </div>
                         <div className="phoneInputContainer">
                             <div className="phoneLabel">Номер телефона</div>
-                            <input className="phoneField"
+                            <input className="field"
                                 type="text"
                                 id="phoneNum"
                                 //ref={nameRef}
@@ -289,7 +289,7 @@ const Register = () => {
                         <div className="birthDateInputContainer">
                             <div className="birthDateLabel">Дата рождения</div>
                            
-                                <input className="phoneField"
+                                <input className="field"
                                     type="date"
                                     id="birthday"
                                     //ref={nameRef}
@@ -312,7 +312,7 @@ const Register = () => {
                         <div className="passwordInputContainer">
                             <div className="passwordLabel">Пароль</div>
                             
-                                <input className="firstNameField"
+                                <input className="field"
                                     type="password"
                                     id="password"
                                     onChange={(e) => setPwd(e.target.value)}
@@ -335,7 +335,7 @@ const Register = () => {
                         <div className="confirmPasswordInputContainer">
                             <div className="confirmPasswordLabel">Подтвердите пароль</div>
                             
-                                <input className="firstNameField"
+                                <input className="field"
                                     type="password"
                                     id="confirm_pwd"
                                     onChange={(e) => setMatchPwd(e.target.value)}

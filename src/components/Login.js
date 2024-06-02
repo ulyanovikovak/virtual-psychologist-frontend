@@ -94,7 +94,7 @@ const Login = () => {
                                     <input
                                         type="email"
                                         ref={emailRef}
-                                        className="passwordField"
+                                        className="Field"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Введите вашу почту"
@@ -106,7 +106,7 @@ const Login = () => {
                                
                                     <input
                                         type="password"
-                                        className="passwordField"
+                                        className="Field"
                                         value={pwd}
                                         onChange={(e) => setPwd(e.target.value)}
                                         placeholder="**********"

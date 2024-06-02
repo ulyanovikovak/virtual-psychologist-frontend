@@ -111,7 +111,7 @@
     text-align: center;
     letter-spacing: 0.42px;
   }
-  .register .firstNameField {
+  .register .field {
     position: relative;
     min-height: 41px;
     background-color: rgba(196, 196, 196, 0);
