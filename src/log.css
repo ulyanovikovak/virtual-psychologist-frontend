@@ -382,6 +382,17 @@ code {
     outline-offset: -1px;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.247);
   }
+
+  .login .passwordField {
+    position: relative;
+    min-height: 41px;
+    background-color: rgba(196, 196, 196, 0);
+    border-radius: 12px 12px 12px 12px;
+    outline: 1px solid rgba(0, 0, 0, 0.247);
+    outline-offset: -1px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.247);
+  }
+
   .login .emailPlaceholder {
     position: relative;
     display: flex;

@@ -90,28 +90,28 @@ const Login = () => {
                         <div className="flexCol4">
                             <div className="flexCol5">
                                 <div className="emailLabel">Почта</div>
-                                <div className="contentBox">
+                                
                                     <input
                                         type="email"
                                         ref={emailRef}
-                                        className="emailPlaceholder"
+                                        className="passwordField"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Введите вашу почту"
                                     />
-                                </div>
+                                
                             </div>
                             <div className="flexCol5">
                                 <div className="passwordLabel">Пароль</div>
-                                <div className="contentBox">
+                               
                                     <input
                                         type="password"
-                                        className="passwordPlaceholder"
+                                        className="passwordField"
                                         value={pwd}
                                         onChange={(e) => setPwd(e.target.value)}
                                         placeholder="**********"
                                     />
-                                </div>
+                               
                             </div>
                         </div>
                         <div className="flexCol6">
