@@ -35,6 +35,9 @@ const Catalog = () => {
             setProblems(response.data);
             setFetching(false)
             setMessage('')
+            if (problems.length < 1) {
+                setMessage('No problems added yet')
+            }
             console.log(problems);
         }).catch((err) => {
             if (err.response) {
