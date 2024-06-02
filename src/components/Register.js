@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png"
+import eyeOpen from "../assets/eyeopen.png";
+import eyeClose from "../assets/eyeclose.png";
 
 import '../register.css';
 
@@ -52,6 +54,7 @@ const Register = () => {
     const [matchFocus, setMatchFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [success, setSuccess] = useState(false);
 
     useEffect(() => {
@@ -151,6 +154,10 @@ const Register = () => {
             errRef.current.focus();
         }
     }
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
         <>
@@ -311,25 +318,41 @@ const Register = () => {
                         </div>
                         <div className="passwordInputContainer">
                             <div className="passwordLabel">Пароль</div>
-                            
-                                <input className="field"
-                                    type="password"
-                                    id="password"
-                                    onChange={(e) => setPwd(e.target.value)}
+
+                            <div className="passwordInputWrapper">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    className="field"
                                     value={pwd}
+                                    onChange={(e) => setPwd(e.target.value)}
+                                    placeholder="**********"
+                                    id="password"
                                     required
                                     aria-invalid={validPwd ? "false" : "true"}
                                     aria-describedby="pwdnote"
                                     onFocus={() => setPwdFocus(true)}
                                     onBlur={() => setPwdFocus(false)}
-                                    placeholder="**********"
                                 />
-                                <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+                                <button
+                                    type="button"
+                                    className="passwordToggleBtn"
+                                    onClick={toggleShowPassword}
+                                >
+                                    <img
+                                        src={showPassword ? eyeClose : eyeOpen}
+                                        alt={showPassword ? 'Hide Password' : 'Show Password'}
+                                        className="eyeIcon"
+                                    />
+                                </button>
+                            </div>
+                            <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                     От 8 до 24 символов.<br />
                                     Пароль обязан содердать заглавные и строчние буквы, цифру и специальный символ.<br />
                                     Разрешённые специальные символы: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                                 </p>
+                            
+                                
                             
                         </div>
                         <div className="confirmPasswordInputContainer">
