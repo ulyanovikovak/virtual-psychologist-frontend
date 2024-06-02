@@ -331,40 +331,73 @@
     min-width: 0px;
   }
   .catalog .homeTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0.5px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: span 1;
+      grid-column: span 1;
+      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+      color: black;
+      text-align: center;
+      letter-spacing: -0.31px;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+    }
+    @media (max-width: 991px) {
+      .untitled-page .homeTitle {
+        font-size: 22px;
+      }
+    }
+    @media (max-width: 479px) {
+      .untitled-page .homeTitle {
+        font-size: 20px;
+      }
+    }
   .catalog .profileTitle {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.5px 0px 0px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: span 1;
+      grid-column: span 1;
+      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+      color: black;
+      text-align: center;
+      letter-spacing: -0.31px;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+    }
+    @media (max-width: 991px) {
+      .untitled-page .homeTitle {
+        font-size: 22px;
+      }
+    }
+    @media (max-width: 479px) {
+      .untitled-page .homeTitle {
+        font-size: 20px;
+      }
   }
   .catalog .problemCatalogTitle {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0.5px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: span 1;
+      grid-column: span 1;
+      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+      color: black;
+      text-align: center;
+      letter-spacing: -0.31px;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+    }
+    @media (max-width: 991px) {
+      .untitled-page .homeTitle {
+        font-size: 22px;
+      }
+    }
+    @media (max-width: 479px) {
+      .untitled-page .homeTitle {
+        font-size: 20px;
+      }
   }
   .catalog .accountActions {
     position: relative;
@@ -389,15 +422,26 @@
   }
   .catalog .registerTitle {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3.5px 0px 0px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: span 1;
+      grid-column: span 1;
+      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+      color: black;
+      text-align: center;
+      letter-spacing: -0.31px;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+    }
+    @media (max-width: 991px) {
+      .untitled-page .homeTitle {
+        font-size: 22px;
+      }
+    }
+    @media (max-width: 479px) {
+      .untitled-page .homeTitle {
+        font-size: 20px;
+      }
   }
   .catalog .problemCatalogBox {
     position: relative;
