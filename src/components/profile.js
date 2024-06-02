@@ -23,7 +23,7 @@ const Profile = () => {
 
   const signOut = async () => {
       await logout();
-      navigate('/linkpage');
+      navigate('/');
   }
 
   const errRef = useRef();

@@ -13,7 +13,7 @@ const Catalog = () => {
 
     const signOut = async () => {
         await logout();
-        navigate('/linkpage');
+        navigate('/');
     }
 
     return (
@@ -28,19 +28,7 @@ const Catalog = () => {
                     <div className="infoCol">
                         <h1 className="headerTitle">Тесты</h1>
                         <div className="infoRows">
-                            <div className="infoColumns">
-                                <h2 className="personalityDisordersTitle">Личностные  расстройства</h2>
-                                <h2 className="psychoticDisordersTitle">Психотические расстройства</h2>
-                                <h2 className="neuroticDisordersTitle">Невротические расстройства</h2>
-                                <h2 className="impulseControlDisordersTitle">Расстройства контроля импульсов</h2>
-                                <h2 className="eatingDisordersTitle">Расстройства пищевого поведения</h2>
-                                <h2 className="developmentDisordersTitle">Расстройства, связанные с развитием</h2>
-                                <h2 className="childhoodDisordersTitle">Расстройства, возникающие в детстве</h2>
-                                <h2 className="substanceDisordersTitle">Субстанцевые расстройства</h2>
-                            </div>
-                            <div className="actionsColumn">
-                                <button className="viewButton">Смотреть</button><button className="viewButton1">Смотреть</button><button className="viewButton2">Смотреть</button><button className="viewButton3">Смотреть</button><button className="viewButton4">Смотреть</button><button className="viewButton5">Смотреть</button><button className="viewButton6">Смотреть</button><button className="viewButton7">Смотреть</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
