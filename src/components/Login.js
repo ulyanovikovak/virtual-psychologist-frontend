@@ -1,5 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
+import eyeOpen from "../assets/eyeopen.png";
+import eyeClose from "../assets/eyeclose.png";
+
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import '../log.css';
@@ -19,6 +22,7 @@ const Login = () => {
     const errRef = useRef();
 
     const [email, setEmail] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
@@ -66,6 +70,10 @@ const Login = () => {
         }
     }
 
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     const togglePersist = () => {
         setPersist(prev => !prev);
     }
@@ -103,14 +111,26 @@ const Login = () => {
                             </div>
                             <div className="flexCol5">
                                 <div className="passwordLabel">Пароль</div>
-                               
-                                    <input
-                                        type="password"
-                                        className="Field"
-                                        value={pwd}
-                                        onChange={(e) => setPwd(e.target.value)}
-                                        placeholder="**********"
+                            <div className="passwordInputWrapper">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    className="Field"
+                                    value={pwd}
+                                    onChange={(e) => setPwd(e.target.value)}
+                                    placeholder="**********"
+                                />
+                                <button
+                                    type="button"
+                                    className="passwordToggleBtn"
+                                    onClick={toggleShowPassword}
+                                >
+                                    <img
+                                        src={showPassword ? eyeClose : eyeOpen}
+                                        alt={showPassword ? 'Hide Password' : 'Show Password'}
+                                        className="eyeIcon"
                                     />
+                                </button>
+                            </div>
                                
                             </div>
                         </div>
