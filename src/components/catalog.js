@@ -98,13 +98,15 @@ const Catalog = () => {
                         <img className="sideIcon" src={logo} alt="alt text" />
                         <div className="sideRows">
                             <div className="sideRowContent">
-                                <h2 className="homeTitle">Главная</h2>
-                                <h2 className="profileTitle">Личный кабинет</h2>
-                                <h2 className="problemCatalogTitle">Каталог проблем</h2>
+                                <Link to="/"><h2 className="homeTitle">Главная</h2></Link>
+                                <Link to="/profile"><h2 className="profileTitle">Личный кабинет</h2></Link>
+                                <Link to="/catalog"><h2 className="problemCatalogTitle">Каталог проблем</h2></Link>
+                                
                             </div>
                             <div className="accountActions">
-                                <h2 className="loginTitle">Войти</h2>
-                                <h2 className="registerTitle">Регистрация</h2>
+                                <Link to="/login"><h2 className="loginTitle">Войти</h2></Link>
+                                <Link to="/register"><h2 className="registerTitle">Регистрация</h2></Link> 
+                                
                             </div>
                         </div>
                     </div>
