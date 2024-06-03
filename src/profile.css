@@ -607,6 +607,83 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
 }
 
+.profile .authContainer {
+  position: relative;
+  display: grid;
+  align-content: start;
+  width: 408px;
+  min-width: 0px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 1920px) and (max-width: 99999px) {
+  .profile .authContainer {
+    row-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+  }
+}
+@media (max-width: 1919px) {
+  .profile .authContainer {
+    row-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+  }
+}
+@media (max-width: 991px) {
+  .profile .authContainer {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.profile .loginLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 1;
+  grid-column: span 1;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+}
+@media (max-width: 991px) {
+  .profile .loginLink {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .profile .loginLink {
+    font-size: 20px;
+  }
+}
+.profile .registerLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 1;
+  grid-column: span 1;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+}
+@media (max-width: 991px) {
+  .profile .registerLink {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .profile.registerLink {
+    font-size: 20px;
+  }
+}
+
 
 /* common.css */
 

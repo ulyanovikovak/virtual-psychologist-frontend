@@ -18,13 +18,15 @@ const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PROFILE_URL = '/user/info';
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const logout = useLogout();
+    const navigate = useNavigate();
+    const logout = useLogout();
+    const [loggedIn, setLoggedIn] = useState(false)
 
-  const signOut = async () => {
-      await logout();
-      navigate('/');
-  }
+    const signOut = async () => {
+        await logout();
+        setLoggedIn(false)
+        navigate('/');
+    }
 
   const errRef = useRef();
 
@@ -51,12 +53,15 @@ const Profile = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-      axios.get(PROFILE_URL, {
+    if (localStorage.getItem("access")) {
+        setLoggedIn(true);
+    }
+    axios.get(PROFILE_URL, {
         headers: { 
           "Authorization": "Bearer " + localStorage.getItem("access"),
         },
         withCredentials: true
-      }).then((response) => {
+    }).then((response) => {
         console.log(JSON.stringify(response?.data));
         setSuccess(true);
         setName(response?.data.name);
@@ -65,7 +70,7 @@ const Profile = () => {
         setBirthday(response?.data.birthday);
         setEmail(response?.data.email);
         setPhoneNum(response?.data.phoneNum);
-      }).catch((err) => {
+    }).catch((err) => {
         if (err.response) {
           console.log(err.response.data);
           console.log(err.response.status);
@@ -79,7 +84,7 @@ const Profile = () => {
         }
         console.log(err.config);
         errRef.current.focus();
-      })
+    })
   }, [])
 
   useEffect(() => {
@@ -325,9 +330,16 @@ const Profile = () => {
                         <Link to="/"><h2 className="navigationTitle">Главная</h2></Link>
                         <Link to="/profile"><h2 className="navigationTitle1">Личный кабинет</h2></Link>
                         <Link to="/"><h2 className="navigationTitle">Каталог проблем</h2></Link>
-                        <h2 className="userNavigationTitle">
-                          {surname + " " + name + " " + patronymic}
-                        </h2>
+                    </div>
+                    <div className="authContainer">
+                    {loggedIn ? (
+                        <button onClick={signOut}><h5 className="loginLink">Выйти</h5></button>
+                    ) : (
+                        <>
+                            <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
+                            <Link to="/register"><h2 className="registerLink">Регистрация</h2></Link>
+                        </>
+                    )}
                     </div>
                 </div>
             </div>

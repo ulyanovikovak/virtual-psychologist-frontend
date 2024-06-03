@@ -18,16 +18,25 @@ import security from "../assets/security.png"
 import shield_icon from "../assets/shield_icon.png"
 import shield from "../assets/shield.png"
 import glasses from "../assets/man_glasses.png"
+import { useEffect, useState } from "react";
 // import womanhand from "../assets/womanhand.png"
 
 const Home = () => {
     const navigate = useNavigate();
     const logout = useLogout();
+    const [loggedIn, setLoggedIn] = useState(false)
 
     const signOut = async () => {
         await logout();
+        setLoggedIn(false)
         navigate('/');
     }
+
+    useEffect(() => {
+        if (localStorage.getItem("access")) {
+            setLoggedIn(true);
+        }
+    }, [])
 
     return (
         <div className="flex-column">
@@ -44,11 +53,8 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="authContainer">
-            {logout ? (
-                <h5 className="loginLink">
-                Выйти
-            </h5>
-                // <button onClick={logout}><h2 className="logoutLink">Выйти</h2></button>
+            {loggedIn ? (
+                <button onClick={signOut}><h5 className="loginLink">Выйти</h5></button>
             ) : (
                 <>
                     <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
