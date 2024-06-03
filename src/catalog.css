@@ -1,468 +1,365 @@
 .catalog.main {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    overflow: hidden;
-  }
-  .catalog .testSection {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  .catalog .flexRow {
-    position: absolute;
-    top: 179px;
-    left: 27px;
-    display: flex;
-    align-items: center;
-    gap: 0px 1px;
-    width: 1371px;
-    height: 836px;
-  }
-  .catalog .iconBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 636px;
-    min-width: 0px;
-    background: var(--src) center center/100% 100% no-repeat;
-  }
-  .catalog .iconImage {
-    position: relative;
-    margin: 0px auto 18px;
-    width: 90.41%;
-  }
-  .catalog .infoBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 734px;
-    min-width: 0px;
-    background-color: rgba(255, 203, 60, 0.2);
-  }
-  .catalog .infoCol {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 79px 0px;
-    margin: 28.5px 40px 80px 13.5px;
-  }
-  .catalog .headerTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 700 32px/0.62 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .infoRows {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0px 23px;
-    width: 100%;
-  }
-  .catalog .infoColumns {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 492.5px;
-    min-width: 0px;
-  }
-  .catalog .personalityDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 5px;
-    width: 342px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .psychoticDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 47px 0px 0px 5.5px;
-    width: 75.74%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .neuroticDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 53px 0px 0px 5px;
-    width: 76.35%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .impulseControlDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 52px 0px 0px;
-    width: 89.54%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .eatingDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 37px 0px 5.5px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .developmentDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 47px 6.5px 0px 2px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .childhoodDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 47px 0px 0px 5.5px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .substanceDisordersTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 38px 0px 0px 4.5px;
-    width: 73.3%;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
-  .catalog .actionsColumn {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 165px;
-    min-width: 0px;
-  }
-  .catalog .viewButton {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 0px 4px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton1 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 42px 4px 0px 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton2 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 42px 4px 0px 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton3 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 35px 4px 0px 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton4 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 42px 0px 0px 4px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton5 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 32px 0px 0px 4px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton6 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 47px 0px 0px 4px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .viewButton7 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 42px 4px 0px 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    background-color: #ffcb3c;
-    border-radius: 15px 15px 15px 15px;
-    padding: 5px 8px 5px 8px;
-    letter-spacing: -0.31px;
-  }
-  .catalog .sideCol {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1px 0px;
-    margin: 0px 0px 856px;
-  }
-  .catalog .sideContent {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-  }
-  .catalog .sideRow {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0px 10px;
-    margin: 0px auto;
-    width: 90.94%;
-  }
-  .catalog .sideIcon {
-    position: relative;
-    width: 120px;
-    min-width: 0px;
-    height: 99px;
-  }
-  .catalog .sideRows {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    gap: 0px 10px;
-    width: 1133.5px;
-    min-width: 0px;
-  }
-  .catalog .sideRowContent {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    gap: 0px 10px;
-    margin: 4px 0px 0px;
-    width: 707.5px;
-    min-width: 0px;
-  }
-  .catalog .homeTitle {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      grid-row: span 1;
-      grid-column: span 1;
-      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-      color: black;
-      text-align: center;
-      letter-spacing: -0.31px;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
-    }
-    @media (max-width: 991px) {
-      .untitled-page .homeTitle {
-        font-size: 22px;
-      }
-    }
-    @media (max-width: 479px) {
-      .untitled-page .homeTitle {
-        font-size: 20px;
-      }
-    }
-  .catalog .profileTitle {
-    position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      grid-row: span 1;
-      grid-column: span 1;
-      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-      color: black;
-      text-align: center;
-      letter-spacing: -0.31px;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
-    }
-    @media (max-width: 991px) {
-      .untitled-page .homeTitle {
-        font-size: 22px;
-      }
-    }
-    @media (max-width: 479px) {
-      .untitled-page .homeTitle {
-        font-size: 20px;
-      }
-  }
-  .catalog .problemCatalogTitle {
-    position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      grid-row: span 1;
-      grid-column: span 1;
-      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-      color: black;
-      text-align: center;
-      letter-spacing: -0.31px;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
-    }
-    @media (max-width: 991px) {
-      .untitled-page .homeTitle {
-        font-size: 22px;
-      }
-    }
-    @media (max-width: 479px) {
-      .untitled-page .homeTitle {
-        font-size: 20px;
-      }
-  }
-  .catalog .accountActions {
-    position: relative;
-    display: flex;
-    gap: 0px 21px;
-    margin: 0px 0px 1px;
-    width: 315.5px;
-    min-width: 0px;
-  }
-  .catalog .loginTitle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px 3.5px;
-    min-width: 0px;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
-  }
-  .catalog .registerTitle {
-    position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      grid-row: span 1;
-      grid-column: span 1;
-      font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-      color: black;
-      text-align: center;
-      letter-spacing: -0.31px;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
-    }
-    @media (max-width: 991px) {
-      .untitled-page .homeTitle {
-        font-size: 22px;
-      }
-    }
-    @media (max-width: 479px) {
-      .untitled-page .homeTitle {
-        font-size: 20px;
-      }
-  }
-  .catalog .problemCatalogBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 0px 0px 0px 1px;
-    background-color: rgba(255, 203, 60, 0.2);
-  }
-  .catalog .problemCatalog {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 24px auto;
-    font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
-    text-align: center;
-    letter-spacing: -0.31px;
-  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow: hidden;
+}
+.catalog .overviewSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px 0px;
+}
+.catalog .flexColContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1px 0px;
+  width: 100%;
+}
+.catalog .contentBoxTests {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.catalog .flexRowHeader {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 10px;
+  margin: 0px auto;
+  width: 90.94%;
+}
+.catalog .heroImage {
+  position: relative;
+  width: 120px;
+  min-width: 0px;
+  height: 99px;
+}
+.catalog .flexRowNavigation {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  width: 1133.5px;
+  min-width: 0px;
+}
+.catalog .flexRowMainLinks {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  margin: 4px 0px 0px;
+  width: 707.5px;
+  min-width: 0px;
+}
+.catalog .homeLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0.5px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .profileLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5px 0px 0px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .catalogLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0.5px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .flexRowAuthLinks {
+  position: relative;
+  display: flex;
+  gap: 0px 21px;
+  margin: 0px 0px 1px;
+  width: 315.5px;
+  min-width: 0px;
+}
+.catalog .loginLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 3.5px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+}
+.catalog .signupLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5px 0px 0px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .contentBoxCatalog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 0px 1px;
+  background-color: rgba(255, 203, 60, 0.2);
+}
+.catalog .catalogTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px auto;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .flexRowContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0px 23px;
+  margin: 0px 0px 12px;
+  width: 92.64%;
+}
+.catalog .flexColDisorders {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px 0px;
+  width: 577px;
+  min-width: 0px;
+}
+.catalog .disordersImage {
+  position: relative;
+  margin: 0px 0px 0px 2px;
+  width: calc(100% - 2px);
+}
+.catalog .highlightBox_box {
+  position: relative;
+  margin: 0px 2px 0px 0px;
+}
+.catalog .highlightBox {
+  font: 700 16px/1.25 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.31px;
+}
+.catalog .highlightBox_span0 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .highlightBox_span1 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .highlightBox_span2 {
+  font: 700 1em/1.25 "Montagu Slab", Helvetica, Arial, serif;
+}
+.catalog .highlightBox_span3 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .highlightBox_span4 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .highlightBox_span5 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .highlightBox_span6 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .highlightBox_span7 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .content_box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 734px;
+  min-width: 0px;
+  background-color: rgba(255, 203, 60, 0.2);
+  top: -300px; 
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.catalog .flexColTests {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 79px 0px;
+  margin: 28.5px 40px 80px 15.5px;
+}
+.catalog .pageTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 700 32px/0.62 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .flexColTestsItems {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.catalog .flexRowPersonalityDisorders {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  margin: 0px 0px 0px 3px;
+}
+
+.catalog .mainContentRow {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 10px;
+  width: 96.94%;
+}
+
+.catalog .commonIssuesBox_box {
+  position: relative;
+  width: 98.97%;
+}
+.catalog .commonIssuesBox {
+  font: italic 500 16px/1.25 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.31px;
+}
+.catalog .commonIssuesBox_span0 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .commonIssuesBox_span1 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .commonIssuesBox_span2 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .severeIssuesBox_box {
+  position: relative;
+  width: 95.01%;
+}
+
+.catalog .severeIssuesBox {
+  font: 700 16px/1.25 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.31px;
+}
+.catalog .severeIssuesBox_span0 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .severeIssuesBox_span1 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .severeIssuesBox_span2 {
+  font: 700 1em/1.25 "Montagu Slab", Helvetica, Arial, serif;
+}
+.catalog .severeIssuesBox_span3 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .severeIssuesBox_span4 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .severeIssuesBox_span5 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .severeIssuesBox_span6 {
+  font: 700 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+}
+.catalog .severeIssuesBox_span7 {
+  font: italic 500 1em/1.25 "Montserrat", Helvetica, Arial, serif;
+  font-style: italic;
+}
+.catalog .commonDiseasesColumn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px 0px;
+  width: 581px;
+  min-width: 0px;
+}
+.catalog .highlight1 {
+  position: relative;
+  font: 700 18px/1.77 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.31px;
+}
+.catalog .Title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7px 0px 3px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+.catalog .Button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 161px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #ffcb3c;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+.catalog .flexRowPsychoticDisorders {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  margin: 42px 4px 0px 3.5px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 *,
@@ -710,6 +607,7 @@ code {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @font-face {
@@ -730,19 +628,20 @@ code {
 }
 
 .headroom {
-    z-index: 10000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    will-change: transform;
-    transition: transform 200ms linear;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: transform;
+  transition: transform 200ms linear;
 }
 
 .headroom--pinned {
-    transform: translateY(0%);
+  transform: translateY(0%);
 }
 
 .headroom--unpinned {
-    transform: translateY(-100%);
+  transform: translateY(-100%);
 }
+

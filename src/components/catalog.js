@@ -7,7 +7,6 @@ import Loader from "./Loader";
 import '../catalog.css';
 
 import logo from "../assets/logo.png";
-import text from "../assets/text.png";
 
 const PROBLEMS_URL = '/problems';
 
@@ -64,58 +63,66 @@ const Catalog = () => {
     return (
 <body className="flex-column">
     <main className="catalog main">
-        <section className="testSection">
-            <div className="flexRow">
-                <img className="image1" src={text} alt="alt text" />
-                <div className="contentBox">
-                    </div>
-                <div className="infoBox">
-                    <div className="infoCol">
-                        <h1 className="headerTitle">Тесты</h1>
-                        <div className="infoRows">
-                        {fetching && !message ? (
-                            <center>
-                                <Loader />
-                            </center>
-                        ) : problems.length < 1 || message? (
-                            <div className="noUser">{message}</div>
-                        ) : (
-                            <ul>
-                                {problems.map((problem, i) => (
-                                    <li key={`item_${i}`}>
-                                        <div className="infoColumns">
-                                            <h2 className="impulseControlDisordersTitle">{ problem["name"] }</h2>
-                                            <button className="viewButton">Подробнее</button>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+        <section className="overviewSection">
+            <div className="flexColContainer">
+                <div className="contentBoxTests">
+                    <div className="flexRowHeader">
+                        <img className="heroImage" src={logo} alt="alt text" />
+                        <div className="flexRowNavigation">
+                            <div className="flexRowMainLinks">
+                                <h2 className="homeLink">Главная</h2>
+                                <h2 className="profileLink">Личный кабинет</h2>
+                                <h2 className="catalogLink">Каталог проблем</h2>
+                            </div>
+                            <div className="flexRowAuthLinks">
+                                <h2 className="loginLink">Войти</h2>
+                                <h2 className="signupLink">Регистрация</h2>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div className="contentBoxCatalog">
+                    <h2 className="catalogTitle">Каталог проблем</h2>
                 </div>
             </div>
-            <div className="sideCol">
-                <div className="sideContent">
-                    <div className="sideRow">
-                        <img className="sideIcon" src={logo} alt="alt text" />
-                        <div className="sideRows">
-                            <div className="sideRowContent">
-                                <Link to="/"><h2 className="homeTitle">Главная</h2></Link>
-                                <Link to="/profile"><h2 className="profileTitle">Личный кабинет</h2></Link>
-                                <Link to="/catalog"><h2 className="problemCatalogTitle">Каталог проблем</h2></Link>
-                                
-                            </div>
-                            <div className="accountActions">
-                                <Link to="/login"><h2 className="loginTitle">Войти</h2></Link>
-                                <Link to="/register"><h2 className="registerTitle">Регистрация</h2></Link> 
-                                
+            <div class="mainContentRow">
+                    <div class="commonDiseasesColumn">
+                        <h4 class="highlight1">Наиболее распространённые заболевания психики:</h4>
+                        <div class="diseasesListColumn">
+                            <h5 class="commonIssuesBox_box">
+                                <span class="commonIssuesBox"
+                    ><span class="commonIssuesBox_span0"><br /></span><span class="commonIssuesBox_span1">Невротические расстройства</span><span class="commonIssuesBox_span2">
+                      (легкая психопатология):<br />Тревожные      расстройства:<br />Генерализованное       тревожное
+                      расстройство<br />Паническое       расстройство<br />Социофобия<br />Расстройство
+                            обсессивно-компульсивного спектра<br />Посттравматическое       стрессовое расстройство<br />Различные
+                      фобии<br />Аффективные      расстройства:<br />Депрессия<br />Биполярное аффективное
+                      расстройство<br />Расстройства, связанные с соматическими симптомами:<br />Соматоформные
+                            расстройства<br />Нарушения сна:<br />Бессонница<br />Гиперсомния</span></span>
+                            </h5>
+                            <h5 class="severeIssuesBox_box">
+                                <span class="severeIssuesBox"
+                    ><span class="severeIssuesBox_span0"
+                      >Психопатические расстройства (тяжелая психопатология):<br /></span><span class="severeIssuesBox_span1">Шизофрения<br />Бредовые расстройства<br /></span><span class="severeIssuesBox_span2">Личностные (персонификационные) расстройства:<br /></span><span class="severeIssuesBox_span3"
+                      >Параноидальное      расстройство личности<br />Шизоидное расстройство личности<br />Нарциссическое
+                           расстройство личности<br />Граничное расстройство личности (эмоционально нестабильное)<br />Избегающее
+                      (тревожное) расстройство личности<br />Зависимое расстройство личности<br />Антисоциальное
+                      расстройство личности<br /></span><span class="severeIssuesBox_span4">Расстройства пищевого поведения:<br /></span><span class="severeIssuesBox_span5"
+                      >Анорексия нервоза<br />Булимия нервоза<br />Переедание<br />Расстройства контроля импульсов:<br />Клептомания<br />Патологическая
+                           склонность к азартным играм<br />Пиромания      (навязчивое поджигательство)<br /></span><span class="severeIssuesBox_span6">Зависимости и субстанцевые расстройства:<br /></span><span class="severeIssuesBox_span7"
+                      >Алкогольная зависимость<br />Зависимость от наркотических веществ<br />Табакокурение</span></span>
+                            </h5>
+                        </div>
+                    </div>
+                <div className="content_box">
+                    <div className="flexColTests">
+                        <h1 className="pageTitle">Тесты</h1>
+                        <div className="flexColTestsItems">
+                            <div className="flexRowPersonalityDisorders">
+                                <h2 className="Title">Личностные  расстройства</h2>
+                                <button className="Button">Подробнее</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="problemCatalogBox">
-                    <h2 className="problemCatalog">Каталог проблем</h2>
                 </div>
             </div>
         </section>
