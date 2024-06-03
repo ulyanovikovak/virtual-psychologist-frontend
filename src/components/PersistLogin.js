@@ -22,7 +22,6 @@ const PersistLogin = () => {
                 isMounted && setIsLoading(false);
             }
         }
-        console.log("PersistLogin");
         let accessToken = localStorage.getItem("access");
         accessToken && persist ? verifyRefreshToken() : setIsLoading(false);
 
@@ -32,8 +31,6 @@ const PersistLogin = () => {
     useEffect(() => {
         console.log(`isLoading: ${isLoading}`)
         //console.log(`aT: ${JSON.stringify(auth?.accessToken)}`)
-        let accessToken = localStorage.getItem("access");
-        console.log(`aT: ${JSON.stringify(accessToken)}`)
     }, [isLoading])
 
     return (

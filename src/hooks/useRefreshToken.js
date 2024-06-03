@@ -9,13 +9,11 @@ const useRefreshToken = () => {
             withCredentials: true
         });*/
         setAuth(prev => {
-            let accessToken = localStorage.getItem("access")
-            console.log(JSON.stringify(prev));
-            console.log("useRefreshToken");
-            console.log(accessToken);
+            let accessToken = localStorage.getItem("access");
+            const role = Number(localStorage.getItem("role"));
             return {
                 ...prev,
-                roles: [2001],//response.data.roles,
+                roles: [role], //response.data.role,
                 accessToken: accessToken
             }
         });

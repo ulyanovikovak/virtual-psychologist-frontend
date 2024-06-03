@@ -47,10 +47,11 @@ const Login = () => {
             );
             console.log(JSON.stringify(response?.data));
             const accessToken = response?.data?.accessToken;
+            const roles = [response?.data?.role];
             localStorage.setItem("access", accessToken);
-            const roles = [2001] //response?.data?.roles;
-            console.log(accessToken);
-            setAuth({ email, pwd, roles, accessToken });
+            localStorage.setItem("role", response?.data?.role);
+            localStorage.setItem("persist", persist);
+            setAuth({ roles, accessToken });
             setEmail('');
             setPwd('');
             navigate(from, { replace: true });
@@ -77,10 +78,6 @@ const Login = () => {
     const togglePersist = () => {
         setPersist(prev => !prev);
     }
-
-    useEffect(() => {
-        localStorage.setItem("persist", persist);
-    }, [persist])
 
     return (
         <main className="login main">
