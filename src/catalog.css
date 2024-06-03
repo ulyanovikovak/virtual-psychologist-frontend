@@ -358,6 +358,110 @@
   margin: 42px 4px 0px 3.5px;
 }
 
+.catalog .authContainer {
+  position: relative;
+  display: grid;
+  align-content: start;
+  width: 408px;
+  min-width: 0px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 1920px) and (max-width: 99999px) {
+  .catalog .authContainer {
+    row-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+  }
+}
+@media (max-width: 1919px) {
+  .catalog .authContainer {
+    row-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+  }
+}
+@media (max-width: 991px) {
+  .catalog .authContainer {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+    min-width: unset;
+  }
+}
+.catalog .loginLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 1;
+  grid-column: span 1;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+}
+@media (max-width: 991px) {
+  .catalog .loginLink {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .catalog .loginLink {
+    font-size: 20px;
+  }
+}
+.catalog .registerLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 1;
+  grid-column: span 1;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+}
+@media (max-width: 991px) {
+  .catalog .registerLink {
+    font-size: 22px;
+  }
+}
+@media (max-width: 479px) {
+  .catalog.registerLink {
+    font-size: 20px;
+  }
+}
+
+.catalog .image {
+  position: relative;
+  width: 120px;
+  min-width: 0px;
+  height: 99px;
+}
+.catalog .flexRow4 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  width: 1098px;
+  min-width: 0px;
+}
+.catalog .navigationTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5px 0px 0.5px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');

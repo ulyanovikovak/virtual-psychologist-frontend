@@ -13,15 +13,18 @@ const PROBLEMS_URL = '/problems';
 const Catalog = () => {
     const navigate = useNavigate();
     const logout = useLogout();
+    const [loggedIn, setLoggedIn] = useState(false)
+
+    const signOut = async () => {
+        await logout();
+        setLoggedIn(false)
+        navigate('/catalog');
+    }
 
     const [problems, setProblems] = useState([]);
     const [message, setMessage] = useState("");
     const [fetching, setFetching] = useState(true);
 
-    const signOut = async () => {
-        await logout();
-        navigate('/');
-    }
 
     const getProblems = async () => {
         axios.get(PROBLEMS_URL, {
@@ -34,10 +37,6 @@ const Catalog = () => {
             setProblems(response.data);
             setFetching(false)
             setMessage('')
-            if (problems.length < 1) {
-                setMessage('No problems added yet')
-            }
-            console.log(problems);
         }).catch((err) => {
             if (err.response) {
                 console.log(err.response.data);
@@ -53,9 +52,15 @@ const Catalog = () => {
             }
             console.log(err.config);
         })
+        if (message === "" && problems.length < 1 && !fetching) {
+            setMessage("No problems added yet");
+        }
     }
     
     useEffect(() => {
+        if (localStorage.getItem("access")) {
+            setLoggedIn(true);
+        }
         setFetching(true)
         getProblems()
     }, [])
@@ -67,17 +72,21 @@ const Catalog = () => {
             <div className="flexColContainer">
                 <div className="contentBoxTests">
                     <div className="flexRowHeader">
-                        <img className="heroImage" src={logo} alt="alt text" />
-                        <div className="flexRowNavigation">
-                            <div className="flexRowMainLinks">
-                                <h2 className="homeLink">Главная</h2>
-                                <h2 className="profileLink">Личный кабинет</h2>
-                                <h2 className="catalogLink">Каталог проблем</h2>
-                            </div>
-                            <div className="flexRowAuthLinks">
-                                <h2 className="loginLink">Войти</h2>
-                                <h2 className="signupLink">Регистрация</h2>
-                            </div>
+                        <img className="image" src={logo} alt="alt text" />
+                        <div className="flexRow4">
+                            <Link to="/"><h2 className="navigationTitle">Главная</h2></Link>
+                            <Link to="/profile"><h2 className="navigationTitle">Личный кабинет</h2></Link>
+                            <Link to="/catalog"><h2 className="navigationTitle">Каталог проблем</h2></Link>
+                        </div>
+                        <div className="authContainer">
+                        {loggedIn ? (
+                            <button onClick={signOut}><h5 className="loginLink">Выйти</h5></button>
+                        ) : (
+                            <>
+                                <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
+                                <Link to="/register"><h2 className="registerLink">Регистрация</h2></Link>
+                            </>
+                        )}
                         </div>
                     </div>
                 </div>
@@ -117,10 +126,22 @@ const Catalog = () => {
                     <div className="flexColTests">
                         <h1 className="pageTitle">Тесты</h1>
                         <div className="flexColTestsItems">
-                            <div className="flexRowPersonalityDisorders">
-                                <h2 className="Title">Личностные  расстройства</h2>
-                                <button className="Button">Подробнее</button>
-                            </div>
+                            {fetching && !message ? (
+                                <center>
+                                    <Loader />
+                                </center>
+                            ) : message? (
+                                <div className="Title">{message}</div>
+                            ) : (
+                                <ul>
+                                    {problems.map((problem, i) => (
+                                        <li key={`item_${i}`} className="flexRowPersonalityDisorders">
+                                            <h2 className="Title">{ problem["name"] }</h2>
+                                            <button className="Button">Подробнее</button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
                     </div>
                 </div>
