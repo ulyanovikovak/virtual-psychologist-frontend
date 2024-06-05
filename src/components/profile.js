@@ -8,12 +8,14 @@ import useLogout from "../hooks/useLogout";
 import React from 'react';
 import '../profile.css';
 import logo from "../assets/logo.png"
+import Loader from "./Loader";
 
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PROFILE_URL = '/user/info';
 const UPDATE_URL = '/user';
+const PROBLEMS_URL = '/problems';
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -27,6 +29,60 @@ const Profile = () => {
     }
 
     const errRef = useRef();
+
+
+////////////////////////////////////////
+
+
+
+const [problems, setProblems] = useState([]);
+const [message, setMessage] = useState("");
+const [fetching, setFetching] = useState(true);
+
+
+const getProblems = async () => {
+    axios.get(PROBLEMS_URL, {
+        headers: { 
+          "Authorization": "Bearer " + localStorage.getItem("access"),
+        },
+        withCredentials: true
+    }).then((response) => {
+        console.log(JSON.stringify(response.data));
+        setProblems(response.data);
+        setFetching(false)
+        setMessage('')
+    }).catch((err) => {
+        if (err.response) {
+            console.log(err.response.data);
+            console.log(err.response.status);
+            console.log(err.response.headers);
+            setMessage('Catalog display Failed: ' + err?.response)
+        } else if (err.request) {
+            setMessage('No Server Response');
+            console.log(err.request);
+        } else {
+            setMessage('Something went wrong');
+            console.log('Error', err.message);
+        }
+        console.log(err.config);
+    })
+    if (message === "" && problems.length < 1 && !fetching) {
+        setMessage("No problems added yet");
+    }
+}
+
+useEffect(() => {
+    if (localStorage.getItem("access")) {
+        setLoggedIn(true);
+    }
+    setFetching(true)
+    getProblems()
+}, [])
+
+
+
+///////////////////////
+
 
     const [email, setEmail] = useState('');
     const [phoneNum, setPhoneNum] = useState('');
@@ -311,7 +367,7 @@ const Profile = () => {
                     </div>
                     </form>
                 </div>
-                <div className="testResultsContentBox">
+                {/* <div className="testResultsContentBox">
                     <div className="flexRow2">
                         <div className="flexCol8">
                             <h2 className="mediumTitle7">Результаты по пройденным тестам</h2>
@@ -330,8 +386,36 @@ const Profile = () => {
                             <button className="updateButton">Обновить</button><button className="viewButton">Смотреть</button><button className="viewButton1">Смотреть</button><button className="viewButton1">Смотреть</button><button className="viewButton2">Смотреть</button><button className="viewButton3">Смотреть</button><button className="viewButton4">Смотреть</button><button className="viewButton5">Смотреть</button><button className="viewButton1">Смотреть</button>
                         </div>
                     </div>
+                </div> */}
+
+                <div className="testResultsContentBox">
+                    <div className="flexColTests">
+                        <h1 className="pageTitle">Тесты</h1>
+                        <div className="flexColTestsItems">
+                            {fetching && !message ? (
+                                <center>
+                                    <Loader />
+                                </center>
+                            ) : message? (
+                                <div className="Title">{message}</div>
+                            ) : (
+                                <ul>
+                                    {problems.map((problem, i) => (
+                                        <li key={`item_${i}`} className="flexRowPersonalityDisorders">
+                                            <h2 className="Title">{ problem["name"] }</h2>
+                                            <Link to={"/catalog/" + problem["id"]}><button className="Button">Подробнее</button></Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
+
+            
             <div className="navigationContentBox">
                 <div className="flexRow3">
                     <img className="image" src={logo} alt="alt text" />

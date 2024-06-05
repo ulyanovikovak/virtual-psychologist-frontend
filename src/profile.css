@@ -607,6 +607,70 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
 }
 
+.profile .pageTitle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 700 32px/0.62 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+
+
+.profile .flexColTests {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 79px 0px;
+  margin: 28.5px 40px 80px 15.5px;
+}
+
+.profile .flexColTestsItems {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile .Title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7px 0px 3px;
+  min-width: 0px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  letter-spacing: -0.31px;
+}
+
+.profile .flexRowPersonalityDisorders {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 10px;
+  margin: 0px 0px 0px 3px;
+}
+
+.profile .Button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 161px;
+  font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #ffcb3c;
+  border-radius: 15px 15px 15px 15px;
+  padding: 5px 8px 5px 8px;
+  letter-spacing: -0.31px;
+}
+
 .profile .authContainer {
   position: relative;
   display: grid;
