@@ -17,6 +17,7 @@ const DESCRIPTION_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const FORMLINK_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const TESTLINK_REGEX = /^[A-z]{1,100}$/;
 const CREATE_URL = '/problems';
+const REFRESH_URL = "/test-case/refresh"
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -46,6 +47,8 @@ const Admin = () => {
     const [testLink, setTestLink] = useState('');
     const [validTestLink, setValidTestLink] = useState(false);
     const [testLinkFocus, setTestLinkFocus] = useState(false);
+
+    const [testCases, setTestCases] = useState([])
     
     const [errMsg, setErrMsg] = useState('');
 
@@ -68,6 +71,37 @@ const Admin = () => {
     useEffect(() => {
         setErrMsg('');
     }, [description, testLink, name, formLink]);
+
+    useEffect(() => {
+        if (localStorage.getItem("access")) {
+            setLoggedIn(true);
+        }
+        axios.put(REFRESH_URL, {
+            headers: { 
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            withCredentials: true
+        }).then((response) => {
+            console.log(JSON.stringify(response?.data));
+            setErrMsg("");
+            setTestCases(response.data.map((x) => x["name"]));
+            console.log(testCases);
+        }).catch((err) => {
+            if (err.response) {
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+                setErrMsg('Test cases loading Failed: ' + err?.response);
+            } else if (err.request) {
+                setErrMsg('No Server Response');
+                console.log(err.request);
+            } else {
+                console.log('Error', err.message);
+                setErrMsg('Error: ' + err.message);
+            }
+            console.log(err.config);
+        });
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
