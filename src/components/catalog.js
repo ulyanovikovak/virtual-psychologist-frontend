@@ -69,26 +69,26 @@ const Catalog = () => {
 <body className="flex-column">
     <main className="catalog main">
         <section className="overviewSection">
-            <div className="flexColContainer">
-                <div className="contentBoxTests">
-                    <div className="flexRowHeader">
-                        <img className="image" src={logo} alt="alt text" />
-                        <div className="flexRow4">
-                            <Link to="/"><h2 className="navigationTitle">Главная</h2></Link>
-                            <Link to="/profile"><h2 className="navigationTitle">Личный кабинет</h2></Link>
-                            <Link to="/catalog"><h2 className="navigationTitle">Каталог проблем</h2></Link>
-                        </div>
-                        <div className="authContainer">
-                        {loggedIn ? (
-                            <button onClick={signOut}><h5 className="loginLink">Выйти</h5></button>
-                        ) : (
-                            <>
-                                <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
-                                <Link to="/register"><h2 className="registerLink">Регистрация</h2></Link>
-                            </>
-                        )}
+        <div className="headerContainer">
+                <div className="navContainer">
+                    <div className="brandContainer">
+                        <img className="brandLogo" src={logo} alt="alt text" />
+                        <div className="navMenu">     
+                        <Link to="/"><h2 className="homeLink">Главная</h2></Link>
+                        <Link to="/profile"><h2 className="profileLink">Личный кабинет</h2></Link>
+                        <Link to="/catalog"><h2 className="problemsCatalogLink">Каталог проблем</h2></Link>
                         </div>
                     </div>
+                    <div className="authContainer">
+            {loggedIn ? (
+                <button onClick={signOut}><h5 className="loginLink">Выйти</h5></button>
+            ) : (
+                <>
+                    <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
+                    <Link to="/register"><h2 className="registerLink">Регистрация</h2></Link>
+                </>
+            )}
+        </div>
                 </div>
                 <div className="contentBoxCatalog">
                     <h2 className="catalogTitle">Каталог проблем</h2>
