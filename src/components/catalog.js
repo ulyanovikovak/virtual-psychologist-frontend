@@ -137,7 +137,7 @@ const Catalog = () => {
                                     {problems.map((problem, i) => (
                                         <li key={`item_${i}`} className="flexRowPersonalityDisorders">
                                             <h2 className="Title">{ problem["name"] }</h2>
-                                            <button className="Button">Подробнее</button>
+                                            <Link to={"/catalog/" + problem["id"]}><button className="Button">Подробнее</button></Link>
                                         </li>
                                     ))}
                                 </ul>

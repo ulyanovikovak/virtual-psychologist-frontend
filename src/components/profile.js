@@ -338,7 +338,7 @@ const Profile = () => {
                     <div className="flexRow4">
                         <Link to="/"><h2 className="navigationTitle">Главная</h2></Link>
                         <Link to="/profile"><h2 className="navigationTitle1">Личный кабинет</h2></Link>
-                        <Link to="/"><h2 className="navigationTitle">Каталог проблем</h2></Link>
+                        <Link to="/catalog"><h2 className="navigationTitle">Каталог проблем</h2></Link>
                     </div>
                     <div className="authContainer">
                     {loggedIn ? (

@@ -10,6 +10,7 @@ import PersistLogin from './components/PersistLogin';
 import { Routes, Route } from 'react-router-dom';
 import Profile from './components/profile';
 import Catalog from './components/catalog';
+import Problem from './components/Problem';
 
 const ROLES = {
   'User': 2001,
@@ -32,6 +33,7 @@ function App() {
         <Route element={<PersistLogin />}>
           <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Admin]} />}>
             <Route path="profile" element={<Profile/>} />
+            <Route path="/catalog/:problemID" element={<Problem />} />
           </Route>
 
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
