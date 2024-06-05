@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 import Profile from './components/profile';
 import Catalog from './components/catalog';
 import Problem from './components/Problem';
+import Result from './components/Result';
 
 const ROLES = {
   'User': 2001,
@@ -23,11 +24,12 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="unauthorized" element={<Unauthorized />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/results" element={<Result />} />
 
         {/* we want to protect these routes */}
         <Route element={<PersistLogin />}>
@@ -37,7 +39,7 @@ function App() {
           </Route>
 
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-            <Route path="admin" element={<Admin />} />
+            <Route path="/admin" element={<Admin />} />
           </Route>
         </Route>
 
