@@ -166,13 +166,10 @@ const Admin = () => {
                                             </h2>
                                             <input
                                                 className="inputField"
-                                                type="text"
+                                                list="problemList"
                                                 id="name"
                                                 value={name}
-                                                onChange={(e) => {
-                                                    setName(e.target.value);
-                                                    setSearchTerm(e.target.value);
-                                                }}
+                                                onChange={(e) => setName(e.target.value)}
                                                 onFocus={() => setNameFocus(true)}
                                                 onBlur={() => setNameFocus(false)}
                                                 required
@@ -180,21 +177,13 @@ const Admin = () => {
                                                 aria-describedby="uidnote"
                                                 placeholder="Введите название проблемы или выберите из списка"
                                             />
-                                            <select
-                                                className="inputField"
-                                                value={name}
-                                                onChange={(e) => setName(e.target.value)}
-                                                onFocus={() => setNameFocus(true)}
-                                                onBlur={() => setNameFocus(false)}
-                                                size="5"
-                                                style={{ display: nameFocus ? 'block' : 'none' }}
-                                            >
+                                            <datalist id="problemList">
                                                 {testCases
-                                                    .filter(testCase => testCase.toLowerCase().includes(searchTerm.toLowerCase()))
+                                                    .filter(testCase => testCase.toLowerCase().includes(name.toLowerCase()))
                                                     .map((testCase, index) => (
-                                                        <option key={index} value={testCase}>{testCase}</option>
+                                                        <option key={index} value={testCase} />
                                                     ))}
-                                            </select>
+                                            </datalist>
                                             <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "hide"}>
                                                 <FontAwesomeIcon icon={faInfoCircle} />
                                                 От 1 до 100 символов.<br />
@@ -305,6 +294,8 @@ const Admin = () => {
             </main>
         </div>
     );
+    
+    
     
     
 };
