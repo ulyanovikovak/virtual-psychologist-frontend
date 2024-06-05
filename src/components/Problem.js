@@ -1,6 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { useNavigate, Link, useParams } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
@@ -83,7 +81,7 @@ const Problem = () => {
                                 <a href={test}>Пройти тест</a>
                             </button>
                             <button className="changeDataTitle" >
-                                <a href={form}>Пройти форма</a>
+                                <a href={form}>Пройти форму</a>
                             </button>
                         </div>
                     </div>

@@ -27,12 +27,7 @@ const Catalog = () => {
 
 
     const getProblems = async () => {
-        axios.get(PROBLEMS_URL, {
-            headers: { 
-              "Authorization": "Bearer " + localStorage.getItem("access"),
-            },
-            withCredentials: true
-        }).then((response) => {
+        axios.get(PROBLEMS_URL).then((response) => {
             console.log(JSON.stringify(response.data));
             setProblems(response.data);
             setFetching(false)
