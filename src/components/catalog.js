@@ -14,6 +14,9 @@ const Catalog = () => {
     const navigate = useNavigate();
     const logout = useLogout();
     const [loggedIn, setLoggedIn] = useState(false)
+    const [role, setRole] = useState(0);
+
+    
 
     const signOut = async () => {
         await logout();
@@ -52,10 +55,12 @@ const Catalog = () => {
         }
     }
     
+    
     useEffect(() => {
         if (localStorage.getItem("access")) {
             setLoggedIn(true);
         }
+        setRole(Number(localStorage.getItem("role")));
         setFetching(true)
         getProblems()
     }, [])
@@ -136,6 +141,11 @@ const Catalog = () => {
                                         </li>
                                     ))}
                                 </ul>
+                            )}
+                            {role == 5150 && (
+                                <Link to="/admin">
+                                    <button className="Button">Добавить тест</button>
+                                 </Link>
                             )}
                         </div>
                     </div>
