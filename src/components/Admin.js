@@ -76,7 +76,7 @@ const Admin = () => {
         if (localStorage.getItem("access")) {
             setLoggedIn(true);
         }
-        axios.put(REFRESH_URL, {
+        axios.put(REFRESH_URL, {}, {
             headers: { 
                 "Authorization": "Bearer " + localStorage.getItem("access"),
             },
