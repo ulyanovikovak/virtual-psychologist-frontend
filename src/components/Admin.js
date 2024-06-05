@@ -9,7 +9,7 @@ import '../profile.css';
 import logo from "../assets/logo.png";
 import Loader from "./Loader";
 
-const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
+const NAME_REGEX = /^.{1,100}$/;
 const DESCRIPTION_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const FORMLINK_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const TESTLINK_REGEX = /^[A-z]{1,100}$/;
