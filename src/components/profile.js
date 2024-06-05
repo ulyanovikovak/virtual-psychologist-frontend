@@ -5,17 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
-
 import React from 'react';
-
 import '../profile.css';
 import logo from "../assets/logo.png"
-
 
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PROFILE_URL = '/user/info';
+const UPDATE_URL = '/user';
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -28,136 +26,147 @@ const Profile = () => {
         navigate('/');
     }
 
-  const errRef = useRef();
+    const errRef = useRef();
 
-  const [email, setEmail] = useState('');
-  const [phoneNum, setPhoneNum] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNum, setPhoneNum] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [validBirthday, setValidBirthday] = useState(false);
+    const [birthdayFocus, setBirthdayFocus] = useState(false);
+    const [name, setName] = useState('');
+    const [validName, setValidName] = useState(false);
+    const [nameFocus, setNameFocus] = useState(false);
+    const [surname, setSurname] = useState('');
+    const [validSurname, setValidSurname] = useState(false);
+    const [surnameFocus, setSurnameFocus] = useState(false);
+    const [patronymic, setPatronymic] = useState('');
+    const [validPatronymic, setValidPatronymic] = useState(false);
+    const [patronymicFocus, setPatronymicFocus] = useState(false);
+    const [errMsg, setErrMsg] = useState('');
+    const [success, setSuccess] = useState(false);
 
-  const [birthday, setBirthday] = useState('');
-  const [validBirthday, setValidBirthday] = useState(false);
-  const [birthdayFocus, setBirthdayFocus] = useState(false);
-
-  const [name, setName] = useState('');
-  const [validName, setValidName] = useState(false);
-  const [nameFocus, setNameFocus] = useState(false);
-
-  const [surname, setSurname] = useState('');
-  const [validSurname, setValidSurname] = useState(false);
-  const [surnameFocus, setSurnameFocus] = useState(false);
-
-  const [patronymic, setPatronymic] = useState('');
-  const [validPatronymic, setValidPatronymic] = useState(false);
-  const [patronymicFocus, setPatronymicFocus] = useState(false);
-
-  const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("access")) {
-        setLoggedIn(true);
-    }
-    axios.get(PROFILE_URL, {
-        headers: { 
-          "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        withCredentials: true
-    }).then((response) => {
-        console.log(JSON.stringify(response?.data));
-        setSuccess(true);
-        setName(response?.data.name);
-        setSurname(response?.data.surname);
-        setPatronymic(response?.data.patronymic);
-        setBirthday(response?.data.birthday);
-        setEmail(response?.data.email);
-        setPhoneNum(response?.data.phoneNum);
-    }).catch((err) => {
-        if (err.response) {
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-          setErrMsg('Profile display Failed: ' + err?.response)
-        } else if (err.request) {
-          setErrMsg('No Server Response');
-          console.log(err.request);
-        } else {
-          console.log('Error', err.message);
+    useEffect(() => {
+        if (localStorage.getItem("access")) {
+            setLoggedIn(true);
         }
-        console.log(err.config);
-        errRef.current.focus();
-    })
-  }, [])
-
-  useEffect(() => {
-      setValidName(NAME_REGEX.test(name));
-  }, [name])
-
-  useEffect(() => {
-    setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
-  }, [patronymic])
-
-  useEffect(() => {
-      setValidSurname(SURNAME_REGEX.test(surname));
-  }, [surname])
-
-  
-  useEffect(() => {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0); // Сбросить время, чтобы сравнивать только даты
-      const birthdayDate = new Date(birthday);
-      
-      if (birthdayDate < today) {
-          setValidBirthday(true);
-      } else {
-          setValidBirthday(false);
-      }
-  }, [birthday]);
-
-  useEffect(() => {
-      setErrMsg('');
-  }, [ surname, patronymic, name, birthday ])
-
-  
-  // to fix
-  const handleSubmit = async (e) => {
-      e.preventDefault();
-      const v3 = NAME_REGEX.test(name);
-      const v4 = PATRONYMIC_REGEX.test(patronymic);
-      const v5 = SURNAME_REGEX.test(surname);
-      if (!v3 || !v4 || !v5) {
-          setErrMsg("Invalid Entry");
-          return;
-      }
-      try {
-          const response = await axios.put(PROFILE_URL,
-            JSON.stringify({ name: name, surname: surname, patronymic: patronymic, birthday: birthday}),
-            {
-              headers: { 
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*"
-              },
-              withCredentials: true
+        axios.get(PROFILE_URL, {
+            headers: { 
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            withCredentials: true
+        }).then((response) => {
+            console.log(JSON.stringify(response?.data));
+            setSuccess(true);
+            setName(response?.data.name);
+            setSurname(response?.data.surname);
+            setPatronymic(response?.data.patronymic);
+            setBirthday(response?.data.birthday);
+            setEmail(response?.data.email);
+            setPhoneNum(response?.data.phoneNum);
+        }).catch((err) => {
+            if (err.response) {
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+                setErrMsg('Profile display Failed: ' + err?.response);
+            } else if (err.request) {
+                setErrMsg('No Server Response');
+                console.log(err.request);
+            } else {
+                console.log('Error', err.message);
+                setErrMsg('Error: ' + err.message);
             }
-          );
-      
-          console.log(JSON.stringify(response?.data));
-          setSuccess(true);
-          setName(response?.data.name);
-          setSurname(response?.data.surname);
-          setPatronymic(response?.data.patronymic);
-          setBirthday(response?.data.birthday);
-          setEmail(response?.data.email);
-          setPhoneNum(response?.data.phoneNum);
-      } catch (err) {
-          if (!err?.response) {
-              setErrMsg('No Server Response');
-          } else {
-              setErrMsg('Profile display Failed: ' + err?.response)
-          }
-          errRef.current.focus();
-      }
-  }
+            console.log(err.config);
+            if (errRef.current) {
+                errRef.current.focus();
+            }
+        });
+    }, []);
 
+    useEffect(() => {
+        setValidName(NAME_REGEX.test(name));
+    }, [name]);
 
+    useEffect(() => {
+        setValidPatronymic(PATRONYMIC_REGEX.test(patronymic));
+    }, [patronymic]);
+
+    useEffect(() => {
+        setValidSurname(SURNAME_REGEX.test(surname));
+    }, [surname]);
+
+    useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Сбросить время, чтобы сравнивать только даты
+        const birthdayDate = new Date(birthday);
+        if (birthdayDate < today) {
+            setValidBirthday(true);
+        } else {
+            setValidBirthday(false);
+        }
+    }, [birthday]);
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [surname, patronymic, name, birthday]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const v3 = NAME_REGEX.test(name);
+        const v4 = PATRONYMIC_REGEX.test(patronymic);
+        const v5 = SURNAME_REGEX.test(surname);
+        if (!v3 || !v4 || !v5) {
+            setErrMsg("Invalid Entry");
+            if (errRef.current) {
+                errRef.current.focus();
+            }
+            return;
+        }
+        try {
+            const response = await axios.put(UPDATE_URL, 
+                JSON.stringify({
+                    name: name,
+                    surname: surname,
+                    patronymic: patronymic,
+                    birthday: birthday,
+                    
+                }),
+                {
+                    headers: {
+                        "Authorization": "Bearer " + localStorage.getItem("access"),
+                        'Content-Type': 'application/json',
+                        // "Access-Control-Allow-Origin": "*"
+                    },
+                    withCredentials: true
+                }
+            );
+
+            //console.log("Profile updated successfully: ", JSON.stringify(response?.data));
+            // setSuccess(true);
+            // setName(response?.data.name);
+            // setSurname(response?.data.surname);
+            // setPatronymic(response?.data.patronymic);
+            // setBirthday(response?.data.birthday);
+            
+        } catch (err) {
+            if (err.response) {
+                console.log(err.response.data);
+                console.log(err.response.status);
+                console.log(err.response.headers);
+                setErrMsg('Profile update failed: ' + err.response.data.message);
+            } else if (err.request) {
+                setErrMsg('No Server Response');
+                console.log(err.request);
+            } else {
+                console.log('Error', err.message);
+                setErrMsg('Error: ' + err.message);
+            }
+            console.log(err.config);
+            if (errRef.current) {
+                errRef.current.focus();
+            }
+        }
+    };
 
   return (
     <div className="flex-column">
