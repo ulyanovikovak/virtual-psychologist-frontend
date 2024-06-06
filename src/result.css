@@ -133,6 +133,7 @@
     width: 450px;
     min-width: 0px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    text-decoration: underline;
   }
   @media (min-width: 1920px) and (max-width: 99999px) {
     .pageresults .secondaryNavItems {
