@@ -54,7 +54,7 @@ const Admin = () => {
 
     useEffect(() => {
         setValidNameProblem(NAMEPROBLEM_REGEX.test(nameProblem));
-    }, [name]);
+    }, [nameProblem]);
 
     useEffect(() => {
         setValidTestLink(true); //TESTLINK_REGEX.test(testLink)
