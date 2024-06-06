@@ -261,7 +261,7 @@
     flex-direction: column;
     margin: 1px 0px 0px;
     width: 100%;
-    background: url(./assets/womanhand.png) center center/cover no-repeat;
+    background: url(../assets/womanhand.png) center center/cover no-repeat;
   }
   .untitled-page .heroContent {
     position: relative;

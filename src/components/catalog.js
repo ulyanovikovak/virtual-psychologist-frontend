@@ -4,7 +4,7 @@ import axios from '../api/axios';
 import useLogout from "../hooks/useLogout";
 import Loader from "./Loader";
 
-import '../catalog.css';
+import '../style/catalog.css';
 
 import logo from "../assets/logo.png";
 

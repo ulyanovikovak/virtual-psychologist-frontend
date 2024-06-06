@@ -1,7 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 
-import '../Landing.css';
+import '../style/Landing.css';
 
 import battery from "../assets/battery.png"
 import calmness from "../assets/calmness.png"

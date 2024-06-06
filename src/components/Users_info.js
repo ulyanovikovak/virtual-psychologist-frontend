@@ -4,7 +4,7 @@ import axios from '../api/axios';
 import useLogout from "../hooks/useLogout";
 import Loader from "./Loader";
 
-import '../list_of_users.css';
+import '../style/list_of_users.css';
 
 import logo from "../assets/logo.png";
 
@@ -133,3 +133,4 @@ const Catalog = () => {
         new Sticky('.sticky-effect');
     </script>
 </div>
+    )};

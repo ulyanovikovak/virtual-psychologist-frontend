@@ -7,7 +7,7 @@ import useLogout from "../hooks/useLogout";
 import React from 'react';
 import Loader from "./Loader";
 
-import '../result.css';
+import '../style/result.css';
 import logo from "../assets/logo.png"
 
 const Result = () => {

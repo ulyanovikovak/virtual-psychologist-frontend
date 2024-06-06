@@ -7,7 +7,7 @@ import logo from "../assets/logo.png"
 import eyeOpen from "../assets/eyeopen.png";
 import eyeClose from "../assets/eyeclose.png";
 
-import '../register.css';
+import '../style/register.css';
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const NAME_REGEX = /^[A-zА-я\ ]{1,100}$/;

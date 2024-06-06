@@ -4,7 +4,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import React from 'react';
 
-import '../problem.css';
+import '../style/problem.css';
 import logo from "../assets/logo.png";
 
 const Problem = () => {

@@ -5,7 +5,7 @@ import eyeClose from "../assets/eyeclose.png";
 
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-import '../log.css';
+import '../style/log.css';
 import logo from "../assets/logo.png"
 
 import axios from '../api/axios';

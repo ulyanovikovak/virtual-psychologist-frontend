@@ -5,7 +5,7 @@ import axios from '../api/axios';
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import React from 'react';
-import '../profile.css';
+import '../style/profile.css';
 import logo from "../assets/logo.png";
 import Loader from "./Loader";
 
