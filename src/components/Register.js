@@ -181,7 +181,7 @@ const Register = () => {
                     <div className="inputsContainer">
                         <div className="emailInputContainer">
                             <div className="emailLabel">Почта</div>
-                         
+                            
                                 {/* <div className="emailPlaceholder">Введите вашу почту</div> */}
                                 <input className="field"
                                     type="text"
@@ -196,14 +196,14 @@ const Register = () => {
                                     onFocus={() => setEmailFocus(true)}
                                     onBlur={() => setEmailFocus(false)}
                                     placeholder="Введите вашу почту"
+                                    
                                 />
+                                <FontAwesomeIcon icon={validEmail ? faCheck : faTimes} className={validEmail ? "valid" : "invalid"} />
                                 <p id="uidnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                     от 4 до 24 символов.<br />
                                     Некоректная почта.<br />
                                 </p>
-                                
-                           
                         </div>
                         <div className="firstNameInputContainer">
                             <div className="firstNameLabel">Имя</div>
@@ -221,6 +221,7 @@ const Register = () => {
                                 onBlur={() => setNameFocus(false)}
                                 placeholder="Введите ваше имя"
                             />
+                            <FontAwesomeIcon icon={validName ? faCheck : faTimes} className={validName ? "valid" : "invalid"} />
                             <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                                 От 1 до 100 символов.<br />
@@ -243,6 +244,7 @@ const Register = () => {
                                 onBlur={() => setSurnameFocus(false)}
                                 placeholder="Введите вашу фамилию"
                             />
+                            <FontAwesomeIcon icon={validSurname ? faCheck : faTimes} className={validSurname ? "valid" : "invalid"} />
                             <p id="uidnote" className={surnameFocus && surname && !validSurname ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                                 От 1 до 100 символов.<br />
@@ -265,6 +267,7 @@ const Register = () => {
                                 onBlur={() => setPatronymicFocus(false)}
                                 placeholder="Введите ваше отчество"
                             />
+                            <FontAwesomeIcon icon={validPatronymic ? faCheck : faTimes} className={validPatronymic ? "valid" : "invalid"} />
                             <p id="uidnote" className={patronymicFocus && patronymic && !validPatronymic ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                                 От 1 до 100 символов.<br />
@@ -287,6 +290,7 @@ const Register = () => {
                                 onBlur={() => setPhoneNumFocus(false)}
                                 placeholder="Введите ваш телефон"
                             />
+                            <FontAwesomeIcon icon={validPhoneNum ? faCheck : faTimes} className={validPhoneNum ? "valid" : "invalid"} />
                             <p id="uidnote" className={phoneNumFocus && phoneNum && !validPhoneNum ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle} />
                                 используйте только цифры.<br />
@@ -310,6 +314,7 @@ const Register = () => {
                                     onBlur={() => setBirthdayFocus(false)}
                                     placeholder="**********"
                                 />
+                                <FontAwesomeIcon icon={validBirthday ? faCheck : faTimes} className={validBirthday ? "valid" : "invalid"} />
                                 <p id="uidnote" className={birthdayFocus && birthday && !validBirthday ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                     Некоректная дата рождения<br />
@@ -345,6 +350,7 @@ const Register = () => {
                                     />
                                 </button>
                             </div>
+                            <FontAwesomeIcon icon={validPwd ? faCheck : faTimes} className={validPwd ? "valid" : "invalid"} />
                             <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                     От 8 до 24 символов.<br />
@@ -370,6 +376,7 @@ const Register = () => {
                                     onBlur={() => setMatchFocus(false)}
                                     placeholder="**********"
                                 />
+                                <FontAwesomeIcon icon={validMatch ? faCheck : faTimes} className={validMatch ? "valid" : "invalid"} />
                                 <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                                     <FontAwesomeIcon icon={faInfoCircle} />
                                     Пароли должны совпадать.
