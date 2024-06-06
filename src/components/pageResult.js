@@ -1,7 +1,5 @@
-
-
 import { useRef, useState, useEffect } from "react";
-import axios, { axiosTest } from '../api/axios';
+import axios from '../api/axios';
 import { useNavigate, Link, useParams } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import React from 'react';
@@ -40,12 +38,11 @@ const Result = () => {
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access")},
             withCredentials: true
         }).then((response) => {
-            console.log(JSON.stringify(response?.data[0]));
-            setName(response?.data[0].testName);
-            setAbout(response?.data[0].testDescription);
-            setTimeStart(response?.data[0].timeStart);
-            setTimeEnd(response?.data[0].timeEnd);
-            setNodes(response?.data[0].nodes);
+            console.log(JSON.stringify(response?.data));
+            setName(response?.data.name);
+            setTimeStart(response?.data.createdAt);
+            setTimeEnd(response?.data.duration);
+            setNodes(response?.data.nodes);
             setErrMsg("");
             setFetching(false);
         }).catch((err) => {
@@ -71,22 +68,6 @@ const Result = () => {
         setFetching(true)
         getResult()
     }, [])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return (
     <div class="flex-column">
