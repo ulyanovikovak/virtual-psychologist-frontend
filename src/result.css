@@ -610,7 +610,7 @@
     justify-content: center;
     align-items: center;
     font: 600 24px/0.83 "Montserrat", Helvetica, Arial, serif;
-    color: black;
+    color: #6b6a6a;
     text-align: center;
     letter-spacing: -0.31px;
   }
@@ -918,22 +918,88 @@
       url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular")
         format("svg");
   }
-
-
-  .headroom {
-    z-index: 10000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    will-change: transform;
-    transition: transform 200ms linear;
+  .attributesContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .chart-item {
+    width: calc(40% - 20px);
+    margin: 10px;
+  }
+  
+  .chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px; /* Высота диаграммы */
+  }
+  
+  .bar {
+    width: 45%; /* Ширина каждого столбика */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+  }
+  
+  .score-bar {
+    background-color: rgb(154, 187, 255);
+  }
+  
+  .potential-bar {
+    background-color: rgb(232, 163, 246);
+  }
+  
+  .bar span {
+    color: #a29e9e;
+    padding: 2px;
+  }
+  
+  h2 {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .bar-value {
+    position: absolute;
+    bottom: -25px; /* Расположение под столбиком */
+    left: 50%; /* Выравнивание по центру столбика */
+    transform: translateX(-50%); /* Центрирование значения относительно столбика */
+    background-color: #ffffff; /* Цвет фона значения */
+    border: 1px solid #ffffff; /* Граница значения */
+    padding: 5px 8px; /* Внутренний отступ значения */
+    border-radius: 5px; /* Закругление углов рамочки */
+    font-size: 12px; /* Размер шрифта значения */
+    font-weight: bold; /* Жирный шрифт значения */
+    width: 30px; /* Фиксированная ширина */
+    height: 20px; /* Фиксированная высота */
+    text-align: center; /* Выравнивание текста по центру */
+    display: flex; /* Использование flexbox */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+  }
+  
+  
+  .chart-item {
+  border: 3px solid #a29e9e;
+  margin-bottom: 30px; /* Отступ между нодами */
+  padding: 30px; /* Внутренний отступ вокруг содержимого ноды */
 }
 
-.headroom--pinned {
-    transform: translateY(0%);
+.bar-value {
+  font-size: 20px; /* Увеличим размер шрифта для значений */
 }
 
-.headroom--unpinned {
-    transform: translateY(-100%);
+.chart {
+  padding: 20px; /* Внутренний отступ вокруг графика */
 }
+
+  
+  
+  
+  
+  
+  
+  
+  
