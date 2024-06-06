@@ -499,6 +499,7 @@ problem-page.main {
     text-align: center;
     letter-spacing: -0.31px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2470588235);
+    text-decoration: underline;
   }
   @media (max-width: 991px) {
     .problem-page .logoutTitle {
@@ -517,6 +518,11 @@ problem-page.main {
       font-size: 20px;
     }
   }
+
+
+  
+
+
   .problem-page .contentBox {
     position: relative;
     display: flex;

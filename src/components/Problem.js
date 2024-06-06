@@ -4,13 +4,13 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import React from 'react';
 
-import '../problem.css'
-import logo from "../assets/logo.png"
+import '../problem.css';
+import logo from "../assets/logo.png";
 
 const Problem = () => {
     const navigate = useNavigate();
     const logout = useLogout();
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false);
     let { problemID } = useParams();
     const [name, setName] = useState("");
     const [about, setAbout] = useState("");
@@ -25,7 +25,7 @@ const Problem = () => {
         await logout();
         setLoggedIn(false);
         navigate('/catalog');
-    }
+    };
 
     const handleBuy = async () => {
         if (!loggedIn) {
@@ -86,58 +86,66 @@ const Problem = () => {
                 console.log('Ошибка', err.message);
             }
             console.log(err.config);
-        })
-    }, [])
+        });
+    }, [problemID]);
 
     return (
         <body className="flex-column">
-    <main className="problem-page main">
-        <section className="problemDescriptionSection">
-            <div className="flexCol">
-                <div className="contentBox1">
-                    <div className="flexRow">
-                        <img className="image" src={logo} alt="alt text" />
-                        <div className="flexRow1">
-                            <div className="flexRow2">
-                                <Link to="/"><h2 className="mainTitle">Главная</h2></Link>
-                                <Link to="/profile"><h2 className="personalCabinetTitle">Личный кабинет</h2></Link>
-                                <Link to="/catalog"><h2 className="catalogProblemsTitle">Каталог проблем</h2></Link>
+            <main className="problem-page main">
+                <section className="problemDescriptionSection">
+                    <div className="flexCol">
+                        <div className="contentBox1">
+                            <div className="flexRow">
+                                <img className="image" src={logo} alt="alt text" />
+                                <div className="flexRow1">
+                                    <div className="flexRow2">
+                                        <Link to="/"><h2 className="mainTitle">Главная</h2></Link>
+                                        <Link to="/profile"><h2 className="personalCabinetTitle">Личный кабинет</h2></Link>
+                                        <Link to="/catalog"><h2 className="catalogProblemsTitle">Каталог проблем</h2></Link>
+                                    </div>
+                                    {loggedIn ? (
+                                        <button onClick={signOut}><h5 className="logoutTitle">Выйти</h5></button>
+                                    ) : (
+                                        <>
+                                            <Link to="/login"><h2 className="logoutTitle">Войти</h2></Link>
+                                            <Link to="/register"><h2 className="logoutTitle">Регистрация</h2></Link>
+                                        </>
+                                    )}
+                                </div>
                             </div>
-                            {loggedIn ? (
-                                    <button onClick={signOut}><h5 className="logoutTitle">Выйти</h5></button>
-                                ) : (
-                                    <>
-                                        <Link to="/login"><h2 className="logoutTitle">Войти</h2></Link>
-                                        <Link to="/register"><h2 className="logoutTitle">Регистрация</h2></Link>
-                                    </>
-                                )}
+                        </div>
+                        <div className="contentBox">
+                            <h1 className="problemDescriptionTitle">{name}</h1>
                         </div>
                     </div>
-                </div>
-                <div className="contentBox">
-                    <h1 className="problemDescriptionTitle">{name}</h1>
-                </div>
-            </div>
-            <div className="flexCol1">
-                <h1 className="bullshitParagraph">
-                   {about}
-                </h1>
-                <div className="flexRow3">
-                    <button className="buyTestButton">Купить тест</button>
-                    <div className="flexCol2">
-                        <h1 className="linkTitle1">{test}</h1>
-                        <h1 className="linkTitle2">{form}</h1>
+                    <div className="flexCol1">
+                        <h1 className="bullshitParagraph">
+                            {about}
+                        </h1>
+                        <div className="flexRow3">
+                            {showLinks ? (
+                                <div className="flexCol2">
+                                    <button className="linkTitle1">
+                                        <a href={test}>Пройти тест</a>
+                                    </button>
+                                    <button className="linkTitle2">
+                                        <a href={form}>Пройти форму</a>
+                                    </button>
+                                </div>
+                            ) : (
+                                <button className="buyTestButton" onClick={handleBuy}>
+                                    Купить
+                                </button>
+                            )}
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-    <script type="text/javascript">
-        AOS.init();
-        new Sticky('.sticky-effect');
-    </script>
-</body>
+                </section>
+            </main>
+            <script type="text/javascript">
+                AOS.init();
+                new Sticky('.sticky-effect');
+            </script>
+        </body>
     );
 };
 
