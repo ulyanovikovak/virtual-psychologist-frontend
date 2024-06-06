@@ -377,7 +377,7 @@ const Profile = () => {
                           {results.map((result, i) => (
                             <li key={`item_${i}`} className="flexRowPersonalityDisorders">
                               <h2 className="Title">{result["name"]}</h2>
-                              <Link to={"/catalog/" + result["id"]}><button className="Button">Подробнее</button></Link>
+                              <Link to={"/results/" + result["id"]}><button className="Button">Подробнее</button></Link>
                             </li>
                           ))}
                         </ul>
