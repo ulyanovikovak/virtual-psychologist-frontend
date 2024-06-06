@@ -17,13 +17,14 @@ const Result = () => {
     const [errMsg, setErrMsg] = useState('');
     const [fetching, setFetching] = useState(true);
     
+    let { resultID } = useParams();
     const [ name, setName ] = useState("");
     const [ about, setAbout ] = useState("");
     const [ timeStart, setTimeStart ] = useState("");
     const [ timeEnd, setTimeEnd ] = useState("");
     const [ nodes, setNodes ] = useState([]);
     
-    const RESULT_URL = '/api/results';
+    const RESULT_URL = '/results/' + resultID;
 
     const signOut = async () => {
         await logout();
@@ -35,8 +36,8 @@ const Result = () => {
         if (localStorage.getItem("access")) {
             setLoggedIn(true);
         }
-        axios.get("https://9ww9.ru:80" + RESULT_URL, {
-            headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVnSGZHOUYiLCJ0b2tlbiI6IkpQYkl1cm92dHQvSE5oY2xkN1REd0FWSk82UDRMb3BQQ3F0OHpXWVhzQ2hiOFdLOG9oVVBrUWdHOUUvRDdQWEQiLCJpYXQiOjE3MTU1MzkwMTB9.js6b_XCmv1zAJKmy12ahTM-9iRe6g9wSQw4cN656j74' },
+        axios.get(RESULT_URL, {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access")},
             withCredentials: true
         }).then((response) => {
             console.log(JSON.stringify(response?.data[0]));

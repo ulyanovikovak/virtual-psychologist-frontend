@@ -10,6 +10,7 @@ import logo from "../assets/logo.png";
 import Loader from "./Loader";
 
 const NAME_REGEX = /^.{1,100}$/;
+const NAMEPROBLEM_REGEX = /^.{1,100}$/;
 const DESCRIPTION_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const FORMLINK_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const TESTLINK_REGEX = /^[A-z]{1,100}$/;
@@ -39,11 +40,20 @@ const Admin = () => {
     const [validTestLink, setValidTestLink] = useState(false);
     const [testLinkFocus, setTestLinkFocus] = useState(false);
 
+
+    const [nameProblem, setNameProblem] = useState('');
+    const [validNameProblem, setValidNameProblem] = useState(false);
+    const [nameProblemFocus, setNameProblemFocus] = useState(false);
+
     const [testCases, setTestCases] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         setValidName(NAME_REGEX.test(name));
+    }, [name]);
+
+    useEffect(() => {
+        setValidNameProblem(NAMEPROBLEM_REGEX.test(nameProblem));
     }, [name]);
 
     useEffect(() => {
@@ -60,7 +70,7 @@ const Admin = () => {
 
     useEffect(() => {
         setErrMsg('');
-    }, [description, testLink, name, formLink]);
+    }, [nameProblem, description, testLink, name, formLink]);
 
     useEffect(() => {
         if (localStorage.getItem("access")) {
@@ -103,7 +113,8 @@ const Admin = () => {
         const v4 = true; // TESTLINK_REGEX.test(testLink);
         const v5 = DESCRIPTION_REGEX.test(description);
         const v6 = true; // FORMLINK_REGEX.test(formLink);
-        if (!v3 || !v4 || !v5 || !v6) {
+        const v7 = NAMEPROBLEM_REGEX.test(nameProblem);
+        if (!v3 || !v4 || !v5 || !v6 || !v7) {
             setErrMsg("Invalid Entry");
             if (errRef.current) {
                 errRef.current.focus();
@@ -112,11 +123,11 @@ const Admin = () => {
         }
         console.log("sending");
         await axios.post(CREATE_URL, JSON.stringify({
-            name: name,
+            name: nameProblem,
             description: description,
             testCaseLink: testLink,
             formLink: formLink,
-            testCaseName: "Заболевания. Психологические причины 1"
+            testCaseName: name
         }), {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -129,6 +140,7 @@ const Admin = () => {
             setName('');
             setTestLink('');
             setFormLink('');
+            setNameProblem('');
         }).catch((err) => {
             if (err.response) {
                 console.log(err.response.data);
@@ -162,6 +174,32 @@ const Admin = () => {
                             <form onSubmit={handleSubmit}>
                                 <div className="contentBox1">
                                     <div className="flexCol1">
+
+                                    <div className="flexCol2">
+                                            <h2 className="mediumTitle1">
+                                                Название проблемы
+                                                <FontAwesomeIcon icon={faCheck} className={validNameProblem ? "valid" : "hide"} />
+                                                <FontAwesomeIcon icon={faTimes} className={validNameProblem || !nameProblem ? "hide" : "invalid"} />
+                                            </h2>
+                                            <input
+                                                className="inputField"
+                                                type="text"
+                                                id="nameProblem"
+                                                autoComplete="off"
+                                                onChange={(e) => setNameProblem(e.target.value)}
+                                                value={nameProblem}
+                                                required
+                                                aria-invalid={validNameProblem ? "false" : "true"}
+                                                aria-describedby="uidnote"
+                                                onFocus={() => setNameProblemFocus(true)}
+                                                onBlur={() => setNameProblemFocus(false)}
+                                            />
+                                            <p id="uidnote" className={nameProblemFocus && nameProblem && !validNameProblem ? "instructions" : "offscreen"}>
+                                                <FontAwesomeIcon icon={faInfoCircle} />
+                                                От 1 до 1000 символов.<br />
+                                            </p>
+                                        </div>
+
                                         <div className="flexCol2">
                                             <h2 className="mediumTitle1">
                                                 Название проблемы
