@@ -93,6 +93,10 @@ const Admin = () => {
         });
     }, [])
 
+    useEffect(() => {
+        setValidName(testCases.includes(name) && NAME_REGEX.test(name));
+    }, [name, testCases]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const v3 = NAME_REGEX.test(name);
@@ -187,6 +191,7 @@ const Admin = () => {
                                             <p id="uidnote" className={nameFocus && name && !validName ? "instructions" : "hide"}>
                                                 <FontAwesomeIcon icon={faInfoCircle} />
                                                 От 1 до 100 символов.<br />
+                                                Название должно совпадать с одним из существующих тестов.<br />
                                             </p>
                                         </div>
                                         <div className="flexCol2">
@@ -263,7 +268,7 @@ const Admin = () => {
                                                 Должно являться ссылкой на форму для пользователей<br />
                                             </p>
                                         </div>
-                                        <button className="changeDataTitle">Создать</button>
+                                        <button className="changeDataTitle" disabled={!validName || !validDescription || !validTestLink || !validFormLink}>Создать</button>
                                     </div>
                                 </div>
                             </form>
@@ -294,12 +299,6 @@ const Admin = () => {
             </main>
         </div>
     );
-    
-    
-    
-    
 };
 
 export default Admin;
-
-
