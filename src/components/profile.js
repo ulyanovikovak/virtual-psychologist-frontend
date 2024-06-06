@@ -20,7 +20,12 @@ const UPDATERESULTS_URL = '/results/refresh';
 const Profile = () => {
     const navigate = useNavigate();
     const logout = useLogout();
-    const [loggedIn, setLoggedIn] = useState(false);
+    const errRef = useRef();
+
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [results, setResults] = useState([]);
+    const [message, setMessage] = useState("");
+    const [fetching, setFetching] = useState(true);
 
     const signOut = async () => {
         await logout();
@@ -28,21 +33,15 @@ const Profile = () => {
         navigate('/');
     }
 
-    const errRef = useRef();
-
-    const [problems, setProblems] = useState([]);
-    const [message, setMessage] = useState("");
-    const [fetching, setFetching] = useState(true);
-
-    const getProblems = async () => {
+    const getResults = async () => {
         axios.get(RESULTS_URL, {
             headers: { 
-              "Authorization": "Bearer " + localStorage.getItem("access"),
+                "Authorization": "Bearer " + localStorage.getItem("access"),
             },
             withCredentials: true
         }).then((response) => {
             console.log(JSON.stringify(response.data));
-            setProblems(response.data);
+            setResults(response.data);
             setFetching(false);
             setMessage('');
         }).catch((err) => {
@@ -60,18 +59,11 @@ const Profile = () => {
             }
             console.log(err.config);
         })
-        if (message === "" && problems.length < 1 && !fetching) {
+        if (message === "" && results.length < 1 && !fetching) {
             setMessage("No problems added yet");
         }
     }
 
-    useEffect(() => {
-        if (localStorage.getItem("access")) {
-            setLoggedIn(true);
-        }
-        setFetching(true);
-        getProblems();
-    }, []);
 
     const [email, setEmail] = useState('');
     const [phoneNum, setPhoneNum] = useState('');
@@ -94,6 +86,9 @@ const Profile = () => {
         if (localStorage.getItem("access")) {
             setLoggedIn(true);
         }
+        setFetching(true);
+        getResults();
+
         axios.get(PROFILE_URL, {
             headers: { 
                 "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -369,7 +364,7 @@ const Profile = () => {
                 </div>
                 <div className="testResultsContentBox">
                   <div className="flexColTests">
-                    <h1 className="pageTitle">Тесты</h1>
+                    <h1 className="pageTitle">Результаты тестирование</h1>
                     <div className="flexColTestsItems">
                       {fetching && !message ? (
                         <center>
@@ -379,10 +374,10 @@ const Profile = () => {
                         <div className="Title">{message}</div>
                       ) : (
                         <ul>
-                          {problems.map((problem, i) => (
+                          {results.map((result, i) => (
                             <li key={`item_${i}`} className="flexRowPersonalityDisorders">
-                              <h2 className="Title">{problem["name"]}</h2>
-                              <Link to={"/catalog/" + problem["id"]}><button className="Button">Подробнее</button></Link>
+                              <h2 className="Title">{result["name"]}</h2>
+                              <Link to={"/catalog/" + result["id"]}><button className="Button">Подробнее</button></Link>
                             </li>
                           ))}
                         </ul>
