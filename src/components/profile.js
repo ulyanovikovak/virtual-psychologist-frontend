@@ -15,7 +15,7 @@ const SURNAME_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PATRONYMIC_REGEX = /^[A-zА-я\ ]{1,100}$/;
 const PROFILE_URL = '/user/info';
 const UPDATE_URL = '/user';
-const PROBLEMS_URL = '/problems';
+const RESULTS_URL = '/results';
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ const [fetching, setFetching] = useState(true);
 
 
 const getProblems = async () => {
-    axios.get(PROBLEMS_URL, {
+    axios.get(RESULTS_URL, {
         headers: { 
           "Authorization": "Bearer " + localStorage.getItem("access"),
         },
