@@ -150,6 +150,14 @@
         height: 20px;
     }
 
+    .valid,
+    .invalid {
+  position: absolute;
+  top: 50%;
+  right: -20px; /* Позиционируем иконки справа */
+  
+}
+
 
   .register .lastNameInputContainer {
     position: relative;
