@@ -24,6 +24,12 @@ const Admin = () => {
     const [errMsg, setErrMsg] = useState('');
     const errRef = useRef();
 
+    const signOut = async () => {
+        await logout();
+        setLoggedIn(false);
+        navigate('/');
+    }
+
     const [formLink, setFormLink] = useState('');
     const [validFormLink, setValidFormLink] = useState(false);
     const [formLinkFocus, setFormLinkFocus] = useState(false);
