@@ -12,6 +12,7 @@ import Profile from './components/profile';
 import Catalog from './components/catalog';
 import Problem from './components/Problem';
 import Result from './components/pageResult';
+import './style/styles.css';
 
 const ROLES = {
   'User': 2001,

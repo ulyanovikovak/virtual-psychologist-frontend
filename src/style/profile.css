@@ -213,7 +213,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px 0px;
-  margin: 40.5px 0px 0px 6px;
+  margin: 40.5px 0px 0px 0px;
 }
 .profile .mediumTitle4 {    /* !!!!! */
   position: relative;
@@ -233,6 +233,7 @@
   justify-content: space-between;
   gap: 0px 10px;
   margin: 66px 26px 19px 27px;
+  align-items: end;
 }
 .profile .flexCol5 {
   position: relative;
@@ -296,6 +297,8 @@
   height: min-content;
   min-width: 0px;
   background-color: rgba(255, 203, 60, 0.2);
+  font-size: 3vw;
+  padding: 24px;
 }
 .profile .flexRow2 {
   position: relative;
@@ -431,6 +434,7 @@
   min-width: 0px;
 }
 .profile .updateButton {
+  max-height: fit-content;
   position: relative;
   display: flex;
   justify-content: center;
@@ -627,14 +631,13 @@
   flex-direction: column;
   align-items: center;
   gap: 79px 0px;
-  margin: 28.5px 40px 80px 15.5px;
+  justify-content: center;
 }
 
 .profile .flexColTestsItems {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .profile .Title {

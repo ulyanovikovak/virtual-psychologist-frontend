@@ -236,11 +236,15 @@ const Profile = () => {
                     <div className="contentBox1">
                       <div className="flexCol1">
                         <div className="flexCol2">
-                          <h2 className="mediumTitle1">
-                            Имя
-                            <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
-                          </h2>
+                          <div className="inputFieldHeader">
+                            <h2 className="mediumTitle2">Имя</h2>
+                            <div>
+                              <h2 className="mediumTitle2">
+                                <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+                                <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
+                              </h2>
+                            </div>
+                          </div>
                           <input className="inputField"
                             type="text"
                             id="name"
@@ -260,11 +264,15 @@ const Profile = () => {
                           </p>
                         </div>
                         <div className="flexCol3">
-                          <h2 className="mediumTitle2">
-                            Фамилия
-                            <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
-                          </h2>
+                        <div className="inputFieldHeader">
+                            <h2 className="mediumTitle2">Фамилия</h2>
+                            <div>
+                              <h2 className="mediumTitle2">
+                                <FontAwesomeIcon icon={faCheck} className={validSurname ? "valid" : "hide"} />
+                                <FontAwesomeIcon icon={faTimes} className={validSurname || !surname ? "hide" : "invalid"} />
+                              </h2>
+                            </div>
+                          </div>
                           <input className="inputField"
                             type="text"
                             id="surname"
@@ -284,11 +292,15 @@ const Profile = () => {
                           </p>
                         </div>
                         <div className="flexCol3">
-                          <h2 className="mediumTitle3">
-                            Отчество
-                            <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
-                          </h2>
+                          <div className="inputFieldHeader">
+                            <h2 className="mediumTitle2">Отчество</h2>
+                            <div>
+                              <h2 className="mediumTitle2">
+                                <FontAwesomeIcon icon={faCheck} className={validPatronymic ? "valid" : "hide"} />
+                                <FontAwesomeIcon icon={faTimes} className={validPatronymic || !patronymic ? "hide" : "invalid"} />
+                              </h2>
+                            </div>
+                          </div>
                           <input className="inputField"
                             type="text"
                             id="patronymic"
@@ -308,11 +320,15 @@ const Profile = () => {
                           </p>
                         </div>
                         <div className="flexCol4">
-                          <h2 className="mediumTitle4">
-                            Дата рождения
-                            <FontAwesomeIcon icon={faCheck} className={validBirthday ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
-                          </h2>
+                          <div className="inputFieldHeader">
+                            <h2 className="mediumTitle2">Дата рождения</h2>
+                            <div>
+                              <h2 className="mediumTitle2">
+                                <FontAwesomeIcon icon={faCheck} className={validBirthday ? "valid" : "hide"} />
+                                <FontAwesomeIcon icon={faTimes} className={validBirthday || !birthday ? "hide" : "invalid"} />
+                              </h2>
+                            </div>
+                          </div>
                           <input className="inputField"
                             type="date"
                             id="birthday"
@@ -354,7 +370,7 @@ const Profile = () => {
                             />
                           </div>
                         </div>
-                        <button className="changeDataTitle"
+                        <button className="updateButton"
                           disabled={!validName || !validSurname || !validPatronymic || !validBirthday ? true : false}>
                           Изменить данные
                         </button>
@@ -364,7 +380,7 @@ const Profile = () => {
                 </div>
                 <div className="testResultsContentBox">
                   <div className="flexColTests">
-                    <h1 className="pageTitle">Результаты тестирование</h1>
+                    <h1 className="pageTitle">Результаты тестирования</h1>
                     <div className="flexColTestsItems">
                       {fetching && !message ? (
                         <center>

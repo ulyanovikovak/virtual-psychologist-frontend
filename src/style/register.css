@@ -150,15 +150,6 @@
         height: 20px;
     }
 
-    .valid,
-    .invalid {
-  position: absolute;
-  top: 50%;
-  right: -20px; /* Позиционируем иконки справа */
-  
-}
-
-
   .register .lastNameInputContainer {
     position: relative;
     display: flex;
@@ -662,4 +653,10 @@ code {
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+}
+
+.inputFieldHeader {
+  display: flex;
+  justify-content: space-between;
+
 }
