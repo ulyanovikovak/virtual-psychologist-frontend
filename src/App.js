@@ -29,7 +29,6 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/results" element={<Result />} />
 
         {/* we want to protect these routes */}
         <Route element={<PersistLogin />}>
