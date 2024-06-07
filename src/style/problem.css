@@ -554,6 +554,8 @@ problem-page.main {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: max-content;
+    line-height: 100px;
     gap: 98px 0px;
     margin: 0px auto 84px;
     width: 87.15%;
@@ -562,33 +564,40 @@ problem-page.main {
   @media (max-width: 575px) {
     .problem-page .flexCol1 {
       gap: 80px 0px;
+      height: max-content;
+      line-height: 100px;
       margin: 0px auto 80px;
     }
   }
   @media (max-width: 383px) {
     .problem-page .flexCol1 {
       gap: 50px 0px;
+      height: max-content;
+      line-height: 100px;
       margin: 0px auto 50px;
     }
   }
   .problem-page .bullshitParagraph {
     position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 0px 0px 0px auto;
-    width: 90.84%;
-    font: 600 32px/0.62 "Montserrat", Helvetica, Arial, serif;
-    color: black;
+    width: 960px;
+    font: 500 24px/1.2 "Montserrat", Helvetica, Arial, serif;
+    color: #403f4c;
+    text-align: center;
     letter-spacing: -0.31px;
   }
-  @media (max-width: 991px) {
+  @media (max-width: 1000px) {
     .problem-page .bullshitParagraph {
-      font-size: 30px;
+      margin-top: unset;
+      margin-bottom: unset;
+      width: 100%;
     }
   }
-  @media (max-width: 479px) {
+  @media (max-width: 500px) {
     .problem-page .bullshitParagraph {
-      font-size: 26px;
+      font-size: 20px;
     }
   }
   .problem-page .flexRow3 {

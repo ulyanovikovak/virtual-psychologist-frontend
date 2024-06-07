@@ -97,7 +97,7 @@ const Register = () => {
 
     useEffect(() => {
        setValidPwd(PWD_REGEX.test(pwd));
-    setValidMatch(pwd === matchPwd);
+    setValidMatch(pwd === matchPwd && PWD_REGEX.test(matchPwd));
     }, [pwd, matchPwd])
 
     useEffect(() => {
@@ -109,11 +109,12 @@ const Register = () => {
         // if button enabled with JS hack
         const v1 = EMAIL_REGEX.test(email);
         const v2 = PWD_REGEX.test(pwd);
+        const v7 = PWD_REGEX.test(matchPwd);
         const v3 = NAME_REGEX.test(name);
         const v4 = PATRONYMIC_REGEX.test(patronymic);
         const v5 = SURNAME_REGEX.test(surname);
         const v6 = PHONENUM_REGEX.test(phoneNum);
-        if (!v1 || (!v2 || !v3) || !v4 || !v5 || !v6) {
+        if (!v1 || (!v2 || !v3) || !v4 || !v5 || !v6 || !v7) {
             setErrMsg("Invalid Entry");
             return;
         }

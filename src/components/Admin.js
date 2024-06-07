@@ -11,7 +11,7 @@ import Loader from "./Loader";
 
 const NAME_REGEX = /^.{1,100}$/;
 const NAMEPROBLEM_REGEX = /^.{1,100}$/;
-const DESCRIPTION_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
+const DESCRIPTION_REGEX = /^.{1,1000}$/;
 const FORMLINK_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
 const TESTLINK_REGEX = /^[A-z]{1,100}$/;
 const CREATE_URL = '/problems';
@@ -208,7 +208,7 @@ const Admin = () => {
 
                                         <div className="flexCol2">
                                             <h2 className="mediumTitle1">
-                                                Название проблемы
+                                                Название TasteCase
                                                 <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                                                 <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
                                             </h2>
