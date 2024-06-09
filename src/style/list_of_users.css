@@ -403,7 +403,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 584px;
+    min-width: 200px;
     font: 600 24px/1.04 "Montserrat", Helvetica, Arial, serif;
     color: black;
     text-align: center;
