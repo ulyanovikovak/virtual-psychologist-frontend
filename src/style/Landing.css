@@ -494,7 +494,7 @@
     row-gap: 1px;
     -moz-column-gap: 1px;
     column-gap: 1px;
-    width: 100%;
+    width: 70%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   @media (max-width: 767px) {
@@ -590,7 +590,6 @@
   }
   .untitled-page .benefitText1 {
     position: relative;
-    display: flex;
     align-items: center;
     width: 453px;
     font: 500 24px/1.2 "Montserrat", Helvetica, Arial, serif;

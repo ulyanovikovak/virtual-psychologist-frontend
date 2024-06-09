@@ -101,50 +101,50 @@ const Catalog = () => {
                         <h2 class="relationshipTitle">Отношения с людьми</h2>
                         <div class="relationshipSubCategoryRow">
                             <h2 class="familyColleaguesGroupTitle">
-                                семья<br />коллеги<br />знакомые<br />служащие силовых структур
+                                Семья<br />Коллеги<br />Знакомые<br />Служащие силовых структур
                             </h2>
                             <h2 class="friendsRelativesGroupTitle">
-                                друзья<br />родственники<br />госслужащие<br />незнакомые люди
+                                Друзья<br />Родственники<br />Госслужащие<br />Незнакомые люди
                             </h2>
                         </div>
                     </div>
                     <div class="nutritionCategoryCol">
                         <h2 class="nutritionTitle">Питание</h2>
                         <div class="nutritionSubCategoryRow">
-                            <h2 class="carbWithdrawalVegetarianTitle">отказ от углеводов<br />вегетерианство</h2>
-                            <h2 class="fastingDaysIntervalFastingTitle">разгрузочные дни<br />интервальное голодание</h2>
+                            <h2 class="carbWithdrawalVegetarianTitle">Отказ от углеводов<br />Вгетерианство</h2>
+                            <h2 class="fastingDaysIntervalFastingTitle">Разгрузочные дни<br />Интервальное голодание</h2>
                         </div>
                     </div>
                     <div class="businessCategoryCol">
                         <h2 class="businessTitle">Бизнес</h2>
                         <div class="businessSubCategoryRow">
-                            <h2 class="financialCeilingGoalAchievementTitle">финансовый потолок<br />достижение цели</h2>
-                            <h2 class="resourceStateBankruptcyTitle">ресурсное состояние<br />банкротство</h2>
+                            <h2 class="financialCeilingGoalAchievementTitle">Финансовый потолок<br />Достижение цели</h2>
+                            <h2 class="resourceStateBankruptcyTitle">Ресурсное состояние<br />Банкротство</h2>
                         </div>
                     </div>
                     <div class="psychIssuesCategoryCol">
                         <h2 class="psychIssuesTitle">Психологические проблемы</h2>
                         <div class="psychIssuesSubCategoryRow">
                             <h2 class="emotionalBurnoutDepressionTitle">
-                                эмоциональное выгорание<br />депрессия<br />детские психотравмы<br />насилие
+                                Эмоциональное выгорание<br />Депрессия<br />Детские психотравмы<br />Насилие
                             </h2>
                             <h2 class="phobiasNegativeEmotionsBreakupTitle">
-                                фобии<br />негативные эмоции<br />расставание<br />утрата ближнего
+                                Фобии<br />Негативные эмоции<br />Расставание<br />Утрата ближнего
                             </h2>
                         </div>
                     </div>
                     <div class="healthCategoryCol">
                         <h2 class="healthTitle">Здоровье</h2>
                         <div class="healthSubCategoryRow">
-                            <h2 class="alcoholismVirusDiseasesTitle">алкоголизм<br />вирусные заболевания</h2>
-                            <h2 class="drugAddictionDiarrheaTitle">наркотическая зависимость<br />диарея</h2>
+                            <h2 class="alcoholismVirusDiseasesTitle">Алкоголизм<br />Вирусные заболевания</h2>
+                            <h2 class="drugAddictionDiarrheaTitle">Наркотическая зависимость<br />Диарея</h2>
                         </div>
                     </div>
                     <div class="sportsCategoryCol">
                         <h2 class="sportsTitle">Спорт</h2>
                         <div class="sportsSubCategoryRow">
-                            <h2 class="injuryMotivationVictoryTitle">травма<br />мотивация на победу</h2>
-                            <h2 class="bullyingEnvyRivalsTitle">буллинг<br />зависть соперников</h2>
+                            <h2 class="injuryMotivationVictoryTitle">Травма<br />Мотивация на победу</h2>
+                            <h2 class="bullyingEnvyRivalsTitle">Буллинг<br />Зависть соперников</h2>
                         </div>
                     </div>
                 </div>
