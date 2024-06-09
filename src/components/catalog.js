@@ -172,8 +172,8 @@ const Catalog = () => {
                         )}
                     </div>
 
-                    {role == 5150 && (
-                                <Link to="/admin">
+                    {role === 5150 && (
+                                <Link to="/admin/create">
                                     <button className="addTestButton">Добавить тест</button>
                                  </Link>
                             )}

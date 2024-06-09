@@ -214,7 +214,8 @@
     .users-info-page .authBox {
       -moz-column-gap: 8px;
       column-gap: 8px;
-    }
+    }}
+  
     .users-info-page .loginTitle {
         position: relative;
         display: flex;

@@ -1,38 +1,55 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from '../api/axios';
 import useLogout from "../hooks/useLogout";
 import Loader from "./Loader";
 
-import '../style/list_of_users.css';
+import '../style/users_info.css';
 
 import logo from "../assets/logo.png";
 
-const PROBLEMS_URL = '/problems';
-
-const Catalog = () => {
+const UserInfo = () => {
     const navigate = useNavigate();
     const logout = useLogout();
-    const [loggedIn, setLoggedIn] = useState(false)
-    const [role, setRole] = useState(0);
-
-    
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const signOut = async () => {
         await logout();
-        setLoggedIn(false)
-        navigate('/catalog');
+        setLoggedIn(false);
+        navigate('/');
     }
-
+    const [email, setEmail] = useState('');
+    const [phoneNum, setPhoneNum] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [patronymic, setPatronymic] = useState('');
+    
     const [problems, setProblems] = useState([]);
     const [message, setMessage] = useState("");
     const [fetching, setFetching] = useState(true);
+    let { userID } = useParams();
 
 
-    const getProblems = async () => {
-        axios.get(PROBLEMS_URL).then((response) => {
+    const INFO_URL = '/user/list/' + userID;
+
+    const getUserInfo = async () => {
+        axios.get(INFO_URL, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+                'Content-Type': 'application/json',
+            },
+            withCredentials: true
+        }).then((response) => {
             console.log(JSON.stringify(response.data));
-            setProblems(response.data);
+            setName(response?.data.first.name);
+            setSurname(response?.data.first.surname);
+            setPatronymic(response?.data.first.patronymic);
+            setBirthday(response?.data.first.birthday);
+            setEmail(response?.data.first.email);
+            setPhoneNum(response?.data.first.phoneNum);
+
+            setProblems(response.data.second);
             setFetching(false)
             setMessage('')
         }).catch((err) => {
@@ -62,9 +79,8 @@ const Catalog = () => {
         if (localStorage.getItem("access")) {
             setLoggedIn(true);
         }
-        setRole(Number(localStorage.getItem("role")));
-        setFetching(true)
-        getProblems()
+        setFetching(true);
+        getUserInfo();
     }, [])
 
     return (
@@ -98,12 +114,12 @@ const Catalog = () => {
                     </div>
                     <div class="personalDetailsFlexRow">
                         <div class="labelsColumn">
-                            <h2 class="nameLabel">Имя</h2>
-                            <h2 class="surnameLabel">Фамилия</h2>
-                            <h2 class="middleNameLabel">Отчество</h2>
-                            <h2 class="emailLabel">Почта</h2>
-                            <h2 class="phoneLabel">Телефон</h2>
-                            <h2 class="birthDateLabel">Дата рождения</h2>
+                            <h2 class="nameLabel">{name}</h2>
+                            <h2 class="surnameLabel">{surname}</h2>
+                            <h2 class="middleNameLabel">{patronymic}</h2>
+                            <h2 class="emailLabel">{email}</h2>
+                            <h2 class="phoneLabel">{phoneNum}</h2>
+                            <h2 class="birthDateLabel">{birthday}</h2>
                         </div>
                         <div class="valuesColumn">
                             <h2 class="nameValue">Имя человека</h2>
@@ -120,8 +136,22 @@ const Catalog = () => {
                         <h2 class="problemsTitle">Проблемы</h2>
                     </div>
                     <div class="problemsListColumn">
-                        <h2 class="problem1Title">Название проблемы 1</h2>
-                        <h2 class="problem2Title">Название проблемы 2</h2>
+                        {fetching && !message ? (
+                            <center>
+                            <Loader />
+                            </center>
+                        ) : message ? (
+                            <div className="Title">{message}</div>
+                        ) : (
+                            <ul>
+                            {problems.map((result, i) => (
+                                <li key={`item_${i}`} className="userRow">
+                                    <h2 class="problem1Title">{result}</h2>
+                                    {/* <Link to={"/admin/users/" + result["id"]}><button className="detailsButton">Подробнее</button></Link> */}
+                                </li>
+                            ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
             </div>
@@ -134,3 +164,5 @@ const Catalog = () => {
     </script>
 </div>
     )};
+
+export default UserInfo;

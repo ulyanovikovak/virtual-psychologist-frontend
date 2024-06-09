@@ -8,31 +8,34 @@ import '../style/list_of_users.css';
 
 import logo from "../assets/logo.png";
 
-const PROBLEMS_URL = '/problems';
+const LIST_URL = '/user/list';
 
-const Catalog = () => {
+const UserList = () => {
     const navigate = useNavigate();
     const logout = useLogout();
-    const [loggedIn, setLoggedIn] = useState(false)
-    const [role, setRole] = useState(0);
-
-    
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const signOut = async () => {
         await logout();
         setLoggedIn(false)
-        navigate('/catalog');
+        navigate('/');
     }
 
-    const [problems, setProblems] = useState([]);
+    const [userList, setUserList] = useState([]);
     const [message, setMessage] = useState("");
     const [fetching, setFetching] = useState(true);
 
 
-    const getProblems = async () => {
-        axios.get(PROBLEMS_URL).then((response) => {
+    const getUserList = async () => {
+        axios.get(LIST_URL, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+                'Content-Type': 'application/json',
+            },
+            withCredentials: true
+        }).then((response) => {
             console.log(JSON.stringify(response.data));
-            setProblems(response.data);
+            setUserList(response.data);
             setFetching(false)
             setMessage('')
         }).catch((err) => {
@@ -53,18 +56,17 @@ const Catalog = () => {
     }
     
     useEffect(() => {
-        if (message === "" && problems.length < 1 && !fetching) {
-            setMessage("No problems added yet");
+        if (message === "" && userList.length < 1 && !fetching) {
+            setMessage("No users registered yet");
         }
-    }, [problems])
+    }, [userList])
 
     useEffect(() => {
         if (localStorage.getItem("access")) {
             setLoggedIn(true);
         }
-        setRole(Number(localStorage.getItem("role")));
-        setFetching(true)
-        getProblems()
+        setFetching(true);
+        getUserList();
     }, [])
 
     return (
@@ -83,35 +85,39 @@ const Catalog = () => {
                     {loggedIn ? (
                         <button onClick={signOut}><h5 className="loginTitle">Выйти</h5></button>
                         ) : (
-                <>
-                    <Link to="/login"><h2 className="loginTitle">Войти</h2></Link>
-                    <Link to="/register"><h2 className="loginTitle">Регистрация</h2></Link>
-                </>
-            )} 
+                        <>
+                            <Link to="/login"><h2 className="loginTitle">Войти</h2></Link>
+                            <Link to="/register"><h2 className="loginTitle">Регистрация</h2></Link>
+                        </>
+                    )} 
                     </div>
                 </div>
             </div>
-            {/* <div class="contentContainer">
+            <div class="contentContainer">
                 <div class="userList">
                     <h2 class="userListTitle">Список пользавателей</h2>
-                    <div class="userRow">
-                        <div class="userDetails">
-                            <h2 class="firstNameTitle">имя</h2>
-                            <h2 class="lastNameTitle">фамилия</h2>
-                            <h2 class="emailTitle">почта</h2>
-                        </div>
-                        <button class="detailsButton">подробнее</button>
-                    </div>
-                    <div class="userRow1">
-                        <div class="userDetails">
-                            <h2 class="firstNameTitle">имя</h2>
-                            <h2 class="lastNameTitle">фамилия</h2>
-                            <h2 class="emailTitle">почта</h2>
-                        </div>
-                        <button class="detailsButton">подробнее</button>
-                    </div>
+                    {fetching && !message ? (
+                        <center>
+                          <Loader />
+                        </center>
+                    ) : message ? (
+                        <div className="Title">{message}</div>
+                    ) : (
+                        <ul>
+                          {userList.map((result, i) => (
+                            <li key={`item_${i}`} className="userRow">
+                                <div class="userDetails">
+                                    <h2 class="firstNameTitle">{result["name"]}</h2>
+                                    <h2 class="lastNameTitle">{result["surname"]}</h2>
+                                    <h2 class="emailTitle">{result["email"]}</h2>
+                                </div>
+                                <Link to={"/admin/users/" + result["id"]}><button className="detailsButton">Подробнее</button></Link>
+                            </li>
+                          ))}
+                        </ul>
+                    )}
                 </div>
-            </div> */}
+            </div>
         </section>
 
     </main>
@@ -122,3 +128,5 @@ const Catalog = () => {
 </div>
     )
 };
+
+export default UserList;

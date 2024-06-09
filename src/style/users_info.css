@@ -219,7 +219,7 @@
     .personal-info .authBox {
       -moz-column-gap: 8px;
       column-gap: 8px;
-    }
+    }}
     .personal-info .loginTitle {
         position: relative;
         display: flex;

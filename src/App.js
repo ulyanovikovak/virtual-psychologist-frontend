@@ -13,6 +13,8 @@ import Catalog from './components/catalog';
 import Problem from './components/Problem';
 import Result from './components/pageResult';
 import './style/styles.css';
+import UserList from './components/List_of_users';
+import UserInfo from './components/Users_info'
 
 const ROLES = {
   'User': 2001,
@@ -40,7 +42,9 @@ function App() {
           </Route>
 
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/create" element={<Admin />} />
+            <Route path="/admin/users" element={<UserList />} />
+            <Route path="/admin/users/:userID" element={<UserInfo />} />
           </Route>
         </Route>
 

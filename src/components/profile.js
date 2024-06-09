@@ -23,6 +23,7 @@ const Profile = () => {
     const errRef = useRef();
 
     const [loggedIn, setLoggedIn] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
     const [results, setResults] = useState([]);
     const [message, setMessage] = useState("");
     const [fetching, setFetching] = useState(true);
@@ -84,7 +85,10 @@ const Profile = () => {
 
     useEffect(() => {
         if (localStorage.getItem("access")) {
-            setLoggedIn(true);
+          setLoggedIn(true);
+        }
+        if (localStorage.getItem("role") === "5150") {
+          setIsAdmin(true);
         }
         setFetching(true);
         getResults();
@@ -232,7 +236,7 @@ const Profile = () => {
               </div>
               <div className="flexRow">
                 <div className="flexCol">
-                  <form onSubmit={handleSubmit}>
+                  {/* <form onSubmit={handleSubmit}> */}
                     <div className="contentBox1">
                       <div className="flexCol1">
                         <div className="flexCol2">
@@ -370,13 +374,21 @@ const Profile = () => {
                             />
                           </div>
                         </div>
-                        <button className="updateButton"
-                          disabled={!validName || !validSurname || !validPatronymic || !validBirthday ? true : false}>
-                          Изменить данные
-                        </button>
+                        {
+                          isAdmin ? 
+                          <Link to={"/admin/users"}><button className="updateButton">
+                            Посмотреть пользователей
+                          </button></Link>
+                          :
+                          <button className="updateButton"
+                            disabled={!validName || !validSurname || !validPatronymic || !validBirthday ? true : false}
+                            onClick={handleSubmit}>
+                            Изменить данные
+                          </button>
+                        }
                       </div>
                     </div>
-                  </form>
+                  {/* </form> */}
                 </div>
                 <div className="testResultsContentBox">
                   <div className="flexColTests">
