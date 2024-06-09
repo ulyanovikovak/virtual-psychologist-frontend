@@ -329,7 +329,7 @@ const Admin = () => {
                             </div>
                             <div className="authContainer">
                                 {loggedIn ? (
-                                    <button onClick={logout}><h5 className="loginLink">Выйти</h5></button>
+                                    <button onClick={signOut}><h5 className="loginLink">Выйти</h5></button>
                                 ) : (
                                     <>
                                         <Link to="/login"><h2 className="loginLink">Войти</h2></Link>
