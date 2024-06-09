@@ -95,7 +95,7 @@ const UserList = () => {
             </div>
             <div class="contentContainer">
                 <div class="userList">
-                    <h2 class="userListTitle">Список пользавателей</h2>
+                    <h2 class="userListTitle">Список пользователей</h2>
                     {fetching && !message ? (
                         <center>
                           <Loader />
