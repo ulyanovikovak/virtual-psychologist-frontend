@@ -7,13 +7,12 @@ import useLogout from "../hooks/useLogout";
 import React from 'react';
 import '../style/profile.css';
 import logo from "../assets/logo.png";
-import Loader from "./Loader";
 
 const NAME_REGEX = /^.{1,100}$/;
 const NAMEPROBLEM_REGEX = /^.{1,100}$/;
 const DESCRIPTION_REGEX = /^.{1,1000}$/;
-const FORMLINK_REGEX = /^[A-zА-я0-9\ ]{1,1000}$/;
-const TESTLINK_REGEX = /^[A-z]{1,100}$/;
+const FORMLINK_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}){1,1000}$/;
+const TESTLINK_REGEX = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}){1,1000}$/;
 const CREATE_URL = '/problems';
 const REFRESH_URL = "/test-case/refresh";
 
@@ -63,7 +62,7 @@ const Admin = () => {
     }, [nameProblem]);
 
     useEffect(() => {
-        setValidTestLink(true); //TESTLINK_REGEX.test(testLink)
+        setValidTestLink(TESTLINK_REGEX.test(testLink));
     }, [testLink]);
 
     useEffect(() => {
@@ -71,7 +70,7 @@ const Admin = () => {
     }, [description]);
     
     useEffect(() => {
-        setValidFormLink(true); //FORMLINK_REGEX.test(formLink)
+        setValidFormLink(FORMLINK_REGEX.test(formLink));
     }, [formLink]);
 
     useEffect(() => {
@@ -116,9 +115,9 @@ const Admin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const v3 = NAME_REGEX.test(name);
-        const v4 = true; // TESTLINK_REGEX.test(testLink);
+        const v4 = TESTLINK_REGEX.test(testLink);
         const v5 = DESCRIPTION_REGEX.test(description);
-        const v6 = true; // FORMLINK_REGEX.test(formLink);
+        const v6 = FORMLINK_REGEX.test(formLink);
         const v7 = NAMEPROBLEM_REGEX.test(nameProblem);
         if (!v3 || !v4 || !v5 || !v6 || !v7) {
             setErrMsg("Invalid Entry");
@@ -312,7 +311,10 @@ const Admin = () => {
                                                 Должно являться ссылкой на форму для пользователей<br />
                                             </p>
                                         </div>
-                                        <button className="changeDataTitle" disabled={!validName || !validDescription || !validTestLink || !validFormLink}>Создать</button>
+                                        <button className="changeDataTitle" 
+                                            disabled={!validName || !validDescription || !validTestLink || !validFormLink}>
+                                                Создать
+                                        </button>
                                     </div>
                                 </div>
                             </form>
