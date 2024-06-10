@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
 import eyeOpen from "../assets/eyeopen.png";
 import eyeClose from "../assets/eyeclose.png";
@@ -18,6 +18,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/signup';
 
 const Register = () => {
+    const navigate = useNavigate();
+
     const emailRef = useRef();
     const errRef = useRef();
 
@@ -144,6 +146,7 @@ const Register = () => {
             setBirthday('');
             setPwd('');
             setMatchPwd('');
+            navigate("/login");
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -163,14 +166,7 @@ const Register = () => {
     return (
         <>
         <main className="register main">
-            {success ? (
-                <section>
-                    <h1>Успешно!</h1>
-                    <p>
-                        <Link to="/login">Войти</Link>
-                    </p>
-                </section>
-            ) : (
+            
 <section className="registrationSection">
             <div className="formContainer">
                 <div className="formContent">
@@ -404,7 +400,6 @@ const Register = () => {
 
             </div>
         </section>
-            )}
             </main>
         </>
     )
