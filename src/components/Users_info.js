@@ -114,20 +114,20 @@ const UserInfo = () => {
                     </div>
                     <div class="personalDetailsFlexRow">
                         <div class="labelsColumn">
-                            <h2 class="nameLabel">{name}</h2>
-                            <h2 class="surnameLabel">{surname}</h2>
-                            <h2 class="middleNameLabel">{patronymic}</h2>
-                            <h2 class="emailLabel">{email}</h2>
-                            <h2 class="phoneLabel">{phoneNum}</h2>
-                            <h2 class="birthDateLabel">{birthday}</h2>
+                            <h2 class="nameLabel">Имя</h2>
+                            <h2 class="surnameLabel">Фамилия</h2>
+                            <h2 class="middleNameLabel">Отчество</h2>
+                            <h2 class="emailLabel">Почта</h2>
+                            <h2 class="phoneLabel">Телефон</h2>
+                            <h2 class="birthDateLabel">Дата рождения</h2>
                         </div>
                         <div class="valuesColumn">
-                            <h2 class="nameValue">Имя человека</h2>
-                            <h2 class="surnameValue">Фамилия человека</h2>
-                            <h2 class="middleNameValue">Отчество человека</h2>
-                            <h2 class="emailValue">Почта человека</h2>
-                            <h2 class="phoneValue">Телефон человека</h2>
-                            <h2 class="birthDateValue">ДР человека</h2>
+                            <h2 class="nameValue">{name}</h2>
+                            <h2 class="surnameValue">{surname}</h2>
+                            <h2 class="middleNameValue">{patronymic}</h2>
+                            <h2 class="emailValue">{email}</h2>
+                            <h2 class="phoneValue">{phoneNum}</h2>
+                            <h2 class="birthDateValue">{birthday}</h2>
                         </div>
                     </div>
                 </div>

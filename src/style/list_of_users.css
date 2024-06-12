@@ -254,8 +254,8 @@
     display: flex;
     flex-direction: column;
     margin: 0px auto 648px;
-    width: 1199.9453125px;
-    max-width: 85%;
+    width: 1200px;
+    max-width: 100%;
     background-color: rgba(255, 203, 60, 0.388);
   }
   @media (max-width: 991px) {
@@ -307,9 +307,9 @@
     align-items: center;
     gap: 0px 10px;
     margin: 35px 0px 0px;
-    width: 96.04%;
+    width: 100%;
   }
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     .users-info-page .userRow {
       flex-direction: column;
       gap: 30px 10px;
@@ -318,9 +318,9 @@
   .users-info-page .userDetails {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content:left;
     gap: 0px 10px;
-    width: 493.5px;
+    width: 600px;
     min-width: 0px;
   }
   @media (max-width: 1199px) {

@@ -207,7 +207,7 @@ const Admin = () => {
 
                                         <div className="flexCol2">
                                             <h2 className="mediumTitle1">
-                                                Название TasteCase
+                                                Название TestCase
                                                 <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                                                 <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
                                             </h2>
